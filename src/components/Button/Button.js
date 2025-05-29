@@ -71,6 +71,7 @@ const Button = ({
     primary: '',
     secondary: '',
     blue: 'bg-tahiti-700 text-white',
+    transparent: 'bg-transparent text-white',
   };
 
   return (

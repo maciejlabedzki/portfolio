@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Button, Input, LabeledContainer } from '../../components';
 import { LANGUAGE_DATA } from '../../data/langEn';
-import { AdjustmentsVerticalIcon, MagnifyingGlassIcon } from '../../images';
+import {
+  AdjustmentsVerticalIcon,
+  ArrowPathIcon,
+  MagnifyingGlassIcon,
+} from '../../images';
 import { getByTestId } from '../../lib/helper';
 import { Filters } from '../../section';
 
@@ -18,6 +22,7 @@ const Search = ({
   handleGridView,
   handleItemsLimitPage,
   resultNumber,
+  handleReset,
   testId,
 }) => {
   const [search, setSearch] = useState('');
@@ -94,6 +99,13 @@ const Search = ({
               >
                 ( {resultNumber} )
               </span>
+
+              <Button
+                name={<ArrowPathIcon className="w-4 h-4" />}
+                theme="transparent"
+                title="Reset"
+                onClick={handleReset}
+              />
             </div>
           }
         />

@@ -30,6 +30,10 @@ const Filters = ({
   const [currentFilterBy, setCurrentFilterBy] = useState(filterBy);
 
   useEffect(() => {
+    setCurrentSort(sort);
+  }, [sort]);
+
+  useEffect(() => {
     setCurrentFilterBy(filterBy);
   }, [filterBy]);
 

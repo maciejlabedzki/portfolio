@@ -33,10 +33,19 @@ const PAGINATION_COUNTER = [
   { name: 48, value: 48 },
 ];
 
+const SEARCH_ON_RESET = {
+  sort: 'desc',
+  page: 0,
+  searchBy: 'name',
+  grid: { name: 3, value: '1200px' },
+  limit: { name: 6, value: 6 },
+};
+
 export {
   GRID_OPTIONS,
   PAGINATION_COUNTER,
   SEARCH_FILTERS_OPTIONS,
+  SEARCH_ON_RESET,
   SORT_OPTIONS,
   TYPE_SUGGESTIONS,
   YEAR_SUGGESTIONS,

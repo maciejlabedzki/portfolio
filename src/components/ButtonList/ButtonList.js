@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../../components/Button/Button';
 
 const ButtonList = ({ data, onClick, selected }) => {
   const [currentSeleted, setCurrentSelected] = useState(selected);
+
+  useEffect(() => {
+    setCurrentSelected(selected);
+  }, [selected]);
 
   const handleClick = (item) => {
     setCurrentSelected(item);

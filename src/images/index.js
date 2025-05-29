@@ -1,5 +1,6 @@
 export {
   AdjustmentsVerticalIcon,
+  ArrowPathIcon,
   ArrowPathRoundedSquareIcon,
   ArrowsUpDownIcon,
   ArrowUpIcon,
@@ -42,6 +43,8 @@ export { default as PortfolioImg134Big } from './portfilio/134/imgBig.png';
 export { default as PortfolioImg135 } from './portfilio/135/img.png';
 export { default as PortfolioImg135Big } from './portfilio/135/imgBig.png';
 export { default as PortfolioImg137 } from './portfilio/137/img.png';
+export { default as PortfolioImg138 } from './portfilio/138/img.png';
+export { default as PortfolioImg138Big } from './portfilio/138/imgBig.png';
 export { default as PortfolioImg2 } from './portfilio/2/img.png';
 export { default as PortfolioImg3 } from './portfilio/3/img.png';
 export { default as PortfolioImg36 } from './portfilio/36/img.png';

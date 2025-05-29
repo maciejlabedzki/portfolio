@@ -4,7 +4,11 @@ import { twMerge } from 'tailwind-merge';
 import { Card, Modal, Pagination, Suggestions } from '../../components';
 import { DEFAULT_CARD } from '../../data/card';
 import { LANGUAGE_DATA } from '../../data/langEn';
-import { GRID_OPTIONS, PAGINATION_COUNTER } from '../../data/search';
+import {
+  GRID_OPTIONS,
+  PAGINATION_COUNTER,
+  SEARCH_ON_RESET,
+} from '../../data/search';
 import {
   getByTestId,
   getSorted,
@@ -21,10 +25,10 @@ const Home = ({ testId }) => {
   const [dataLimited, setDataLimited] = useState([]);
 
   /* :: Search & Filters :: */
-  const [searchBy, setSearchby] = useState('name');
+  const [searchBy, setSearchby] = useState('year');
   const [sort, setSort] = useState('desc');
   const [searchValue, setSearchValue] = useState('');
-  const [dataLimit, setDataLimit] = useState(PAGINATION_COUNTER[0]);
+  const [dataLimit, setDataLimit] = useState(PAGINATION_COUNTER[1]);
   const [suggestionsOptions, setSuggestionsOptions] = useState();
   const [dataPaginationPages, setDataPaginationPages] = useState(1);
   const [dataPaginationPageSelected, setDataPaginationPageSelected] =
@@ -103,7 +107,7 @@ const Home = ({ testId }) => {
   const handleSort = (value) => {
     setDataPaginationPageSelected(0);
     setSort(value);
-    handleSearch(searchValue, undefined, value);
+    handleSearch(searchValue, undefined, sort);
   };
 
   const handleGridView = (data) => {
@@ -117,6 +121,15 @@ const Home = ({ testId }) => {
 
   const handlePagination = (value) => {
     setDataPaginationPageSelected(value);
+  };
+
+  const handleReset = () => {
+    setSearchby('id');
+    setSort('desc');
+    setGrid(SEARCH_ON_RESET.grid);
+    setDataPaginationPageSelected(SEARCH_ON_RESET.page);
+    setDataLimit(SEARCH_ON_RESET.limit);
+    handleSearch('', 'id', 'desc');
   };
 
   return (
@@ -139,6 +152,7 @@ const Home = ({ testId }) => {
         dataLimit={dataLimit}
         handleGridView={handleGridView}
         handleItemsLimitPage={handleItemsLimitPage}
+        handleReset={handleReset}
       />
 
       {suggestionsOptions?.data && (

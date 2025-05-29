@@ -1,8 +1,15 @@
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
 
 const Select = ({ options, value, onChange, additionalClasses, testId }) => {
+  const [val, setVal] = useState(value);
+
+  useEffect(() => {
+    setVal(value);
+  }, [value]);
+
   return (
     <select
       className={twMerge(
@@ -10,7 +17,7 @@ const Select = ({ options, value, onChange, additionalClasses, testId }) => {
         additionalClasses,
       )}
       onChange={onChange}
-      value={value}
+      value={val}
       {...getByTestId(testId, 'conatiner')}
     >
       {options?.map((option) => (
