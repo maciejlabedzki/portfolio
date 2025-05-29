@@ -1,42 +1,35 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { getByTestId } from '../../lib/helper';
-import Button from '../Button/Button';
-
-const DotPlaceholder = () => {
-  return (
-    <span
-      className={twMerge(
-        'w-4 h-4 flex justify-center items-center text-gray-50',
-      )}
-    >
-      ...
-    </span>
-  );
-};
+import {
+  getByTestId,
+  getPaginationList,
+  getPaginationOptions,
+} from '../../lib/helper';
+import { Button } from '../index';
+import PaginationDots from './subcomponents/PaginationDots';
 
 const Pagination = ({ pages, onClick, selected, testId }) => {
   const [currentSelected, setCurrentSelected] = useState(selected);
+  const TEXT_TITLE_PAGE = 'Page';
+
+  useEffect(() => {
+    setCurrentSelected(selected);
+  }, [selected]);
+
   if (pages <= 1) return;
 
-  const paginationList = [];
+  const paginationList = getPaginationList(
+    pages,
+    TEXT_TITLE_PAGE,
+    currentSelected,
+  );
 
-  for (let i = 1; i <= pages; i++) {
-    paginationList.push({
-      value: i,
-      title: 'Page ' + i,
-      selected: i === currentSelected,
-    });
-  }
-
-  const pagMin = currentSelected - 3 > 0 ? currentSelected - 3 : 0;
-  const pagMax = currentSelected + 2 > pages ? pages : currentSelected + 2;
-  const isLastVisible = pages > pagMax;
-  const isFirstVisible = 1 < pagMin + 1;
-  const pagLimited = paginationList.slice(pagMin, pagMax);
-  const isLimited = pages > 5;
-  const pagination = isLimited ? pagLimited : paginationList;
+  const paginationOption = getPaginationOptions(
+    pages,
+    currentSelected,
+    paginationList,
+  );
 
   const handleSelected = (value) => {
     setCurrentSelected(value);
@@ -48,25 +41,25 @@ const Pagination = ({ pages, onClick, selected, testId }) => {
       className={twMerge('flex flex-row w-full justify-center items-center')}
       {...getByTestId(testId, 'container')}
     >
-      {isFirstVisible && (
+      {paginationOption.isLimited && paginationOption.isFirstVisible && (
         <>
           <Button
             name={1}
-            title={'Page ' + 1}
-            onClick={() => handleSelected(1)}
-            theme={1 === currentSelected ? 'blue' : 'white'}
+            title={`${TEXT_TITLE_PAGE} 1`}
+            onClick={() => handleSelected(0)}
+            theme={0 === currentSelected ? 'blue' : 'white'}
             additionalClasses={
               'w-8 h-8 rounded-md flex justify-center items-center'
             }
           />
-          {currentSelected !== 3 && <DotPlaceholder />}
+          {currentSelected !== 2 && <PaginationDots />}
         </>
       )}
 
-      {pagination.map((item) => (
+      {paginationOption.pagination.map((item) => (
         <Button
           key={item.value}
-          name={item.value}
+          name={item.name}
           title={item.title}
           onClick={() => handleSelected(item.value)}
           theme={item.selected ? 'blue' : 'white'}
@@ -76,14 +69,14 @@ const Pagination = ({ pages, onClick, selected, testId }) => {
         />
       ))}
 
-      {isLastVisible && (
+      {paginationOption.isLimited && paginationOption.isLastVisible && (
         <>
-          {currentSelected + 3 !== pages && <DotPlaceholder />}
+          {currentSelected + 3 !== pages && <PaginationDots />}
           <Button
             name={pages}
-            title={'Page ' + pages}
-            onClick={() => handleSelected(pages)}
-            theme={pages === currentSelected ? 'blue' : 'white'}
+            title={`${TEXT_TITLE_PAGE} ${pages}`}
+            onClick={() => handleSelected(pages - 1)}
+            theme={pages - 1 === currentSelected ? 'blue' : 'white'}
             additionalClasses={
               'w-8 h-8 rounded-md flex justify-center items-center'
             }

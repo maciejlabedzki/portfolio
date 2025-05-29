@@ -16,7 +16,7 @@ const Search = ({
   gridView,
   dataLimit,
   handleGridView,
-  handleCounter,
+  handleItemsLimitPage,
   resultNumber,
   testId,
 }) => {
@@ -121,7 +121,7 @@ const Search = ({
             gridView={gridView}
             dataLimit={dataLimit}
             handleGridView={handleGridView}
-            handleCounter={handleCounter}
+            handleItemsLimitPage={handleItemsLimitPage}
           />
         </div>
       )}

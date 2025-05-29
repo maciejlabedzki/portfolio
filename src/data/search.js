@@ -1,10 +1,10 @@
 const SEARCH_FILTERS_OPTIONS = [
-  { value: 'name', name: 'Name' },
+  { value: 'desc', name: 'Description' },
   { value: 'id', name: 'Id' },
   { value: 'link', name: 'Link' },
+  { value: 'name', name: 'Name' },
   { value: 'tags', name: 'Tags' },
   { value: 'type', name: 'Type' },
-  { value: 'desc', name: 'Description' },
   { value: 'year', name: 'Year' },
 ];
 

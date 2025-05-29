@@ -83,3 +83,35 @@ export const getSorted = (data, key, direction = 'desc') => {
     return 0;
   });
 };
+
+export const getPaginationList = (pages, title, selected) => {
+  const paginationList = [];
+
+  for (let i = 0; i < pages; i++) {
+    paginationList.push({
+      value: i,
+      name: i + 1,
+      title: `${title} ${i + 1}`,
+      selected: i === selected,
+    });
+  }
+
+  return paginationList;
+};
+
+export const getPaginationOptions = (
+  pagesNumber,
+  pageSelected,
+  paginationList,
+) => {
+  const pagMin = pageSelected - 1 > 0 ? pageSelected - 1 : 0;
+  const pagMax =
+    pageSelected + 2 > pagesNumber ? pagesNumber : pageSelected + 2;
+  const isLastVisible = pagesNumber > pagMax;
+  const isFirstVisible = 1 <= pagMin;
+  const pagLimited = paginationList.slice(pagMin, pagMax);
+  const isLimited = pagesNumber > 5;
+  const pagination = isLimited ? pagLimited : paginationList;
+
+  return { pagination, isLimited, isLastVisible, isFirstVisible };
+};

@@ -13,15 +13,22 @@ import {
 import { Search } from '../../section';
 
 const Home = ({ testId }) => {
-  const [dataCard, setDataCard] = useState(DEFAULT_CARD);
-  const [dataFiltered, setDataFiltered] = useState([]);
+  const [
+    dataCard,
+    // setDataCard
+  ] = useState(DEFAULT_CARD);
+  const [dataFiltered, setDataFiltered] = useState(DEFAULT_CARD);
+  const [dataLimited, setDataLimited] = useState([]);
 
   /* :: Search & Filters :: */
-  const [searchBy, setSearchby] = useState('id');
+  const [searchBy, setSearchby] = useState('name');
   const [sort, setSort] = useState('desc');
   const [searchValue, setSearchValue] = useState('');
   const [dataLimit, setDataLimit] = useState(PAGINATION_COUNTER[0]);
   const [suggestionsOptions, setSuggestionsOptions] = useState();
+  const [dataPaginationPages, setDataPaginationPages] = useState(1);
+  const [dataPaginationPageSelected, setDataPaginationPageSelected] =
+    useState(0);
 
   /* :: Modal :: */
   const [modalOpen, setModalOpen] = useState(false);
@@ -36,9 +43,13 @@ const Home = ({ testId }) => {
   }, [searchBy]);
 
   const handleUpdateData = useCallback(() => {
-    const newData = dataCard.slice(0, dataLimit.value);
-    setDataFiltered(newData);
-  }, [dataCard, dataLimit]);
+    const paginationPages = Math.ceil(dataFiltered.length / dataLimit.value);
+    const startPage = dataLimit.value * dataPaginationPageSelected;
+    const endPage = startPage + dataLimit.value;
+    const newData = dataFiltered.slice(startPage, endPage);
+    setDataPaginationPages(paginationPages);
+    setDataLimited(newData);
+  }, [dataFiltered, dataLimit, dataPaginationPageSelected]);
 
   useEffect(() => {
     handleUpdateSuggestions();
@@ -52,6 +63,8 @@ const Home = ({ testId }) => {
     const searchOption = option || searchBy;
     const currentSortOption = sortDirection || sort;
 
+    setDataPaginationPageSelected(0);
+
     if (searchOption !== searchBy) {
       setSearchby(option);
     }
@@ -59,22 +72,23 @@ const Home = ({ testId }) => {
     if (!value) {
       setSearchValue('');
 
-      const sortedData = getSorted(DEFAULT_CARD, searchBy, currentSortOption);
+      const sortedData = getSorted(dataCard, searchBy, currentSortOption);
 
-      setDataCard(sortedData);
+      setDataFiltered(sortedData);
     } else {
-      const filteredData = DEFAULT_CARD.filter((card) =>
+      const filteredData = dataCard.filter((card) =>
         card[searchOption]?.toString()?.toLowerCase().includes(value),
       );
 
       const sortedData = getSorted(filteredData, searchBy, currentSortOption);
 
-      setDataCard(sortedData);
+      setDataFiltered(sortedData);
       setSearchValue(value);
     }
   };
 
   const handleFilterBy = (value) => {
+    setDataPaginationPageSelected(0);
     setSearchby(value);
   };
 
@@ -87,6 +101,7 @@ const Home = ({ testId }) => {
   };
 
   const handleSort = (value) => {
+    setDataPaginationPageSelected(0);
     setSort(value);
     handleSearch(searchValue, undefined, value);
   };
@@ -95,12 +110,13 @@ const Home = ({ testId }) => {
     setGrid(data);
   };
 
-  const handleCounter = (data) => {
+  const handleItemsLimitPage = (data) => {
+    setDataPaginationPageSelected(0);
     setDataLimit(data);
   };
 
   const handlePagination = (value) => {
-    console.log(value);
+    setDataPaginationPageSelected(value);
   };
 
   return (
@@ -114,7 +130,7 @@ const Home = ({ testId }) => {
       <Search
         onSearch={handleSearch}
         onSearchBy={handleFilterBy}
-        resultNumber={dataCard.length}
+        resultNumber={dataFiltered.length}
         searchValue={searchValue}
         searchBy={searchBy}
         sortValue={sort}
@@ -122,7 +138,7 @@ const Home = ({ testId }) => {
         gridView={grid}
         dataLimit={dataLimit}
         handleGridView={handleGridView}
-        handleCounter={handleCounter}
+        handleItemsLimitPage={handleItemsLimitPage}
       />
 
       {suggestionsOptions?.data && (
@@ -142,7 +158,7 @@ const Home = ({ testId }) => {
         )}
         style={{ maxWidth: grid.value }}
       >
-        {dataFiltered?.map((item, index) => (
+        {dataLimited?.map((item, index) => (
           <Card
             key={`${index}-${item.id}`}
             id={item?.id}
@@ -161,13 +177,17 @@ const Home = ({ testId }) => {
           />
         ))}
 
-        {!dataCard.length && (
+        {!dataLimited.length && (
           <div className="flex justify-center items-center min-h-[10vh]">
-            {LANGUAGE_DATA.SearchNoResult}
+            {LANGUAGE_DATA['SearchNoResult']}
           </div>
         )}
 
-        <Pagination pages={200} onClick={handlePagination} selected={9} />
+        <Pagination
+          pages={dataPaginationPages}
+          onClick={handlePagination}
+          selected={dataPaginationPageSelected}
+        />
 
         <Modal data={modalData} open={modalOpen} handleClose={handleModal} />
       </div>

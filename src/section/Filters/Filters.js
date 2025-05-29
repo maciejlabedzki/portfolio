@@ -24,7 +24,7 @@ const Filters = ({
   gridView,
   handleGridView,
   dataLimit,
-  handleCounter,
+  handleItemsLimitPage,
 }) => {
   const [currentSort, setCurrentSort] = useState(sort);
   const [currentFilterBy, setCurrentFilterBy] = useState(filterBy);
@@ -102,7 +102,7 @@ const Filters = ({
           children={
             <ButtonList
               data={PAGINATION_COUNTER}
-              onClick={handleCounter}
+              onClick={handleItemsLimitPage}
               selected={dataLimit}
             />
           }

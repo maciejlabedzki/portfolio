@@ -14,7 +14,13 @@ const Select = ({ options, value, onChange, additionalClasses, testId }) => {
       {...getByTestId(testId, 'conatiner')}
     >
       {options?.map((option) => (
-        <option key={option.value} value={option.value}>
+        <option
+          key={option.value}
+          value={option.value}
+          className={twMerge(
+            option.value === value && 'bg-tahiti-700 text-white',
+          )}
+        >
           {option.name}
         </option>
       ))}

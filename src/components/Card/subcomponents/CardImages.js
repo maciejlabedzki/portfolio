@@ -53,7 +53,7 @@ const CardImages = ({
     <div
       className={twMerge(
         'group relative',
-        'min-h-[220px] justify-center',
+        'h-[220px] justify-center',
         'p-3 items-center flex',
       )}
       {...getByTestId(testId, 'container')}

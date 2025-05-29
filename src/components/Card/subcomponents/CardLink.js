@@ -44,7 +44,7 @@ const CardLink = ({
         <a
           className={twMerge(
             'text-green px-2 flex w-fit text-sm',
-            'pointer hover:text-tahiti-600',
+            'pointer hover:text-tahiti-600 h-6',
           )}
           href={linkWithHttps(path)}
           target={target}
@@ -55,7 +55,9 @@ const CardLink = ({
           {validTextLength(pathName || path, 30)}
         </a>
       ) : (
-        <span className="text-[11px] text-black-300 px-2">No preview link</span>
+        <span className="text-[11px] text-black-300 px-2 h-6">
+          No preview link
+        </span>
       )}
     </p>
   );
