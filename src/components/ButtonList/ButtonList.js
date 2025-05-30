@@ -17,10 +17,10 @@ const ButtonList = ({ data, onClick, selected }) => {
     <div className="flex flex-row">
       {data?.map((item) => (
         <Button
-          key={item.value}
+          key={item?.value}
           onClick={() => handleClick(item)}
-          name={item.name}
-          color={currentSeleted.value === item.value ? 'blue' : 'tranparent'}
+          name={item?.name}
+          color={currentSeleted?.value === item?.value ? 'blue' : 'tranparent'}
         />
       ))}
     </div>

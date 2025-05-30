@@ -37,6 +37,7 @@ export { default as PortfolioImg108 } from './portfilio/108/img.png';
 export { default as PortfolioImg109 } from './portfilio/109/img.png';
 export { default as PortfolioImg110 } from './portfilio/110/img.png';
 export { default as PortfolioImg111 } from './portfilio/111/img.png';
+export { default as PortfolioImg120 } from './portfilio/120/img.png';
 export { default as PortfolioImg133 } from './portfilio/133/img.png';
 export { default as PortfolioImg134 } from './portfilio/134/img.png';
 export { default as PortfolioImg134Big } from './portfilio/134/imgBig.png';

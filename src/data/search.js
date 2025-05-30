@@ -34,9 +34,10 @@ const PAGINATION_COUNTER = [
 ];
 
 const SEARCH_ON_RESET = {
+  searchValue: '',
   sort: 'desc',
   page: 0,
-  searchBy: 'name',
+  searchBy: 'year',
   grid: { name: 3, value: '1200px' },
   limit: { name: 6, value: 6 },
 };

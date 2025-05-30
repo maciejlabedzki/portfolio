@@ -47,9 +47,9 @@ const Home = ({ testId }) => {
   }, [searchBy]);
 
   const handleUpdateData = useCallback(() => {
-    const paginationPages = Math.ceil(dataFiltered.length / dataLimit.value);
-    const startPage = dataLimit.value * dataPaginationPageSelected;
-    const endPage = startPage + dataLimit.value;
+    const paginationPages = Math.ceil(dataFiltered?.length / dataLimit?.value);
+    const startPage = dataLimit?.value * dataPaginationPageSelected;
+    const endPage = startPage + dataLimit?.value;
     const newData = dataFiltered.slice(startPage, endPage);
     setDataPaginationPages(paginationPages);
     setDataLimited(newData);
@@ -124,12 +124,14 @@ const Home = ({ testId }) => {
   };
 
   const handleReset = () => {
-    setSearchby('id');
-    setSort('desc');
-    setGrid(SEARCH_ON_RESET.grid);
-    setDataPaginationPageSelected(SEARCH_ON_RESET.page);
-    setDataLimit(SEARCH_ON_RESET.limit);
-    handleSearch('', 'id', 'desc');
+    setSearchValue(SEARCH_ON_RESET?.searchValue);
+    setSearchby(SEARCH_ON_RESET?.searchBy);
+    setSort(SEARCH_ON_RESET?.sort);
+    setGrid(SEARCH_ON_RESET?.grid);
+    setDataPaginationPageSelected(SEARCH_ON_RESET?.page);
+    setDataLimit(SEARCH_ON_RESET?.limit);
+    setSearchValue(SEARCH_ON_RESET?.searchValue);
+    handleSearch();
   };
 
   return (
@@ -170,7 +172,7 @@ const Home = ({ testId }) => {
           'w-full flex flex-wrap justify-center py-2 pb-8 col-span-2',
           'm-auto',
         )}
-        style={{ maxWidth: grid.value }}
+        style={{ maxWidth: grid?.value }}
       >
         {dataLimited?.map((item, index) => (
           <Card
