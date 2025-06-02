@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { Link } from '../../components';
-import { LANGUAGE_DATA } from '../../data/langEn';
 import { getByTestId } from '../../lib/helper';
 
 const Navigation = ({ testId }) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className={twMerge(
-        'bg-black-300 flex flex-col sm:flex-row justify-between',
+        'bg-black-300 flex flex-col',
+        'sm:flex-row justify-between',
       )}
       {...getByTestId(testId, 'container')}
     >
       <Link
-        name={LANGUAGE_DATA['Home']}
+        name={t('Navigation.Home')}
         linkPath={'/'}
         target={'_self'}
         additionalClasses={'w-fit'}

@@ -7,8 +7,8 @@ import {
 } from '@heroicons/react/24/solid';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { LANGUAGE_DATA } from '../../../data/langEn';
 import { LightBulbIcon, PuzzlePieceIcon } from '../../../images';
 import { getByTestId } from '../../../lib/helper';
 import Loader from '../../Loader/Loader';
@@ -27,6 +27,7 @@ const CardImages = ({
   handleModal,
   textOpen,
 }) => {
+  const { t } = useTranslation();
   const [imgLoaded, setImgLoaded] = useState(false);
 
   const validTypeIcon = (value) => {
@@ -61,7 +62,7 @@ const CardImages = ({
       {year && (
         <StatusPill
           text={year}
-          title={`${LANGUAGE_DATA['Year']} ${year}`}
+          title={t('Card.Year', { year })}
           additionalClasses={twMerge(
             'absolute z-30 top-[-5px] left-[50%]',
             'ml-[-30px] px-2 w-[60px] border-gray-100',
@@ -75,7 +76,7 @@ const CardImages = ({
       {id && (
         <StatusPill
           text={id}
-          title={`${LANGUAGE_DATA['ID']} ${id}`}
+          title={t('Card.ID', { id })}
           additionalClasses={twMerge(
             'absolute z-30 top-0 left-0 bg-white border border-gray',
           )}
@@ -86,7 +87,7 @@ const CardImages = ({
       {type && (
         <StatusPill
           text={validTypeIcon(type)}
-          title={`${LANGUAGE_DATA['Type']} ${type}`}
+          title={t('Card.Type', { type })}
           onClick={() => handleSearch(type, 'type')}
           additionalClasses={twMerge(
             'absolute cursor-pointer',

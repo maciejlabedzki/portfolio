@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { Button, Input, LabeledContainer } from '../../components';
-import { LANGUAGE_DATA } from '../../data/langEn';
 import {
   AdjustmentsVerticalIcon,
   ArrowPathIcon,
@@ -25,6 +25,7 @@ const Search = ({
   handleReset,
   testId,
 }) => {
+  const { t } = useTranslation();
   const [search, setSearch] = useState('');
   const [filterBy, setFilterBy] = useState();
   const [filterOpen, setFilterOpen] = useState(false);
@@ -72,14 +73,14 @@ const Search = ({
       <div className="max-w-[1200px] flex flex-col items-center sm:flex-row m-auto">
         <LabeledContainer
           icon={<MagnifyingGlassIcon className="w-4 h-4" />}
-          label={LANGUAGE_DATA['Search']}
+          label={t('Global.Search')}
           children={
             <div className="flex justify-center">
               <div className="relative">
                 <Input
                   onChange={handleChange}
                   value={search}
-                  placeholder={`${LANGUAGE_DATA['SearchBy']} ${filterBy}`}
+                  placeholder={`${t('Section.Search.SearchBy')} ${filterBy}`}
                 />
 
                 <button
@@ -89,6 +90,7 @@ const Search = ({
                     'justify-center items-center flex text-gray',
                   )}
                   onClick={handleClear}
+                  title={t('Section.Search.ClearButton')}
                 >
                   X
                 </button>
@@ -96,6 +98,7 @@ const Search = ({
 
               <span
                 className={twMerge('ml-1 mt-0.5 text-sm text-white w-[50px]')}
+                title={t('Section.Search.ResultNumber')}
               >
                 ( {resultNumber} )
               </span>
@@ -103,7 +106,7 @@ const Search = ({
               <Button
                 name={<ArrowPathIcon className="w-4 h-4" />}
                 theme="transparent"
-                title="Reset"
+                title={t('Section.Search.Reset')}
                 onClick={handleReset}
               />
             </div>
@@ -114,12 +117,12 @@ const Search = ({
           name={
             <div className="flex flex-row px-1 justify-center items-center">
               <AdjustmentsVerticalIcon className="w-5 h-5 mr-1" />
-              {LANGUAGE_DATA['Filters']}
+              {t('Section.Search.Filters')}
             </div>
           }
+          title={t('Section.Search.Filters')}
           onClick={handleFilterOpen}
           space="leftRight"
-          additionalClasses={''}
         />
       </div>
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { LANGUAGE_DATA } from '../../data/langEn';
 import { Placeholder2 } from '../../images';
 import { getByTestId } from '../../lib/helper';
 import {
@@ -28,6 +28,8 @@ const Card = ({
   handleSearch,
   testId,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className={twMerge(
@@ -52,28 +54,28 @@ const Card = ({
           imgBig={imgBig}
           name={name}
           handleModal={handleModal}
-          textOpen={LANGUAGE_DATA['Open']}
+          textOpen={t('Card.Open')}
           {...getByTestId(testId, 'card-images')}
         />
 
         <CardName
-          header={LANGUAGE_DATA['Name']}
+          header={t('Card.Name')}
           name={name}
           {...getByTestId(testId, 'card-name')}
         />
 
         <CardDescription
-          header={LANGUAGE_DATA['Description']}
+          header={t('Card.Description')}
           desc={desc}
-          textOpen={LANGUAGE_DATA['ShowMore']}
-          textClose={LANGUAGE_DATA['ShowLess']}
+          textOpen={t('Card.ShowMore')}
+          textClose={t('Card.ShowLess')}
           {...getByTestId(testId, 'card-description')}
         />
       </section>
 
       <section>
         <CardLink
-          header={LANGUAGE_DATA['Link']}
+          header={t('Card.Link')}
           path={link}
           pathName={linkName}
           linkAvailable={linkAvailable}
@@ -81,7 +83,7 @@ const Card = ({
         />
 
         <CardTags
-          header={LANGUAGE_DATA['Tags']}
+          header={t('Card.Tags')}
           tags={tags}
           onClick={handleSearch}
           {...getByTestId(testId, 'card-tags')}

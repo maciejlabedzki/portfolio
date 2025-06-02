@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { Card, Modal, Pagination, Suggestions } from '../../components';
 import { DEFAULT_CARD } from '../../data/card';
-import { LANGUAGE_DATA } from '../../data/langEn';
 import {
   GRID_OPTIONS,
   PAGINATION_COUNTER,
@@ -17,6 +17,7 @@ import {
 import { Search } from '../../section';
 
 const Home = ({ testId }) => {
+  const { t } = useTranslation();
   const [
     dataCard,
     // setDataCard
@@ -42,9 +43,9 @@ const Home = ({ testId }) => {
   const [grid, setGrid] = useState(GRID_OPTIONS[2]);
 
   const handleUpdateSuggestions = useCallback(() => {
-    const updateSuggesstion = getSuggestionsOptions(searchBy);
+    const updateSuggesstion = getSuggestionsOptions(searchBy, t);
     setSuggestionsOptions(updateSuggesstion);
-  }, [searchBy]);
+  }, [searchBy, t]);
 
   const handleUpdateData = useCallback(() => {
     const paginationPages = Math.ceil(dataFiltered?.length / dataLimit?.value);
@@ -195,7 +196,7 @@ const Home = ({ testId }) => {
 
         {!dataLimited.length && (
           <div className="flex justify-center items-center min-h-[10vh]">
-            {LANGUAGE_DATA['SearchNoResult']}
+            {t('Section.Search.NoAvailableResult')}
           </div>
         )}
 

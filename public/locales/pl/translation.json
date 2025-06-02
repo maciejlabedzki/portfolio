@@ -1,0 +1,56 @@
+{
+  "Global": {
+    "ScrollTop": "Scroll Top",
+    "Search": "Search",
+    "Filters": "Filters"
+  },
+  "Page":{
+    "404":{
+      "Page404": "PAGE 404",
+      "WrongURLAdress": "Wrong URL adress:",
+      "BackToHomePage": "Back to Home page"
+    }
+  },
+  "Navigation":{
+    "Home":"Home"
+  },
+  "Card":{
+    "Name": "Name",
+    "Description": "Description",
+    "ShowMore": "Show more",
+    "ShowLess": "Show less",
+    "Open": "Open",
+    "Link": "Link",
+    "Tags": "Tags",
+    "Year": "Year {{year}}",
+    "ID": "ID {{id}}",
+    "Type": "Type {{type}}"
+  },
+  "Welcome": {
+    "Header": "Front-end Web Developer",
+    "Desc": "My name is Maciej Łabędzki. Welcome to my portfolio website."
+  },
+  "Section":{
+    "OwnerDetails":{
+      "LinkedInProfilePage": "Linked In Profile Page",
+      "PhoneNumber": "Phone Number",
+      "EmailAdress": "Email Adress"
+    },
+    "Search":{
+      "ClearButton":"Search Clear Button",
+      "ResultNumber": "Result Number",
+      "NoAvailableResult": "No result available for your search.",
+      "SearchBy": "Search by",
+      "Filters": "Filters",
+      "Reset": "Reset",
+      "TypeSuggestions": "Type suggestions:",
+      "YearSuggestions": "Year suggestions:"
+    },
+    "Filters":{
+      "Sort": "Sort:",
+      "SearchBy": "Search by:",
+      "MaxColumns": "Max Columns:",
+      "ViewLimit": "View Limit"
+    }
+  }
+}

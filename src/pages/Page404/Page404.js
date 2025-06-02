@@ -1,11 +1,13 @@
 import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import Button from '../../components/Button/Button';
-import { LANGUAGE_DATA } from '../../data/langEn';
 import { getByTestId } from '../../lib/helper';
 
 const Page404 = ({ testId }) => {
+  const { t } = useTranslation();
+
   const handleRedirect = () => {
     window.open('/', '_self');
   };
@@ -20,11 +22,11 @@ const Page404 = ({ testId }) => {
     >
       <ExclamationTriangleIcon className="w-20 h-20 text-black-400" />
 
-      <span className="text-xl font-bold mb-2">{LANGUAGE_DATA['Page404']}</span>
-      <span className="text-lg mb-0">{LANGUAGE_DATA['WrongURLAdress']}</span>
+      <span className="text-xl font-bold mb-2">{t('Global.Page404')}</span>
+      <span className="text-lg mb-0">{t('Global.WrongURLAdress')}</span>
       <span className="text-lg mb-20">{window.location.href}</span>
 
-      <Button onClick={handleRedirect} name={LANGUAGE_DATA['BackToHomePage']} />
+      <Button onClick={handleRedirect} name={t('Global.BackToHomePage')} />
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { ButtonList, LabeledContainer, Select } from '../../components';
-import { LANGUAGE_DATA } from '../../data/langEn';
 import {
   GRID_OPTIONS,
   PAGINATION_COUNTER,
@@ -26,6 +26,7 @@ const Filters = ({
   dataLimit,
   handleItemsLimitPage,
 }) => {
+  const { t } = useTranslation();
   const [currentSort, setCurrentSort] = useState(sort);
   const [currentFilterBy, setCurrentFilterBy] = useState(filterBy);
 
@@ -56,13 +57,13 @@ const Filters = ({
       )}
     >
       <label className="absolute top-[-14px] z-20 bg-black-200 px-2">
-        {LANGUAGE_DATA['Filters']}
+        {t('Global.Filters')}
       </label>
 
       <section className="w-full flex flex-wrap justify-center">
         <LabeledContainer
           icon={<TagIcon className="w-4 h-4" />}
-          label={`${LANGUAGE_DATA['SearchBy']}:`}
+          label={t('Section.Filters.SearchBy')}
           children={
             <Select
               options={SEARCH_FILTERS_OPTIONS}
@@ -75,7 +76,7 @@ const Filters = ({
 
         <LabeledContainer
           icon={<ArrowsUpDownIcon className="w-4 h-4" />}
-          label={`${LANGUAGE_DATA['Sort']}:`}
+          label={t('Section.Filters.Sort')}
           children={
             <Select
               options={SORT_OPTIONS}
@@ -90,7 +91,7 @@ const Filters = ({
       <section className="w-full flex flex-wrap justify-center">
         <LabeledContainer
           icon={<ViewColumnsIcon className="w-4 h-4" />}
-          label={`${LANGUAGE_DATA['MaxColumns']}:`}
+          label={t('Section.Filters.MaxColumns')}
           children={
             <ButtonList
               data={GRID_OPTIONS}
@@ -102,7 +103,7 @@ const Filters = ({
 
         <LabeledContainer
           icon={<SquaresPlusIcon className="w-4 h-4" />}
-          label={`${LANGUAGE_DATA['ViewLimit']}:`}
+          label={t('Section.Filters.ViewLimit')}
           children={
             <ButtonList
               data={PAGINATION_COUNTER}

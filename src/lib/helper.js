@@ -1,4 +1,3 @@
-import { LANGUAGE_DATA } from '../data/langEn';
 import { TYPE_SUGGESTIONS, YEAR_SUGGESTIONS } from '../data/search';
 
 export const getByTestId = (testId, suffix, testIdPropName = 'data-testid') => {
@@ -46,20 +45,20 @@ export const isAllInArrayEmpty = (arr) => {
   return countElements === res ? true : false;
 };
 
-export const getSuggestionsOptions = (option) => {
+export const getSuggestionsOptions = (option, t) => {
   let res = {};
 
   if (option === 'type') {
     res = {
       data: TYPE_SUGGESTIONS,
       option: 'type',
-      title: LANGUAGE_DATA['SearchTypeSuggestions'],
+      title: t('Section.Search.TypeSuggestions'),
     };
   } else if (option === 'year') {
     res = {
       data: YEAR_SUGGESTIONS,
       option: 'year',
-      title: LANGUAGE_DATA['SearchYearSuggestions'],
+      title: t('Section.Search.YearSuggestions'),
     };
   }
 

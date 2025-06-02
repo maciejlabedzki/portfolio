@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
 import { Button } from '../components';
-import { LANGUAGE_DATA } from '../data/langEn';
 import { USER_DATA } from '../data/user';
 import { ArrowUpIcon } from '../images';
 import { getByTestId } from '../lib/helper';
 import { Footer, Navigation, OwnerDetails, Welcome } from '../section/index';
 
 const Layout = ({ testId, children }) => {
+  const { t } = useTranslation();
   const [userData] = useState(USER_DATA);
 
   const handleScrollTop = () => {
@@ -25,12 +26,13 @@ const Layout = ({ testId, children }) => {
       {...getByTestId(testId, 'container')}
     >
       <OwnerDetails data={userData} />
+
       <Navigation />
-      <Welcome
-        header={LANGUAGE_DATA['Section']['Welcome']['Header']}
-        desc={LANGUAGE_DATA['Section']['Welcome']['Desc']}
-      />
+
+      <Welcome header={t('Welcome.Header')} desc={t('Welcome.Desc')} />
+
       <div className="w-full"> {children ? children : <Outlet />}</div>
+
       <Footer />
 
       <Button
@@ -41,7 +43,7 @@ const Layout = ({ testId, children }) => {
           'w-5 h-5 p-4 sm:p-8 z-[100] fixed ' +
           'bottom-0 sm:bottom-10 right-0 sm:right-5'
         }
-        title={LANGUAGE_DATA['ScrollTop']}
+        title={t('Global.ScrollTop')}
       />
     </div>
   );
