@@ -6,13 +6,13 @@
   },
   "Page":{
     "404":{
-      "Page404": "PAGE 404",
+      "Header": "PAGE 404",
       "WrongURLAdress": "Wrong URL adress:",
       "BackToHomePage": "Back to Home page"
     }
   },
   "Navigation":{
-    "Home":"Home"
+    "Home":"Strona główna"
   },
   "Card":{
     "Name": "Name",
@@ -28,7 +28,7 @@
   },
   "Welcome": {
     "Header": "Front-end Web Developer",
-    "Desc": "My name is Maciej Łabędzki. Welcome to my portfolio website."
+    "Desc": "Nazywam się Maciej Łabędzki. Witam na stronie mojego portfolio."
   },
   "Section":{
     "OwnerDetails":{

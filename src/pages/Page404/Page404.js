@@ -22,11 +22,11 @@ const Page404 = ({ testId }) => {
     >
       <ExclamationTriangleIcon className="w-20 h-20 text-black-400" />
 
-      <span className="text-xl font-bold mb-2">{t('Global.Page404')}</span>
-      <span className="text-lg mb-0">{t('Global.WrongURLAdress')}</span>
+      <span className="text-xl font-bold mb-2">{t('Page.404.Header')}</span>
+      <span className="text-lg mb-0">{t('Page.404.WrongURLAdress')}</span>
       <span className="text-lg mb-20">{window.location.href}</span>
 
-      <Button onClick={handleRedirect} name={t('Global.BackToHomePage')} />
+      <Button onClick={handleRedirect} name={t('Page.404.BackToHomePage')} />
     </div>
   );
 };
