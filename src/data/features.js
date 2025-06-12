@@ -104,11 +104,19 @@ const FEATURES_DATA = [
     isIconByType: true,
   },
   {
-    name: 'Section description. Conditional expand button to read more',
+    name: 'Section description.',
     done: true,
     type: 'card',
     status: 'add',
     id: 13,
+    isIconByType: true,
+  },
+  {
+    name: 'Section description expand more button.',
+    done: true,
+    type: 'card',
+    status: 'add',
+    id: '13-a',
     isIconByType: true,
   },
   {
@@ -120,11 +128,19 @@ const FEATURES_DATA = [
     isIconByType: true,
   },
   {
-    name: 'Section tag. Conditional expand button to see more',
+    name: 'Section tag.',
     done: true,
     type: 'card',
     status: 'add',
     id: 15,
+    isIconByType: true,
+  },
+  {
+    name: 'Section tag expand more button',
+    done: true,
+    type: 'card',
+    status: 'add',
+    id: '15-a',
     isIconByType: true,
   },
   {
