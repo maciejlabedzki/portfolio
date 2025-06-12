@@ -63,11 +63,10 @@ const FeatureItem = ({ name, icon, done, status, type, testId }) => {
       <span
         className={twMerge(
           'flex justify-center items-center',
-          'px-2 py-1 min-h-9 leading-[1px] font-bold',
+          'px-2 py-1 min-h-9 font-bold',
           'text-sm line-clamp-none sm:line-clamp-1',
         )}
         title={name}
-        // style={{ lineHeight: 1 }}
       >
         {name}
       </span>
