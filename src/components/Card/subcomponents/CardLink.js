@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import {
   getByTestId,
@@ -15,6 +16,8 @@ const CardLink = ({
   rel,
   testId,
 }) => {
+  const { t } = useTranslation();
+
   if (!path) {
     return;
   }
@@ -56,7 +59,7 @@ const CardLink = ({
         </a>
       ) : (
         <span className="text-[11px] text-black-300 px-2 h-6">
-          No preview link
+          {t('Card.NoPreviewLink')}
         </span>
       )}
     </p>

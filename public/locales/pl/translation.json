@@ -1,56 +1,78 @@
 {
-  "Global": {
-    "ScrollTop": "Scroll Top",
-    "Search": "Search",
-    "Filters": "Filters"
+  "Card": {
+    "Description": "Opis",
+    "ID": "ID {{id}}",
+    "Link": "Link",
+    "Name": "Nazwa",
+    "NoPreviewLink": "Brak podglądu linku",
+    "Open": "Otwórz",
+    "ShowLess": "Mniej",
+    "ShowMore": "Więcej",
+    "Tags": "Tag",
+    "Type": "Typ {{type}}",
+    "Year": "Rok {{year}}"
   },
-  "Page":{
-    "404":{
-      "Header": "PAGE 404",
-      "WrongURLAdress": "Wrong URL adress:",
-      "BackToHomePage": "Back to Home page"
+  "Global": {
+    "Close": "Zamknij",
+    "ComingSoon": "Już wkrótce",
+    "CookiesHereMoreInfo": "Tu dowiedz się więcej.",
+    "CookiesInfoAccepted": "Korzystanie z Serwisu bez zmiany ustawień przeglądarki oznacza akceptację plików cookies.",
+    "CookiesInfoDetail": "Możesz określić w przeglądarce warunki przechowywania i dostępu do cookies, w tym je zablokować.",
+    "CookiesInfoSave": "Zapisujemy pliki cookies na Twoim urządzeniu i uzyskujemy do nich dostęp w celach statystycznych związanych z analizą sposobu korzystania z Serwisu przez użytkowników.",
+    "CookiesInfoUse": "Ta strona używa cookie.",
+    "Copyright": "Copyright {{currentYear}} by Maciej Łabędzki",
+    "Filters": "Filtry",
+    "Language": "Language {{lng}}",
+    "ScrollTop": "Przewiń do góry",
+    "Search": "Szukaj"
+  },
+  "Navigation": {
+    "Admin": "Admin",
+    "Cookies": "Cookies",
+    "Features": "Features",
+    "Home": "Strona główna"
+  },
+  "Page": {
+    "404": {
+      "BackToHomePage": "Wróć na Stronę Główną",
+      "Header": "STRONA 404",
+      "WrongURLAdress": "Błędny adres URL:"
     }
   },
-  "Navigation":{
-    "Home":"Strona główna"
-  },
-  "Card":{
-    "Name": "Name",
-    "Description": "Description",
-    "ShowMore": "Show more",
-    "ShowLess": "Show less",
-    "Open": "Open",
+  "SearchFiltersOptions": {
+    "Description": "Opis",
+    "ID": "Id",
     "Link": "Link",
-    "Tags": "Tags",
-    "Year": "Year {{year}}",
-    "ID": "ID {{id}}",
-    "Type": "Type {{type}}"
+    "Name": "Nazwa",
+    "Tags": "Tag",
+    "Type": "Typ",
+    "Year": "Rok"
+  },
+  "Section": {
+    "Filters": {
+      "CardLimit": "Limit kart:",
+      "MaxColumns": "Maks kolumn:",
+      "SearchBy": "Szukaj po:",
+      "Sort": "Sortuj:"
+    },
+    "OwnerDetails": {
+      "EmailAdress": "Adres email",
+      "LinkedInProfilePage": "Profilowa strona LinkedIn",
+      "PhoneNumber": "Numer telefonu"
+    },
+    "Search": {
+      "ClearButton": "Przycisk wyczyść wyszukiwarki",
+      "Filters": "Filtry",
+      "NoAvailableResult": "Brak wyników dla Twojego zapytania.",
+      "Reset": "Resetuj",
+      "ResultNumber": "Numer wyniku",
+      "SearchBy": "Szukaj po",
+      "TypeSuggestions": "Sugestia typ:",
+      "YearSuggestions": "Sugestia rok:"
+    }
   },
   "Welcome": {
-    "Header": "Front-end Web Developer",
-    "Desc": "Nazywam się Maciej Łabędzki. Witam na stronie mojego portfolio."
-  },
-  "Section":{
-    "OwnerDetails":{
-      "LinkedInProfilePage": "Linked In Profile Page",
-      "PhoneNumber": "Phone Number",
-      "EmailAdress": "Email Adress"
-    },
-    "Search":{
-      "ClearButton":"Search Clear Button",
-      "ResultNumber": "Result Number",
-      "NoAvailableResult": "No result available for your search.",
-      "SearchBy": "Search by",
-      "Filters": "Filters",
-      "Reset": "Reset",
-      "TypeSuggestions": "Type suggestions:",
-      "YearSuggestions": "Year suggestions:"
-    },
-    "Filters":{
-      "Sort": "Sort:",
-      "SearchBy": "Search by:",
-      "MaxColumns": "Max Columns:",
-      "ViewLimit": "View Limit"
-    }
+    "Desc": "Nazywam się Maciej Łabędzki. Witam na stronie mojego portfolio.",
+    "Header": "Front-end Web Developer"
   }
 }

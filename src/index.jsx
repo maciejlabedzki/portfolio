@@ -1,14 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './i18n';
-import reportWebVitals from './reportWebVitals';
-
-// :: Pages
 import App from './pages/App/App';
-
-// :: Style
+import reportWebVitals from './reportWebVitals';
 import "./styles/index.css";
-  
+
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement); 
 

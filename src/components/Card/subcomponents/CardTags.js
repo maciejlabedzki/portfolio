@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { ChevronDownIcon, ChevronUpIcon } from '../../../images';
 import { getByTestId } from '../../../lib/helper';
 import Button from '../../Button/Button';
 import Tag from '../../Tag/Tag';
@@ -51,13 +52,26 @@ const CardTags = ({ header, onClick, tags, tagsLimit, testId }) => {
         ))}
 
         {isLimited && (
-          <Button
-            name={showMoreTag ? '-' : tags.length + '+'}
-            color={'white'}
-            space={'leftRight'}
-            additionalClasses={'h-5'}
-            onClick={handleToggleShowMoreTags}
-          />
+          <>
+            <span className="text-gray-50 ml-1 mr-1">...</span>
+            <Button
+              icon={
+                showMoreTag ? (
+                  <ChevronUpIcon className={twMerge('h-2 w-2')} />
+                ) : (
+                  <ChevronDownIcon className={twMerge('h-2 w-2')} />
+                )
+              }
+              theme="secondary"
+              radius="full"
+              space="normal"
+              height="auto"
+              margin="tiny"
+              border="none"
+              additionalClasses="h-3 w-3"
+              onClick={handleToggleShowMoreTags}
+            />
+          </>
         )}
       </div>
     </div>

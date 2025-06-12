@@ -11,8 +11,20 @@ const t = (p) => p;
  * Manual upkeep of this list is required for us to cleanup old keys from time to time.
  */
 const i18nAlwaysInclude = [
-  // Globals
-  t('Global.ScrollTop'),
+  // Search Filters Options
+  t('SearchFiltersOptions.Description'),
+  t('SearchFiltersOptions.ID'),
+  t('SearchFiltersOptions.Link'),
+  t('SearchFiltersOptions.Name'),
+  t('SearchFiltersOptions.Tags'),
+  t('SearchFiltersOptions.Type'),
+  t('SearchFiltersOptions.Year'),
+
+  // Navigation
+  t('Navigation.Home'),
+  t('Navigation.Features'),
+  t('Navigation.Cookies'),
+  t('Navigation.Admin'),
 ];
 
 export default i18nAlwaysInclude;

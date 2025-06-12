@@ -1,14 +1,48 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { getByTestId } from '../../lib/helper';
+import { getByTestId, getSorted } from '../../lib/helper';
 
-const Select = ({ options, value, onChange, additionalClasses, testId }) => {
+const Select = ({
+  options,
+  value,
+  onChange,
+  additionalClasses,
+  sorted,
+  translated,
+  translateKey,
+  testId,
+}) => {
+  const { t } = useTranslation();
   const [val, setVal] = useState(value);
+  const [currentOptions, setCurrentOptions] = useState(options);
 
   useEffect(() => {
     setVal(value);
   }, [value]);
+
+  const handleValidate = useCallback(() => {
+    if (translated || sorted) {
+      let resOptions;
+
+      if (translated && translateKey) {
+        resOptions = options?.map((item) => {
+          return { ...item, name: t(`${translateKey}.${item.name}`) };
+        });
+      }
+
+      if (sorted) {
+        resOptions = getSorted(resOptions, 'name', 'asc');
+      }
+
+      setCurrentOptions(resOptions);
+    }
+  }, [sorted, translated, t, options, translateKey]);
+
+  useEffect(() => {
+    handleValidate();
+  }, [handleValidate]);
 
   return (
     <select
@@ -20,7 +54,7 @@ const Select = ({ options, value, onChange, additionalClasses, testId }) => {
       value={val}
       {...getByTestId(testId, 'conatiner')}
     >
-      {options?.map((option) => (
+      {currentOptions?.map((option) => (
         <option
           key={option.value}
           value={option.value}
@@ -42,6 +76,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+  sorted: false,
   testId: '',
   value: '',
   options: [],

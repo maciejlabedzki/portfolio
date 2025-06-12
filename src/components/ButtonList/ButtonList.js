@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Button from '../../components/Button/Button';
+import { Button } from '../../components';
 
 const ButtonList = ({ data, onClick, selected }) => {
   const [currentSeleted, setCurrentSelected] = useState(selected);
@@ -20,7 +20,12 @@ const ButtonList = ({ data, onClick, selected }) => {
           key={item?.value}
           onClick={() => handleClick(item)}
           name={item?.name}
-          color={currentSeleted?.value === item?.value ? 'blue' : 'tranparent'}
+          theme={
+            currentSeleted?.value === item?.value ? 'primary' : 'transparent'
+          }
+          space="small"
+          margin="small"
+          additionalClasses={'px-2'}
         />
       ))}
     </div>

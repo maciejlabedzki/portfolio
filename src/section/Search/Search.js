@@ -83,17 +83,21 @@ const Search = ({
                   placeholder={`${t('Section.Search.SearchBy')} ${filterBy}`}
                 />
 
-                <button
-                  className={twMerge(
-                    'absolute right-0.5 top-0.5 z-10 text-sm',
-                    'text-black px-1 mx-1 rounded-full bg-gray-100 w-5 h-5',
-                    'justify-center items-center flex text-gray',
-                  )}
-                  onClick={handleClear}
+                <Button
+                  name="X"
+                  theme="transparent"
                   title={t('Section.Search.ClearButton')}
-                >
-                  X
-                </button>
+                  onClick={handleClear}
+                  margin="none"
+                  space="none"
+                  radius="full"
+                  hover="fade"
+                  additionalClasses={twMerge(
+                    'absolute right-1 top-0.5',
+                    'w-5 h-5',
+                    'bg-gray-100 text-gray',
+                  )}
+                />
               </div>
 
               <span
@@ -108,21 +112,18 @@ const Search = ({
                 theme="transparent"
                 title={t('Section.Search.Reset')}
                 onClick={handleReset}
+                hover="fade"
               />
             </div>
           }
         />
 
         <Button
-          name={
-            <div className="flex flex-row px-1 justify-center items-center">
-              <AdjustmentsVerticalIcon className="w-5 h-5 mr-1" />
-              {t('Section.Search.Filters')}
-            </div>
-          }
-          title={t('Section.Search.Filters')}
+          icon={<AdjustmentsVerticalIcon className="w-5 h-5 mr-1" />}
+          name={t('Section.Search.Filters')}
+          space="slim"
+          theme="primary"
           onClick={handleFilterOpen}
-          space="leftRight"
         />
       </div>
 

@@ -1,4 +1,18 @@
 import { TYPE_SUGGESTIONS, YEAR_SUGGESTIONS } from '../data/search';
+import {
+  AdjustmentsVerticalIcon,
+  BarsArrowDownIcon,
+  BeakerIcon,
+  BookmarkIcon,
+  ClipboardIcon,
+  CloudArrowDownIcon,
+  CreditCardIcon,
+  FlagIcon,
+  GlobeAltIcon,
+  InboxIcon,
+  MagnifyingGlassIcon,
+  ViewColumnsIcon,
+} from '../images';
 
 export const getByTestId = (testId, suffix, testIdPropName = 'data-testid') => {
   if (!testId) {
@@ -15,8 +29,7 @@ export const getByTestId = (testId, suffix, testIdPropName = 'data-testid') => {
 export const linkWithHttps = (link) => {
   if (link?.includes('https')) {
     return link;
-  }
-  if (link) {
+  } else if (link) {
     return `https://${link}`;
   } else {
     return '';
@@ -43,6 +56,35 @@ export const isAllInArrayEmpty = (arr) => {
   arr.map((el) => el === undefined && res++);
 
   return countElements === res ? true : false;
+};
+
+export const getIconFeaturePattern = (value) => {
+  switch (value) {
+    case 'search':
+      return <MagnifyingGlassIcon className="w-4 h-4 mr-2 text-white" />;
+    case 'filter':
+      return <ViewColumnsIcon className="w-4 h-4 mr-2 text-white" />;
+    case 'language':
+      return <FlagIcon className="w-4 h-4 mr-2 text-white" />;
+    case 'cookies':
+      return <ClipboardIcon className="w-4 h-4 mr-2 text-white" />;
+    case 'data':
+      return <CloudArrowDownIcon className="w-4 h-4 mr-2 text-white" />;
+    case 'components':
+      return <InboxIcon className="w-4 h-4 mr-2 text-white" />;
+    case 'tests':
+      return <AdjustmentsVerticalIcon className="w-4 h-4 mr-2 text-white" />;
+    case 'card':
+      return <CreditCardIcon className="w-4 h-4 mr-2 text-white" />;
+    case 'pipeline':
+      return <BarsArrowDownIcon className="w-4 h-4 mr-2 text-white" />;
+    case 'changelog':
+      return <GlobeAltIcon className="w-4 h-4 mr-2 text-white" />;
+    case 'style':
+      return <BeakerIcon className="w-4 h-4 mr-2 text-white" />;
+    default:
+      return <BookmarkIcon className="w-4 h-4 mr-2 text-white" />;
+  }
 };
 
 export const getSuggestionsOptions = (option, t) => {

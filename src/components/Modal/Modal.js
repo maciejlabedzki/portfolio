@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
+import { XMarkIcon } from '../../images';
 import Button from '../Button/Button';
 import Loader from '../Loader/Loader';
 
 const Modal = ({ data, open, handleClose }) => {
+  const { t } = useTranslation();
   const [imgLoaded, setImgLoaded] = useState(false);
 
   if (!open) {
@@ -38,7 +41,14 @@ const Modal = ({ data, open, handleClose }) => {
         )}
       >
         <div className="absolute top-0 right-1">
-          <Button name="x" onClick={handleClose} color="transparent" />
+          <Button
+            icon={<XMarkIcon className="w-5 h-5" />}
+            onClick={handleClose}
+            theme="pattern_1_off"
+            space="small"
+            margin="normal"
+            hover="fade"
+          />
         </div>
 
         {data?.name && (
@@ -64,7 +74,7 @@ const Modal = ({ data, open, handleClose }) => {
           <div className="bg-white mb-[60px] flex justify-center items-center h-[calc(100%-100px)]">
             <img
               src={data?.imgBig}
-              alt={data?.imgAlt || 'Big Picture'}
+              alt={data?.imgAlt}
               onLoad={() => setImgLoaded(true)}
               className={twMerge(
                 'px-2 py-2 w-auto h-auto',
@@ -83,7 +93,12 @@ const Modal = ({ data, open, handleClose }) => {
             'border-t border-gray-100 py-2',
           )}
         >
-          <Button name="close" onClick={handleClose} />
+          <Button
+            name={t('Global.Close')}
+            onClick={handleClose}
+            theme="primary"
+            space="normal"
+          />
         </div>
       </div>
     </div>

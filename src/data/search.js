@@ -1,6 +1,6 @@
 const SEARCH_FILTERS_OPTIONS = [
   { value: 'desc', name: 'Description' },
-  { value: 'id', name: 'Id' },
+  { value: 'id', name: 'ID' },
   { value: 'link', name: 'Link' },
   { value: 'name', name: 'Name' },
   { value: 'tags', name: 'Tags' },
@@ -15,7 +15,17 @@ const SORT_OPTIONS = [
 
 const TYPE_SUGGESTIONS = ['animation', 'design', 'tool', 'website', 'widget'];
 
-const YEAR_SUGGESTIONS = ['2025', '2024', '2023', '2022', '2021', '2020'];
+const YEAR_SUGGESTIONS = [
+  '2025',
+  '2024',
+  '2023',
+  '2022',
+  '2021',
+  '2020',
+  '2018',
+  '2017',
+  '2014',
+];
 
 const GRID_OPTIONS = [
   { name: 1, value: '400px' },

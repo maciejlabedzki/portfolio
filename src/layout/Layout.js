@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
 import { Button } from '../components';
-import { USER_DATA } from '../data/user';
+import UserContext from '../contexts/UserContext';
 import { ArrowUpIcon } from '../images';
 import { getByTestId } from '../lib/helper';
+import Cookies from '../section/Cookies/Cookies';
 import { Footer, Navigation, OwnerDetails, Welcome } from '../section/index';
 
 const Layout = ({ testId, children }) => {
   const { t } = useTranslation();
-  const [userData] = useState(USER_DATA);
+  const { userStorage } = useContext(UserContext);
 
   const handleScrollTop = () => {
     window.scrollTo({
@@ -25,7 +26,7 @@ const Layout = ({ testId, children }) => {
       className="flex flex-col w-full min-h-[100vh]"
       {...getByTestId(testId, 'container')}
     >
-      <OwnerDetails data={userData} />
+      <OwnerDetails data={userStorage} />
 
       <Navigation />
 
@@ -35,10 +36,12 @@ const Layout = ({ testId, children }) => {
 
       <Footer />
 
+      <Cookies />
+
       <Button
         icon={<ArrowUpIcon className="w-5 h-5" />}
         onClick={handleScrollTop}
-        radius={'full'}
+        radius="full"
         additionalClasses={
           'w-5 h-5 p-4 sm:p-8 z-[100] fixed ' +
           'bottom-0 sm:bottom-10 right-0 sm:right-5'

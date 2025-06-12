@@ -77,10 +77,17 @@ module.exports = {
       green: {
         DEFAULT: '#4CB507FF',
       },
+      orange: {
+        DEFAULT: '#DCB93BFF',
+      },
+      blue: {
+        DEFAULT: '#24CABFFF',
+      },
       gray: {
         DEFAULT: '#8F8F8F',
         50: '#c7c7c7',
         100: `#ededed`,
+        200: '#8f8d8d',
       },
     },
   },

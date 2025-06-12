@@ -70,6 +70,9 @@ const Filters = ({
               value={currentFilterBy}
               onChange={handleFilterByChange}
               additionalClasses={'min-w-[200px] mr-6'}
+              translateKey="SearchFiltersOptions"
+              translated={true}
+              sorted={true}
             />
           }
         />
@@ -103,7 +106,7 @@ const Filters = ({
 
         <LabeledContainer
           icon={<SquaresPlusIcon className="w-4 h-4" />}
-          label={t('Section.Filters.ViewLimit')}
+          label={t('Section.Filters.CardLimit')}
           children={
             <ButtonList
               data={PAGINATION_COUNTER}

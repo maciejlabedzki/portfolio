@@ -1,9 +1,9 @@
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { Button } from '../../../components';
+import { ChevronDownIcon, ChevronUpIcon } from '../../../images';
 import { getByTestId, validTextLength } from '../../../lib/helper';
-import Button from '../../Button/Button';
 
 const CardDescription = ({ desc, header, textOpen, textClose, testId }) => {
   const [readMore, setReadMore] = useState(false);
@@ -51,7 +51,8 @@ const CardDescription = ({ desc, header, textOpen, textClose, testId }) => {
       {isTextLong && (
         <Button
           name={readMore ? textClose : textOpen}
-          theme="white"
+          theme="secondary"
+          space="none"
           icon={
             readMore ? (
               <ChevronUpIcon
@@ -64,7 +65,7 @@ const CardDescription = ({ desc, header, textOpen, textClose, testId }) => {
             )
           }
           onClick={handleReadMore}
-          additionalClasses={'absolute top-[-15px] right-[6px]'}
+          additionalClasses={'absolute top-[-15px] right-[6px] px-2'}
         />
       )}
     </p>

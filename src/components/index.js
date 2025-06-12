@@ -3,9 +3,9 @@ import ButtonList from './ButtonList/ButtonList';
 import Card from './Card/Card';
 import Input from './Input/Input';
 import LabeledContainer from './LabeledContainer/LabeledContainer';
-import Link from './Link/Link';
 import Loader from './Loader/Loader';
 import Modal from './Modal/Modal';
+import NavigationLink from './NavigationLink/NavigationLink';
 import Pagination from './Pagination/Pagination';
 import Paragraph from './Paragraph/Paragraph';
 import Select from './Select/Select';
@@ -19,9 +19,9 @@ export {
   Card,
   Input,
   LabeledContainer,
-  Link,
   Loader,
   Modal,
+  NavigationLink,
   Pagination,
   Paragraph,
   Select,

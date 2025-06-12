@@ -1,8 +1,11 @@
 module.exports = {
   root: true,
   env: {
+    browser: true,
+    commonjs: true,
     node: true,
     es6: true,
+    jest: true,
   },
   extends: [
     'react-app',

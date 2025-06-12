@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { Paragraph } from '../../components';
 import { getByTestId } from '../../lib/helper';
 
 const Footer = ({ testId }) => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,7 +18,9 @@ const Footer = ({ testId }) => {
     >
       <Paragraph
         additionalNameClass="text-xs"
-        name={`Copyright ${currentYear} by Maciej Łabędzki`}
+        name={t('Global.Copyright', {
+          currentYear,
+        })}
       />
     </div>
   );
