@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge';
 import { NavigationLink } from '../../components';
 import { getByTestId } from '../../lib/helper';
 
-const NoAccessPage = ({ testId }) => {
+const PageNoAccess = ({ testId }) => {
   const { t } = useTranslation();
 
   return (
@@ -31,12 +31,12 @@ const NoAccessPage = ({ testId }) => {
   );
 };
 
-export default NoAccessPage;
+export default PageNoAccess;
 
-NoAccessPage.propTypes = {
+PageNoAccess.propTypes = {
   testId: PropTypes.string,
 };
 
-NoAccessPage.defaultProps = {
+PageNoAccess.defaultProps = {
   testId: '',
 };

@@ -39,7 +39,7 @@ const Navigation = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
-      <div className="flex flex-row">
+      <div className="flex flex-col xs:flex-row">
         {NAVIGATION_DATA.map((nav) => (
           <NavigationLink
             key={nav.name}

@@ -19,6 +19,8 @@ const Button = ({
   additionalClassesIcon,
   additionalClassesName,
   testId,
+  type,
+  children,
 }) => {
   const styleBorder = {
     none: 'border-0',
@@ -103,6 +105,7 @@ const Button = ({
       )}
       title={title || name}
       onClick={onClick}
+      type={type}
       {...getByTestId(testId, 'container')}
     >
       {icon && (
@@ -114,12 +117,12 @@ const Button = ({
         </span>
       )}
 
-      {name && (
+      {(name || children) && (
         <span
           className={twMerge(additionalClassesName)}
           {...getByTestId(testId, 'name')}
         >
-          {name}
+          {name || children}
         </span>
       )}
     </button>

@@ -16,7 +16,7 @@ import {
 } from '../../lib/helper';
 import { Search } from '../../section';
 
-const Home = ({ testId }) => {
+const PageHome = ({ testId }) => {
   const { t } = useTranslation();
   const [
     dataCard,
@@ -212,12 +212,12 @@ const Home = ({ testId }) => {
   );
 };
 
-export default Home;
+export default PageHome;
 
-Home.propTypes = {
+PageHome.propTypes = {
   testId: PropTypes.string,
 };
 
-Home.defaultProps = {
+PageHome.defaultProps = {
   testId: '',
 };

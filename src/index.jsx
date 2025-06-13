@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './i18n';
-import App from './pages/App/App';
 import reportWebVitals from './reportWebVitals';
+import AppRouter from './router/AppRouter';
 import "./styles/index.css";
 
 const rootElement = document.getElementById('root');
@@ -10,7 +10,7 @@ const root = createRoot(rootElement);
 
 root.render(
     <StrictMode> 
-        <App />
+        <AppRouter />
     </StrictMode>,
 );
 

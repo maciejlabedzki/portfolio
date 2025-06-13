@@ -30,7 +30,9 @@
     "Admin": "Admin",
     "Cookies": "Cookies",
     "Features": "Features",
-    "Home": "Strona główna"
+    "Home": "Strona główna",
+    "Login": "Zaloguj",
+    "Register": "Rejestracja"
   },
   "Page": {
     "404": {
@@ -77,5 +79,12 @@
   "Welcome": {
     "Desc": "Nazywam się Maciej Łabędzki. Witam na stronie mojego portfolio.",
     "Header": "Front-end Web Developer"
+  },
+  "Form":{
+    "FirstName":"First Name",
+    "LastName": "Last Name",
+    "EmailAdress":"Email Adress",
+    "FormErrorEnterValidEmail":"Wrong email adress",
+    "FormErrorEmailIsRequired":"Email is required"
   }
 }

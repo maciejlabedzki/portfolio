@@ -7,7 +7,7 @@ import { FEATURES_DATA } from '../../data/features';
 import { getByTestId, getSorted } from '../../lib/helper';
 import FeatureItem from './subcomponents/FeatureItem';
 
-const Features = ({ testId }) => {
+const PageFeatures = ({ testId }) => {
   const { i18n } = useTranslation();
   const { isAdmin } = useContext(UserContext);
   const [features, setFeatures] = useState([]);
@@ -59,12 +59,12 @@ const Features = ({ testId }) => {
   );
 };
 
-export default Features;
+export default PageFeatures;
 
-Features.propTypes = {
+PageFeatures.propTypes = {
   testId: PropTypes.string,
 };
 
-Features.defaultProps = {
+PageFeatures.defaultProps = {
   testId: '',
 };

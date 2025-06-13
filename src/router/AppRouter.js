@@ -6,12 +6,15 @@ import {
 } from 'react-router-dom';
 import WrapUserContext from '../hoc/WrapUserContext/WrapUserContext';
 import Layout from '../layout/Layout';
-import AdminPage from '../pages/Admin/Admin';
-import PageCookies from '../pages/Cookies/Cookies';
-import Features from '../pages/Features/Features';
-import Home from '../pages/Home/Home';
-import NoAccessPage from '../pages/NoAccessPage/NoAccessPage';
-import Page404 from '../pages/Page404/Page404';
+import {
+  Page404,
+  PageAdmin,
+  PageCookies,
+  PageFeatures,
+  PageHome,
+  PageLogin,
+  PageNoAccess,
+} from '../pages';
 
 export const ProtectedAdminPage = ({ children }) => {
   const isAdmin = JSON.parse(process.env.REACT_APP_ADMIN);
@@ -19,7 +22,7 @@ export const ProtectedAdminPage = ({ children }) => {
   if (isAdmin) {
     return children;
   } else {
-    return <NoAccessPage />;
+    return <PageNoAccess />;
   }
 };
 
@@ -33,12 +36,13 @@ const router = createBrowserRouter(
           </WrapUserContext>
         }
       >
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<PageHome />} />
         <Route path="/cookies" element={<PageCookies />} />
-        <Route path="/features" element={<Features />} />
+        <Route path="/features" element={<PageFeatures />} />
+        <Route path="/login" element={<PageLogin />} />
         <Route
           path="/admin"
-          element={<ProtectedAdminPage children={<AdminPage />} />}
+          element={<ProtectedAdminPage children={<PageAdmin />} />}
         />
         <Route path="*" element={<Page404 />} />
       </Route>

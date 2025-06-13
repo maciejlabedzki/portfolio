@@ -6,7 +6,7 @@ import { Button } from '../../components';
 import UserContext from '../../contexts/UserContext';
 import { getByTestId } from '../../lib/helper';
 
-const AdminPage = ({ testId }) => {
+const PageAdmin = ({ testId }) => {
   const { isAdmin, updateUserContext } = useContext(UserContext);
 
   const handleUpdateAdmin = useCallback(
@@ -47,12 +47,12 @@ const AdminPage = ({ testId }) => {
   );
 };
 
-export default AdminPage;
+export default PageAdmin;
 
-AdminPage.propTypes = {
+PageAdmin.propTypes = {
   testId: PropTypes.string,
 };
 
-AdminPage.defaultProps = {
+PageAdmin.defaultProps = {
   testId: '',
 };
