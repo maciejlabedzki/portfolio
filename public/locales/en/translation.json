@@ -37,6 +37,9 @@
       "BackToHomePage": "Back to Home page",
       "Header": "PAGE 404",
       "WrongURLAdress": "Wrong URL adress:"
+    },
+    "NoAccessPage": {
+      "Header": "Page blocked. No access."
     }
   },
   "SearchFiltersOptions": {

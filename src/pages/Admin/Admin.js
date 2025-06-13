@@ -6,20 +6,16 @@ import UserContext from '../../contexts/UserContext';
 import { getByTestId } from '../../lib/helper';
 
 const AdminPage = ({ testId }) => {
-  const { isAdmin, userStorage, updateUserContext } = useContext(UserContext);
+  const { isAdmin, updateUserContext } = useContext(UserContext);
 
   const handleUpdateAdmin = useCallback(
-    (isAdmin) => {
+    (value) => {
       updateUserContext?.((prevState) => ({
         ...prevState,
-        isAdmin: isAdmin,
-        userStorage: {
-          ...userStorage,
-          // name: name,
-        },
+        isAdmin: value,
       }));
     },
-    [updateUserContext, userStorage],
+    [updateUserContext],
   );
 
   return (
@@ -35,13 +31,13 @@ const AdminPage = ({ testId }) => {
       </div>
 
       <Button
-        name="Update to admin"
+        name="Context is admin"
         onClick={() => handleUpdateAdmin(true)}
         additionalClasses={'min-w-[200px]'}
       />
 
       <Button
-        name="Update to user"
+        name="Context no admin"
         onClick={() => handleUpdateAdmin(false)}
         additionalClasses={'min-w-[200px]'}
       />

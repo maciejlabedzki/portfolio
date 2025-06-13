@@ -80,6 +80,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-hot-toast": "^2.5.2",
     "react-i18next": "^12.1.5",
     "react-moment-proptypes": "^1.8.1",
     "react-refresh": "^0.17.0",

@@ -327,6 +327,30 @@ const FEATURES_DATA = [
     id: 39,
     isIconByType: true,
   },
+  {
+    name: 'Admin developer page',
+    done: true,
+    type: 'admin',
+    status: 'add',
+    id: 40,
+    isIconByType: true,
+  },
+  {
+    name: 'Admin no access page',
+    done: true,
+    type: 'admin',
+    status: 'add',
+    id: 41,
+    isIconByType: true,
+  },
+  {
+    name: 'Admin validation route page by env',
+    done: true,
+    type: 'admin',
+    status: 'add',
+    id: 42,
+    isIconByType: true,
+  },
 ];
 
 export { FEATURES_DATA };

@@ -10,7 +10,18 @@ import AdminPage from '../pages/Admin/Admin';
 import PageCookies from '../pages/Cookies/Cookies';
 import Features from '../pages/Features/Features';
 import Home from '../pages/Home/Home';
+import NoAccessPage from '../pages/NoAccessPage/NoAccessPage';
 import Page404 from '../pages/Page404/Page404';
+
+export const ProtectedAdminPage = ({ children }) => {
+  const isAdmin = JSON.parse(process.env.REACT_APP_ADMIN);
+
+  if (isAdmin) {
+    return children;
+  } else {
+    return <NoAccessPage />;
+  }
+};
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,7 +36,10 @@ const router = createBrowserRouter(
         <Route path="/" element={<Home />} />
         <Route path="/cookies" element={<PageCookies />} />
         <Route path="/features" element={<Features />} />
-        <Route path="/admin" element={<AdminPage />} />
+        <Route
+          path="/admin"
+          element={<ProtectedAdminPage children={<AdminPage />} />}
+        />
         <Route path="*" element={<Page404 />} />
       </Route>
     </>,

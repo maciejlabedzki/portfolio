@@ -9,6 +9,7 @@ const NavigationLink = ({
   active,
   additionalClasses,
   testId,
+  hidden,
 }) => {
   return (
     <Link
@@ -17,6 +18,7 @@ const NavigationLink = ({
         'justify-start items-center',
         'text-white my-1 px-2 hover:text-gray-50',
         active && 'bg-black-200',
+        hidden && 'hidden',
         additionalClasses,
       )}
       title={linkPath}

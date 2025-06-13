@@ -3,8 +3,7 @@ import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
-import { Button } from '../../components';
-import NavigationLink from '../../components/NavigationLink/NavigationLink';
+import { Button, NavigationLink } from '../../components';
 import { NAVIGATION_DATA } from '../../data/navigation';
 import { FlagIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
@@ -47,11 +46,11 @@ const Navigation = ({ testId }) => {
             name={t(`Navigation.${nav.name}`)}
             linkPath={nav.path}
             active={location.pathname === nav.path}
-            // hidden={
-            //   nav.admin
-            //     ? JSON.parse(process?.env?.REACT_APP_ADMIN || false)
-            //     : false
-            // }
+            hidden={
+              nav.admin
+                ? !JSON.parse(process.env.REACT_APP_ADMIN) || false
+                : false
+            }
           />
         ))}
       </div>
