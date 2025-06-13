@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
 import { Button } from '../components';
@@ -48,6 +49,8 @@ const Layout = ({ testId, children }) => {
         }
         title={t('Global.ScrollTop')}
       />
+
+      <Toaster position="top-right" />
     </div>
   );
 };

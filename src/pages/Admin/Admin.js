@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useCallback, useContext } from 'react';
+import toast from 'react-hot-toast';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '../../components';
 import UserContext from '../../contexts/UserContext';
@@ -10,6 +11,7 @@ const AdminPage = ({ testId }) => {
 
   const handleUpdateAdmin = useCallback(
     (value) => {
+      toast(`Context isAdmin is now ${value ? 'true' : 'false'}`);
       updateUserContext?.((prevState) => ({
         ...prevState,
         isAdmin: value,
