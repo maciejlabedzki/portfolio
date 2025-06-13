@@ -1,13 +1,31 @@
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import UserContext from '../../contexts/UserContext';
 import { FEATURES_DATA } from '../../data/features';
-import { getByTestId } from '../../lib/helper';
+import { getByTestId, getSorted } from '../../lib/helper';
 import FeatureItem from './subcomponents/FeatureItem';
 
 const Features = ({ testId }) => {
+  const { i18n } = useTranslation();
   const { isAdmin } = useContext(UserContext);
+  const [features, setFeatures] = useState([]);
+
+  const handleFeatures = useCallback(() => {
+    let res = [];
+
+    res = getSorted(FEATURES_DATA, 'id', 'desc');
+
+    setFeatures(res);
+
+    // Translate features refreshed based on update on language switch
+    // eslint-disable-next-line
+  }, [i18n]);
+
+  useEffect(() => {
+    handleFeatures();
+  }, [handleFeatures]);
 
   return (
     <div
@@ -27,7 +45,7 @@ const Features = ({ testId }) => {
         {`Portfolio Features List (${FEATURES_DATA.length})`}
       </div>
 
-      {FEATURES_DATA.map((item) => (
+      {features.map((item) => (
         <FeatureItem
           key={item.id}
           done={item.done}

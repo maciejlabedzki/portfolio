@@ -56,6 +56,22 @@ const FEATURES_DATA = [
     isIconByType: true,
   },
   {
+    name: 'Section Year Suggestions',
+    done: true,
+    type: 'filter',
+    status: 'add',
+    id: 7.1,
+    isIconByType: true,
+  },
+  {
+    name: 'Section Type Suggestions',
+    done: true,
+    type: 'filter',
+    status: 'add',
+    id: 7.2,
+    isIconByType: true,
+  },
+  {
     name: 'Year information inside card',
     done: true,
     type: 'card',
@@ -116,7 +132,7 @@ const FEATURES_DATA = [
     done: true,
     type: 'card',
     status: 'add',
-    id: '13-a',
+    id: 13.1,
     isIconByType: true,
   },
   {
@@ -140,7 +156,7 @@ const FEATURES_DATA = [
     done: true,
     type: 'card',
     status: 'add',
-    id: '15-a',
+    id: 15.1,
     isIconByType: true,
   },
   {
@@ -349,6 +365,22 @@ const FEATURES_DATA = [
     type: 'admin',
     status: 'add',
     id: 42,
+    isIconByType: true,
+  },
+  {
+    name: 'Toast notification',
+    done: true,
+    type: 'toast',
+    status: 'add',
+    id: 43,
+    isIconByType: true,
+  },
+  {
+    name: 'Login page',
+    done: false,
+    type: 'user',
+    status: 'add',
+    id: 44,
     isIconByType: true,
   },
 ];
