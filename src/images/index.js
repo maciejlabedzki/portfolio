@@ -18,6 +18,7 @@ export {
   InboxIcon,
   LightBulbIcon,
   MagnifyingGlassIcon,
+  NewspaperIcon,
   PencilIcon,
   PuzzlePieceIcon,
   SquaresPlusIcon,

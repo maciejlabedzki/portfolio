@@ -46,7 +46,7 @@
   },
   "SearchFiltersOptions": {
     "Description": "Description",
-    "ID": "Id",
+    "Id": "Id",
     "Link": "Link",
     "Name": "Name",
     "Tags": "Tags",
@@ -81,8 +81,15 @@
     "Header": "Front-end Web Developer"
   },
   "Form":{
+    "Password": "Password",
+    "FirstName":"First Name",
+    "LastName": "Last Name",
+    "EmailAdress":"Email Adress",
     "FormErrorEnterValidEmail":"Wrong email adress",
     "FormErrorEmailIsRequired":"Email is required",
-    "FormErrorNotBlank":"Not blank"
+    "FormErrorNotBlank":"Not blank",
+    "FormErrorPasswordIsRequired":"Password is required",
+    "FormErrorPasswordMinimumLength": "Password minimum word length is {{length}}",
+    "LoginForm":"Login Form"
   }
 }

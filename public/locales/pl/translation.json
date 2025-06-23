@@ -27,9 +27,9 @@
     "Search": "Szukaj"
   },
   "Navigation": {
-    "Admin": "Admin",
-    "Cookies": "Cookies",
-    "Features": "Features",
+    "Admin": "Administrator",
+    "Cookies": "Ciastka",
+    "Features": "Właściwości",
     "Home": "Strona główna",
     "Login": "Zaloguj",
     "Register": "Rejestracja"
@@ -81,10 +81,15 @@
     "Header": "Front-end Web Developer"
   },
   "Form":{
-    "FirstName":"First Name",
-    "LastName": "Last Name",
-    "EmailAdress":"Email Adress",
-    "FormErrorEnterValidEmail":"Wrong email adress",
-    "FormErrorEmailIsRequired":"Email is required"
+    "Password": "Hasło",
+    "FirstName":"Imię",
+    "LastName": "Nazwisko",
+    "EmailAdress":"Adres email",
+    "FormErrorEnterValidEmail":"Błędny adres email",
+    "FormErrorEmailIsRequired":"Email jest wymagany",
+    "FormErrorNotBlank":"Nie może być pusty",
+    "FormErrorPasswordIsRequired":"Hasło jest wymagane",
+    "FormErrorPasswordMinimumLength": "Minimalna długość hasła to {{length}}",
+    "LoginForm":"Formularz logowania"
   }
 }

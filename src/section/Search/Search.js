@@ -7,7 +7,7 @@ import {
   ArrowPathIcon,
   MagnifyingGlassIcon,
 } from '../../images';
-import { getByTestId } from '../../lib/helper';
+import { getByTestId, getSearchPlaceholderName } from '../../lib/helper';
 import { Filters } from '../../section';
 
 const Search = ({
@@ -75,30 +75,17 @@ const Search = ({
           icon={<MagnifyingGlassIcon className="w-4 h-4" />}
           label={t('Global.Search')}
           children={
-            <div className="flex justify-center">
-              <div className="relative">
-                <Input
-                  onChange={handleChange}
-                  value={search}
-                  placeholder={`${t('Section.Search.SearchBy')} ${filterBy}`}
-                />
-
-                <Button
-                  name="X"
-                  theme="transparent"
-                  title={t('Section.Search.ClearButton')}
-                  onClick={handleClear}
-                  margin="none"
-                  space="none"
-                  radius="full"
-                  hover="fade"
-                  additionalClasses={twMerge(
-                    'absolute right-1 top-0.5',
-                    'w-5 h-5',
-                    'bg-gray-100 text-gray',
-                  )}
-                />
-              </div>
+            <div className="flex justify-center items-center">
+              <Input
+                name="search"
+                onChange={handleChange}
+                value={search}
+                autocomplete={'off'}
+                placeholder={getSearchPlaceholderName(filterBy, t)}
+                additionalClassesInput={'pr-7'}
+                hasClear={true}
+                onClear={handleClear}
+              />
 
               <span
                 className={twMerge('ml-1 mt-0.5 text-sm text-white w-[50px]')}

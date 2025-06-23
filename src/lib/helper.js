@@ -156,3 +156,15 @@ export const getPaginationOptions = (
 
   return { pagination, isLimited, isLastVisible, isFirstVisible };
 };
+
+export const getSearchPlaceholderName = (value, t) => {
+  if (!value) return '';
+
+  const filterBy = value.slice(0, 1).toLocaleUpperCase() + value.slice(1);
+
+  return (
+    t('Section.Search.SearchBy') +
+    ' ' +
+    t(`SearchFiltersOptions.${filterBy}`).toLocaleLowerCase()
+  );
+};

@@ -7,6 +7,7 @@ import Loader from './Loader/Loader';
 import Modal from './Modal/Modal';
 import NavigationLink from './NavigationLink/NavigationLink';
 import Pagination from './Pagination/Pagination';
+import Panel from './Panel/Panel';
 import Paragraph from './Paragraph/Paragraph';
 import Select from './Select/Select';
 import StatusPill from './StatusPill/StatusPill';
@@ -23,6 +24,7 @@ export {
   Modal,
   NavigationLink,
   Pagination,
+  Panel,
   Paragraph,
   Select,
   StatusPill,

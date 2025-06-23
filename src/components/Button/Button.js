@@ -73,8 +73,7 @@ const Button = ({
     none: '',
     primary: 'bg-tahiti-700 text-white hover:opacity-80',
     secondary:
-      'text-green text-sm bg-white border border-gray-100 ' +
-      'hover:text-tahiti-800',
+      'text-green bg-white border border-gray-100 hover:text-tahiti-800',
     transparent:
       'bg-transparent text-white hover:bg-tahiti-700 hover:text-white',
     pattern_1_on: 'bg-transparent text-white hover:bg-white hover:text-black',
