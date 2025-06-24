@@ -1,4 +1,8 @@
-import { TYPE_SUGGESTIONS, YEAR_SUGGESTIONS } from '../data/search';
+import {
+  TAG_SUGGESTIONS,
+  TYPE_SUGGESTIONS,
+  YEAR_SUGGESTIONS,
+} from '../data/search';
 import {
   AdjustmentsVerticalIcon,
   BarsArrowDownIcon,
@@ -101,6 +105,12 @@ export const getSuggestionsOptions = (option, t) => {
       data: YEAR_SUGGESTIONS,
       option: 'year',
       title: t('Section.Search.YearSuggestions'),
+    };
+  } else if (option === 'tags') {
+    res = {
+      data: TAG_SUGGESTIONS,
+      option: 'tags',
+      title: t('Section.Search.TagsSuggestions'),
     };
   }
 

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
-import LoginForm from '../../forms/LoginForm/LoginForm';
+import RegisterForm from '../../forms/RegisterForm/RegisterForm';
 import { getByTestId } from '../../lib/helper';
 
-const PageLogin = ({ testId }) => {
+const PageRegister = ({ testId }) => {
   return (
     <div
       className={twMerge(
@@ -12,17 +12,17 @@ const PageLogin = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
-      <LoginForm />
+      <RegisterForm />
     </div>
   );
 };
 
-export default PageLogin;
+export default PageRegister;
 
-PageLogin.propTypes = {
+PageRegister.propTypes = {
   testId: PropTypes.string,
 };
 
-PageLogin.defaultProps = {
+PageRegister.defaultProps = {
   testId: '',
 };

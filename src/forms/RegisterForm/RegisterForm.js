@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import * as yup from 'yup';
-import { Button, Input } from '../../components';
-import { getByTestId } from '../../lib/helper';
-import { emailSchema } from '../../lib/yupHelpers';
+import { Button, Input, Panel } from '../../components';
+import { NewspaperIcon } from '../../images';
+import { emailSchema, simplePasswordSchema } from '../../lib/yupHelpers';
 
 const RegisterForm = ({ testId }) => {
   const { t } = useTranslation();
@@ -16,6 +16,7 @@ const RegisterForm = ({ testId }) => {
     firstName: yup.string().required(t('Form.FormErrorNotBlank')),
     lastName: yup.string().required(t('Form.FormErrorNotBlank')),
     email: emailSchema(t),
+    password: simplePasswordSchema(t),
   });
 
   const formik = useFormik({
@@ -23,6 +24,7 @@ const RegisterForm = ({ testId }) => {
       firstName: '',
       lastName: '',
       email: '',
+      password: '',
     },
     validateOnChange: validateAfterSubmit,
     validationSchema: validationSchema,
@@ -37,27 +39,33 @@ const RegisterForm = ({ testId }) => {
     formik.handleSubmit();
   };
 
-  return (
-    <div
-      className={twMerge(
-        'w-full mt-2 flex flex-col',
-        'justify-center items-center',
-      )}
-      {...getByTestId(testId, 'container')}
-    >
-      <label className="mb-4 mt-2">{t('Navigation.Register')}</label>
+  const handleFormReset = () => {
+    formik.resetForm({ email: '', password: '' });
+  };
 
+  const handleClearFormikField = (value) => {
+    formik.setFieldValue(value, '');
+  };
+
+  return (
+    <Panel
+      name={t('Form.RegisterForm')}
+      icon={<NewspaperIcon className="h-4 w-4 mr-2 text-gray" />}
+    >
       <form onSubmit={handleSubmit} className={twMerge('flex flex-col')}>
         <Input
           id="firstName"
           label={t('Form.FirstName')}
           name="firstName"
           type="text"
-          placeholder="First Name"
+          placeholder={t('Form.FirstName')}
           onChange={formik.handleChange}
           value={formik.values.firstName}
           additionalClasses="mb-2 h-[60px]"
           error={formik.errors.firstName}
+          hasClear={true}
+          isRequired={true}
+          onClear={() => handleClearFormikField('firstName')}
         />
 
         <Input
@@ -65,11 +73,14 @@ const RegisterForm = ({ testId }) => {
           label={t('Form.LastName')}
           name="lastName"
           type="text"
-          placeholder="Last Name"
+          placeholder={t('Form.LastName')}
           onChange={formik.handleChange}
           value={formik.values.lastName}
           additionalClasses="mb-2 h-[60px]"
           error={formik.errors.lastName}
+          hasClear={true}
+          isRequired={true}
+          onClear={() => handleClearFormikField('lastName')}
         />
 
         <Input
@@ -77,16 +88,51 @@ const RegisterForm = ({ testId }) => {
           label={t('Form.EmailAdress')}
           name="email"
           type="email"
-          placeholder="Email Adress"
+          placeholder={t('Form.EmailAdress')}
           onChange={formik.handleChange}
           value={formik.values.email}
           additionalClasses="mb-2 h-[60px]"
           error={formik.errors.email}
+          hasClear={true}
+          isRequired={true}
+          onClear={() => handleClearFormikField('email')}
         />
 
-        <Button type="submit" name="Submit" additionalClasses={'m-0 mt-4'} />
+        <Input
+          id="password"
+          label={t('Form.Password')}
+          name="password"
+          type="password"
+          placeholder={t('Form.Password')}
+          autocomplete="current-password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+          additionalClasses="mb-2 h-[60px]"
+          error={formik.errors.password}
+          isRequired={true}
+          hasClear={true}
+          onClear={() => handleClearFormikField('password')}
+          hasShowHide={true}
+        />
+
+        <div className="flex flex-row m-auto">
+          <Button
+            type="submit"
+            name={t('Form.Submit')}
+            additionalClasses={'m-0 mt-4 px-4 mr-2'}
+          />
+
+          <Button
+            type="reset"
+            name={t('Form.Reset')}
+            theme="secondary"
+            hover="primary"
+            onClick={handleFormReset}
+            additionalClasses={'m-0 mt-4 px-4'}
+          />
+        </div>
       </form>
-    </div>
+    </Panel>
   );
 };
 

@@ -13,19 +13,11 @@ const SORT_OPTIONS = [
   { value: 'desc', name: 'Descending' },
 ];
 
+const TAG_SUGGESTIONS = ['website', 'javascript', 'react', 'playground'];
+
 const TYPE_SUGGESTIONS = ['animation', 'design', 'tool', 'website', 'widget'];
 
-const YEAR_SUGGESTIONS = [
-  '2025',
-  '2024',
-  '2023',
-  '2022',
-  '2021',
-  '2020',
-  '2018',
-  '2017',
-  '2014',
-];
+const YEAR_SUGGESTIONS = ['2025', '2024', '2023', '2022', '2021'];
 
 const GRID_OPTIONS = [
   { name: 1, value: '400px' },
@@ -58,6 +50,7 @@ export {
   SEARCH_FILTERS_OPTIONS,
   SEARCH_ON_RESET,
   SORT_OPTIONS,
+  TAG_SUGGESTIONS,
   TYPE_SUGGESTIONS,
   YEAR_SUGGESTIONS,
 };

@@ -13,6 +13,8 @@ export {
   ClipboardIcon,
   CloudArrowDownIcon,
   CreditCardIcon,
+  EyeIcon,
+  EyeSlashIcon,
   FlagIcon,
   GlobeAltIcon,
   InboxIcon,

@@ -34,6 +34,7 @@ const PageHome = ({ testId }) => {
   const [dataPaginationPages, setDataPaginationPages] = useState(1);
   const [dataPaginationPageSelected, setDataPaginationPageSelected] =
     useState(0);
+  const [filterOpen, setFilterOpen] = useState(false);
 
   /* :: Modal :: */
   const [modalOpen, setModalOpen] = useState(false);
@@ -135,6 +136,10 @@ const PageHome = ({ testId }) => {
     handleSearch();
   };
 
+  const handleFilterOpen = (value) => {
+    setFilterOpen(value);
+  };
+
   return (
     <div
       className={twMerge(
@@ -156,9 +161,10 @@ const PageHome = ({ testId }) => {
         handleGridView={handleGridView}
         handleItemsLimitPage={handleItemsLimitPage}
         handleReset={handleReset}
+        onFilterOpen={handleFilterOpen}
       />
 
-      {suggestionsOptions?.data && (
+      {suggestionsOptions?.data && filterOpen && (
         <Suggestions
           handleSearch={handleSearch}
           searchValue={searchValue}

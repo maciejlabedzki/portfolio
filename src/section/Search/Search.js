@@ -23,6 +23,7 @@ const Search = ({
   handleItemsLimitPage,
   resultNumber,
   handleReset,
+  onFilterOpen,
   testId,
 }) => {
   const { t } = useTranslation();
@@ -56,6 +57,7 @@ const Search = ({
 
   const handleFilterOpen = () => {
     setFilterOpen(!filterOpen);
+    onFilterOpen(!filterOpen);
   };
 
   const handleSort = (value) => {

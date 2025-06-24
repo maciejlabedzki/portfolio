@@ -14,6 +14,7 @@ import {
   PageHome,
   PageLogin,
   PageNoAccess,
+  PageRegister,
 } from '../pages';
 
 export const ProtectedAdminPage = ({ children }) => {
@@ -40,6 +41,7 @@ const router = createBrowserRouter(
         <Route path="/cookies" element={<PageCookies />} />
         <Route path="/features" element={<PageFeatures />} />
         <Route path="/login" element={<PageLogin />} />
+        <Route path="/register" element={<PageRegister />} />
         <Route
           path="/admin"
           element={<ProtectedAdminPage children={<PageAdmin />} />}

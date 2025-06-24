@@ -73,7 +73,8 @@
       "ResultNumber": "Result Number",
       "SearchBy": "Search by",
       "TypeSuggestions": "Type suggestions:",
-      "YearSuggestions": "Year suggestions:"
+      "YearSuggestions": "Year suggestions:",
+      "TagsSuggestions": "Tags suggestions"
     }
   },
   "Welcome": {
@@ -90,6 +91,9 @@
     "FormErrorNotBlank":"Not blank",
     "FormErrorPasswordIsRequired":"Password is required",
     "FormErrorPasswordMinimumLength": "Password minimum word length is {{length}}",
-    "LoginForm":"Login Form"
+    "LoginForm":"Login Form",
+    "RegisterForm": "Register Form",
+    "Submit": "Submit",
+    "Reset": "Reset"
   }
 }

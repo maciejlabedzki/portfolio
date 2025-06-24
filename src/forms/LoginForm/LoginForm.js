@@ -39,6 +39,10 @@ const LoginForm = ({ testId }) => {
     formik.resetForm({ email: '', password: '' });
   };
 
+  const handleClearFormikField = (value) => {
+    formik.setFieldValue(value, '');
+  };
+
   return (
     <Panel
       name={t('Form.LoginForm')}
@@ -58,7 +62,7 @@ const LoginForm = ({ testId }) => {
           error={formik.errors.email}
           hasClear={true}
           isRequired={true}
-          onClear={() => formik.setFieldValue('email', '')}
+          onClear={() => handleClearFormikField('email')}
         />
 
         <Input
@@ -74,19 +78,22 @@ const LoginForm = ({ testId }) => {
           error={formik.errors.password}
           isRequired={true}
           hasClear={true}
-          onClear={() => formik.setFieldValue('password', '')}
+          onClear={() => handleClearFormikField('password')}
+          hasShowHide={true}
         />
 
         <div className="flex flex-row m-auto">
           <Button
             type="submit"
-            name="Submit"
+            name={t('Form.Submit')}
             additionalClasses={'m-0 mt-4 px-4 mr-2'}
           />
 
           <Button
             type="reset"
-            name="Reset"
+            name={t('Form.Reset')}
+            theme="secondary"
+            hover="primary"
             onClick={handleFormReset}
             additionalClasses={'m-0 mt-4 px-4'}
           />

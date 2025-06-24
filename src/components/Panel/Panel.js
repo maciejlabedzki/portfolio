@@ -26,7 +26,7 @@ const Panel = ({
         <label
           className={twMerge(
             'mb-4 mt-2 flex flex-row justify-center items-center',
-            'font-bold bg-white px-2 absolute top-[-20px]',
+            'font-bold bg-white px-2 pr-3 absolute top-[-20px]',
             'border border-gray-50 rounded-xl',
             additionalClassesLabel,
           )}

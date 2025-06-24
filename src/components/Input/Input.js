@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
+import { EyeIcon, EyeSlashIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
 import Button from '../Button/Button';
 
@@ -22,9 +23,12 @@ const Input = ({
   additionalInputClasses,
   additionalLabelClasses,
   isRequired,
+  hasShowHide,
 }) => {
   const { t } = useTranslation();
   const [currentValue, setCurrentValue] = useState(value);
+  const [showPassword, setShowPassword] = useState(false);
+  const [currentType, setCurrentType] = useState(type);
 
   useEffect(() => {
     setCurrentValue(value);
@@ -38,6 +42,11 @@ const Input = ({
   const handleOnClear = () => {
     setCurrentValue('');
     onClear?.();
+  };
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+    setCurrentType(showPassword ? 'text' : type);
   };
 
   return (
@@ -65,10 +74,32 @@ const Input = ({
           onChange={handleOnChange}
           value={currentValue}
           placeholder={placeholder}
-          type={type}
+          type={currentType}
           autoComplete={autocomplete}
           {...getByTestId(testId, 'container')}
         />
+
+        {hasShowHide && (
+          <div
+            className={twMerge(
+              'absolute right-1 top-1.5 text-gray-50 hover:text-black',
+              'cursor-pointer',
+              hasClear && 'right-8',
+            )}
+          >
+            {showPassword ? (
+              <EyeIcon
+                className={twMerge('h-4 w-4')}
+                onClick={handleShowPassword}
+              />
+            ) : (
+              <EyeSlashIcon
+                className={twMerge('h-4 w-4')}
+                onClick={handleShowPassword}
+              />
+            )}
+          </div>
+        )}
 
         {hasClear && (
           <Button

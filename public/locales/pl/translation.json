@@ -73,7 +73,8 @@
       "ResultNumber": "Numer wyniku",
       "SearchBy": "Szukaj po",
       "TypeSuggestions": "Sugestia typ:",
-      "YearSuggestions": "Sugestia rok:"
+      "YearSuggestions": "Sugestia rok:",
+      "TagsSuggestions": "Sugestia tag:"
     }
   },
   "Welcome": {
@@ -90,6 +91,9 @@
     "FormErrorNotBlank":"Nie może być pusty",
     "FormErrorPasswordIsRequired":"Hasło jest wymagane",
     "FormErrorPasswordMinimumLength": "Minimalna długość hasła to {{length}}",
-    "LoginForm":"Formularz logowania"
+    "LoginForm":"Formularz logowania",
+    "RegisterForm": "Formularz rejestracji",
+    "Submit": "Prześlij",
+    "Reset": "Resetuj"
   }
 }
