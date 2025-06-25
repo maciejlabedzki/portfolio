@@ -1,6 +1,6 @@
 const SEARCH_FILTERS_OPTIONS = [
   { value: 'desc', name: 'Description' },
-  { value: 'id', name: 'ID' },
+  { value: 'id', name: 'Id' },
   { value: 'link', name: 'Link' },
   { value: 'name', name: 'Name' },
   { value: 'tags', name: 'Tags' },

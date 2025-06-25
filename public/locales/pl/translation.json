@@ -57,6 +57,10 @@
     "Type": "Typ",
     "Year": "Rok"
   },
+  "SearchSortOptions": {
+    "Ascending": "Rosnąco",
+    "Descending": "Malejąco" 
+  },
   "Section": {
     "Filters": {
       "CardLimit": "Limit kart:",

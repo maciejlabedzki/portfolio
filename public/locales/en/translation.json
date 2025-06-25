@@ -57,6 +57,10 @@
     "Type": "Type",
     "Year": "Year"
   },
+  "SearchSortOptions": {
+    "Ascending": "Ascending",
+    "Descending": "Descending" 
+  },
   "Section": {
     "Filters": {
       "CardLimit": "Card Limit:",

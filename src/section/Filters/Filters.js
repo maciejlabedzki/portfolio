@@ -86,6 +86,8 @@ const Filters = ({
               value={currentSort}
               onChange={handleSortChange}
               additionalClasses={'min-w-[200px]'}
+              translateKey="SearchSortOptions"
+              translated={true}
             />
           }
         />
