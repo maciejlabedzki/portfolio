@@ -24,7 +24,7 @@ const Layout = ({ testId, children }) => {
 
   return (
     <div
-      className="flex flex-col w-full min-h-[100vh]"
+      className="flex flex-col w-full min-h-[100vh] overflow-hidden"
       {...getByTestId(testId, 'container')}
     >
       <OwnerDetails data={userStorage} />

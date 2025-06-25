@@ -15,6 +15,7 @@ import {
   getSuggestionsOptions,
 } from '../../lib/helper';
 import { Search } from '../../section';
+import Loading from '../../section/Loading/Loading';
 
 const PageHome = ({ testId }) => {
   const { t } = useTranslation();
@@ -24,6 +25,7 @@ const PageHome = ({ testId }) => {
   ] = useState(DEFAULT_CARD);
   const [dataFiltered, setDataFiltered] = useState(DEFAULT_CARD);
   const [dataLimited, setDataLimited] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
 
   /* :: Search & Filters :: */
   const [searchBy, setSearchby] = useState('year');
@@ -64,6 +66,17 @@ const PageHome = ({ testId }) => {
   useEffect(() => {
     handleUpdateData();
   }, [handleUpdateData]);
+
+  const handleFakePageLoadingScreen = useCallback(() => {
+    // TODO: move metchod to correct data fetch metchod
+    setTimeout(() => {
+      setDataLoading(false);
+    }, 500);
+  }, []);
+
+  useEffect(() => {
+    handleFakePageLoadingScreen();
+  }, [handleFakePageLoadingScreen]);
 
   const handleSearch = (value, option, sortDirection) => {
     const searchOption = option || searchBy;
@@ -148,6 +161,8 @@ const PageHome = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
+      {dataLoading && <Loading />}
+
       <Search
         onSearch={handleSearch}
         onSearchBy={handleFilterBy}

@@ -8,7 +8,7 @@ import { getByTestId, getSorted } from '../../lib/helper';
 import FeatureItem from './subcomponents/FeatureItem';
 
 const PageFeatures = ({ testId }) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const { isAdmin } = useContext(UserContext);
   const [features, setFeatures] = useState([]);
 
@@ -37,12 +37,14 @@ const PageFeatures = ({ testId }) => {
     >
       {isAdmin && (
         <div className="w-full bg-gray-50 py-2 flex justify-center font-bold">
-          [ Admin ]
+          {t('Navigation.Admin')}
         </div>
       )}
 
       <div className="w-full bg-gray-50 py-2 flex justify-center mb-4">
-        {`Portfolio Features List (${FEATURES_DATA.length})`}
+        {t('Page.Features.PortfolioFeaturesList', {
+          len: FEATURES_DATA.length,
+        })}
       </div>
 
       {features.map((item) => (
@@ -53,6 +55,7 @@ const PageFeatures = ({ testId }) => {
           type={item.type}
           status={item.status}
           icon={item.isIconByType}
+          id={item.id}
         />
       ))}
     </div>

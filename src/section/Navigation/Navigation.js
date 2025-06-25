@@ -4,8 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 import { Button, NavigationLink } from '../../components';
-import { NAVIGATION_DATA } from '../../data/navigation';
-import { FlagIcon } from '../../images';
+import Dropdown from '../../components/Dropdown/Dropdown';
+import { NAVIGATION_DATA, NAVIGATION_USER_DATA } from '../../data/navigation';
+import { FlagIcon, UserIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
 import { getLocalStorage, setLocalStorage } from '../../lib/localstorage';
 
@@ -55,7 +56,25 @@ const Navigation = ({ testId }) => {
         ))}
       </div>
 
-      <div className="flex flex-row mt-0.5">
+      <div className="flex flex-row mt-0.5 justify-center items-center">
+        <Dropdown
+          icon={<UserIcon className="w-4 h-4 text-white" />}
+          additionalClasses="mr-2"
+        >
+          {NAVIGATION_USER_DATA.map((nav) => (
+            <NavigationLink
+              key={nav.name}
+              name={t(`Navigation.${nav.name}`)}
+              linkPath={nav.path}
+              active={location.pathname === nav.path}
+              hidden={
+                nav.admin
+                  ? !JSON.parse(process.env.REACT_APP_ADMIN) || false
+                  : false
+              }
+            />
+          ))}
+        </Dropdown>
         <Button
           icon={<FlagIcon className="w-4 h-4 mr-1" />}
           name="en"

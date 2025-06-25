@@ -1,6 +1,6 @@
 {
-  "name": "react-tailwind-css-stater",
-  "version": "1.0.1",
+  "name": "portfolio-website-m-labedzki",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "react-scripts build",

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
+import packageJsonInfo from '../../../package.json';
 import { Paragraph } from '../../components';
 import { getByTestId } from '../../lib/helper';
 
@@ -12,7 +13,7 @@ const Footer = ({ testId }) => {
     <div
       className={twMerge(
         'fixed bottom-0 bg-black-200',
-        'z-40 flex justify-center w-full ',
+        'z-40 flex justify-center items-center w-full ',
       )}
       {...getByTestId(testId, 'container')}
     >
@@ -22,6 +23,7 @@ const Footer = ({ testId }) => {
           currentYear,
         })}
       />
+      <span className="text-white text-xs">v.{packageJsonInfo.version}</span>
     </div>
   );
 };

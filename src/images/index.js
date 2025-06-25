@@ -26,6 +26,7 @@ export {
   SquaresPlusIcon,
   StopIcon,
   TagIcon,
+  UserIcon,
   ViewColumnsIcon,
   WrenchIcon,
   XMarkIcon,

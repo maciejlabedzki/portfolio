@@ -24,7 +24,8 @@
     "Filters": "Filters",
     "Language": "Language {{lng}}",
     "ScrollTop": "Scroll Top",
-    "Search": "Search"
+    "Search": "Search",
+    "PleaseWaitDots":"Please wait ..."
   },
   "Navigation": {
     "Admin": "Admin",
@@ -42,6 +43,9 @@
     },
     "NoAccessPage": {
       "Header": "Page blocked. No access."
+    },
+    "Features":{
+      "PortfolioFeaturesList":"Portfolio Features List ( {{len}} )"
     }
   },
   "SearchFiltersOptions": {
