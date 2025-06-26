@@ -16,16 +16,16 @@ const CardName = ({ name, header, testId }) => {
       {...getByTestId(testId, 'container')}
     >
       {header && (
-        <label
+        <span
           className={twMerge(
             'text-[9px] lowercase font-bold m-0 px-2 py-0 w-fit mb-2 text-black',
             'absolute rounded-full ml-2 left-0 top-[-8px] border border-gray-50',
             'bg-white h-[15px] leading-none flex justify-center items-center bg-white z-40',
           )}
-          {...getByTestId(testId, 'label')}
+          {...getByTestId(testId, 'header')}
         >
           {header}
-        </label>
+        </span>
       )}
       <span {...getByTestId(testId, 'name')}>{name}</span>
     </div>

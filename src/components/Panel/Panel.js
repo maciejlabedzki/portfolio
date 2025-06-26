@@ -23,7 +23,7 @@ const Panel = ({
       {...getByTestId(testId, 'container')}
     >
       {(name || icon) && (
-        <label
+        <span
           className={twMerge(
             'mb-4 mt-2 flex flex-row justify-center items-center',
             'font-bold bg-white px-2 pr-3 absolute top-[-20px]',
@@ -37,7 +37,7 @@ const Panel = ({
           {name && (
             <span className={twMerge('', additionalClassesName)}>{name}</span>
           )}
-        </label>
+        </span>
       )}
       {children}
     </div>

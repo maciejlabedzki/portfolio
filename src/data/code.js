@@ -3,6 +3,8 @@ import {
   Code10,
   Code11,
   Code12,
+  Code13,
+  Code14,
   Code2,
   Code3,
   Code4,
@@ -55,6 +57,11 @@ const CODE_DATA = [
     icon: Code8,
   },
   {
+    id: 14,
+    name: 'Tailwind',
+    icon: Code14,
+  },
+  {
     id: 11,
     name: 'Sass',
     icon: Code11,
@@ -68,6 +75,11 @@ const CODE_DATA = [
     id: 1,
     name: 'Adobe Ilustrator',
     icon: Code1,
+  },
+  {
+    id: 13,
+    name: 'Figma',
+    icon: Code13,
   },
   {
     id: 9,

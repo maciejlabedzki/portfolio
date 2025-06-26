@@ -49,7 +49,7 @@
     }
   },
   "SearchFiltersOptions": {
-    "Description": "Description",
+    "Desc": "Description",
     "Id": "Id",
     "Link": "Link",
     "Name": "Name",
@@ -80,8 +80,8 @@
       "Reset": "Reset",
       "ResultNumber": "Result Number",
       "SearchBy": "Search by",
-      "TypeSuggestions": "Type suggestions:",
-      "YearSuggestions": "Year suggestions:",
+      "TypeSuggestions": "Type suggestions",
+      "YearSuggestions": "Year suggestions",
       "TagsSuggestions": "Tags suggestions"
     }
   },

@@ -75,7 +75,7 @@ const Search = ({
       <div className="max-w-[1200px] flex flex-col items-center sm:flex-row m-auto">
         <LabeledContainer
           icon={<MagnifyingGlassIcon className="w-4 h-4" />}
-          label={t('Global.Search')}
+          name={t('Global.Search')}
           children={
             <div className="flex justify-center items-center">
               <Input

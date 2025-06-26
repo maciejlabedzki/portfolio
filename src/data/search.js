@@ -1,5 +1,5 @@
 const SEARCH_FILTERS_OPTIONS = [
-  { value: 'desc', name: 'Description' },
+  { value: 'desc', name: 'Desc' },
   { value: 'id', name: 'Id' },
   { value: 'link', name: 'Link' },
   { value: 'name', name: 'Name' },

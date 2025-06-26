@@ -29,7 +29,7 @@ const CardDescription = ({ desc, header, textOpen, textClose, testId }) => {
       {...getByTestId(testId, 'container')}
     >
       {header && (
-        <label
+        <span
           className={twMerge(
             'text-[9px] lowercase px-2 font-bold m-0 px-2 py-0 w-fit mb-2 text-black',
             'absolute bg-red rounded-full ml-2 left-0 top-[-8px] border border-gray-50',
@@ -38,7 +38,7 @@ const CardDescription = ({ desc, header, textOpen, textClose, testId }) => {
           {...getByTestId(testId, 'header')}
         >
           {header}
-        </label>
+        </span>
       )}
 
       <span

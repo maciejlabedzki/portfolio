@@ -7,11 +7,20 @@ const Suggestions = ({ data, handleSearch, searchValue, title, option }) => {
       className={twMerge(
         'flex flex-wrap sm:flex-row max-w-full min-w-full',
         'mt-0 pt-2 pb-2 w-full justify-center items-center',
-        'bg-black-300 border-t border-black-300',
+        'bg-black-200 border-t border-black-300',
         'text-white relative',
+        title && 'pt-4',
       )}
     >
-      <label className="text-white px-2">{title}</label>
+      {title && (
+        <span
+          className={twMerge(
+            'absolute top-[-14px] bg-black-200 px-2 text-white',
+          )}
+        >
+          {title}
+        </span>
+      )}
 
       <div className="flex flex-wrap justify-center">
         {data?.map((item) => (

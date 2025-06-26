@@ -56,14 +56,14 @@ const Filters = ({
         'relative mt-2 flex flex-wrap',
       )}
     >
-      <label className="absolute top-[-14px] z-20 bg-black-200 px-2">
+      <span className="absolute top-[-14px] z-20 bg-black-200 px-2">
         {t('Global.Filters')}
-      </label>
+      </span>
 
       <section className="w-full flex flex-wrap justify-center">
         <LabeledContainer
           icon={<TagIcon className="w-4 h-4" />}
-          label={t('Section.Filters.SearchBy')}
+          name={t('Section.Filters.SearchBy')}
           children={
             <Select
               options={SEARCH_FILTERS_OPTIONS}
@@ -73,13 +73,15 @@ const Filters = ({
               translateKey="SearchFiltersOptions"
               translated={true}
               sorted={true}
+              name="searchBy"
+              id="searchBy"
             />
           }
         />
 
         <LabeledContainer
           icon={<ArrowsUpDownIcon className="w-4 h-4" />}
-          label={t('Section.Filters.Sort')}
+          name={t('Section.Filters.Sort')}
           children={
             <Select
               options={SORT_OPTIONS}
@@ -88,6 +90,8 @@ const Filters = ({
               additionalClasses={'min-w-[200px]'}
               translateKey="SearchSortOptions"
               translated={true}
+              name="sort"
+              id="sort"
             />
           }
         />
@@ -96,7 +100,7 @@ const Filters = ({
       <section className="w-full flex flex-wrap justify-center">
         <LabeledContainer
           icon={<ViewColumnsIcon className="w-4 h-4" />}
-          label={t('Section.Filters.MaxColumns')}
+          name={t('Section.Filters.MaxColumns')}
           children={
             <ButtonList
               data={GRID_OPTIONS}
@@ -108,7 +112,7 @@ const Filters = ({
 
         <LabeledContainer
           icon={<SquaresPlusIcon className="w-4 h-4" />}
-          label={t('Section.Filters.CardLimit')}
+          name={t('Section.Filters.CardLimit')}
           children={
             <ButtonList
               data={PAGINATION_COUNTER}

@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
 import { CODE_DATA } from '../../data/code';
+import { getByTestId } from '../../lib/helper';
 
-const Code = () => {
+const Code = ({ testId }) => {
   return (
     <div
       className={twMerge(
@@ -9,8 +11,9 @@ const Code = () => {
         'justify-center items-center',
         'border-black-400 border-1 border-t',
       )}
+      {...getByTestId(testId, 'container')}
     >
-      <div className="flex flex-wrap sm:flex-row max-w-[550px] m-auto">
+      <div className="flex flex-wrap sm:flex-row max-w-[620px] m-auto">
         {CODE_DATA?.map((code) => (
           <img
             src={code.icon}
@@ -28,3 +31,11 @@ const Code = () => {
 };
 
 export default Code;
+
+Code.propTypes = {
+  testId: PropTypes.string,
+};
+
+Code.defaultProps = {
+  testId: '',
+};

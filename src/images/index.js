@@ -97,6 +97,7 @@ export { default as PortfolioImg98 } from './portfilio/98/img.png';
 export { default as PortfolioImg99 } from './portfilio/99/img.png';
 
 export { default as Code1 } from './code/ai.png';
+export { default as Code13 } from './code/figma.png';
 export { default as Code2 } from './code/flotiq.png';
 export { default as Code3 } from './code/git.png';
 export { default as Code4 } from './code/heroicon.png';
@@ -107,4 +108,5 @@ export { default as Code8 } from './code/nodejs.png';
 export { default as Code9 } from './code/ps.png';
 export { default as Code10 } from './code/react.png';
 export { default as Code11 } from './code/sass.png';
+export { default as Code14 } from './code/tailwind.png';
 export { default as Code12 } from './code/vsc.png';

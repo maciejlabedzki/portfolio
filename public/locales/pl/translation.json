@@ -49,7 +49,7 @@
     }
   },
   "SearchFiltersOptions": {
-    "Description": "Opis",
+    "Desc": "Opis",
     "ID": "Id",
     "Link": "Link",
     "Name": "Nazwa",

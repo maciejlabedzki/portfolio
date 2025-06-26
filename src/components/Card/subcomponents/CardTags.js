@@ -30,7 +30,7 @@ const CardTags = ({ header, onClick, tags, tagsLimit, testId }) => {
       {...getByTestId(testId, 'container')}
     >
       {header && (
-        <label
+        <span
           className={twMerge(
             'text-xs lowercase px-2 font-bold m-0',
             'px-2 py-0 w-fit mb-2 text-black',
@@ -40,7 +40,7 @@ const CardTags = ({ header, onClick, tags, tagsLimit, testId }) => {
           {...getByTestId(testId, 'header')}
         >
           {header}
-        </label>
+        </span>
       )}
 
       <div

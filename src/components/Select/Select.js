@@ -13,6 +13,8 @@ const Select = ({
   translated,
   translateKey,
   testId,
+  id,
+  name,
 }) => {
   const { t } = useTranslation();
   const [val, setVal] = useState(value);
@@ -46,6 +48,8 @@ const Select = ({
 
   return (
     <select
+      name={name}
+      id={id}
       className={twMerge(
         'text-black mr-1 rounded px-2 text-md h-fit',
         additionalClasses,

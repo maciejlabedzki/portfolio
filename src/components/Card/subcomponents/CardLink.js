@@ -31,7 +31,7 @@ const CardLink = ({
       {...getByTestId(testId, 'container')}
     >
       {header && (
-        <label
+        <span
           className={twMerge(
             'text-[9px] lowercase px-2 font-bold m-0 px-2 py-0 w-fit mb-2',
             'absolute rounded-full ml-2 left-0 top-[-8px]',
@@ -40,7 +40,7 @@ const CardLink = ({
           {...getByTestId(testId, 'header')}
         >
           {header}
-        </label>
+        </span>
       )}
 
       {linkAvailable ? (

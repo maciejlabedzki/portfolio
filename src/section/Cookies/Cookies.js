@@ -1,10 +1,12 @@
+import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '../../components';
+import { getByTestId } from '../../lib/helper';
 import { getLocalStorage, setLocalStorage } from '../../lib/localstorage';
 
-const Cookies = () => {
+const Cookies = ({ testId }) => {
   const { t } = useTranslation();
   const [cookiesVisible, setCookiesVisible] = useState(false);
 
@@ -36,6 +38,7 @@ const Cookies = () => {
         'items-center flex-col sm:flex-row opacity-90',
         cookiesVisible && 'hidden',
       )}
+      {...getByTestId(testId, 'container')}
     >
       <div className="max-w-[1200px]">
         <span className="mr-1">{t('Global.CookiesInfoUse')}</span>
@@ -61,3 +64,11 @@ const Cookies = () => {
 };
 
 export default Cookies;
+
+Cookies.propTypes = {
+  testId: PropTypes.string,
+};
+
+Cookies.defaultProps = {
+  testId: '',
+};
