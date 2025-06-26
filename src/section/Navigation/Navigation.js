@@ -32,6 +32,16 @@ const Navigation = ({ testId }) => {
     [i18n],
   );
 
+  const validateNavigationHidden = (visible, admin) => {
+    if (visible === false) {
+      return true;
+    } else if (admin) {
+      return !JSON.parse(process.env.REACT_APP_ADMIN) || false;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div
       className={twMerge(
@@ -47,11 +57,7 @@ const Navigation = ({ testId }) => {
             name={t(`Navigation.${nav.name}`)}
             linkPath={nav.path}
             active={location.pathname === nav.path}
-            hidden={
-              nav.admin
-                ? !JSON.parse(process.env.REACT_APP_ADMIN) || false
-                : false
-            }
+            hidden={validateNavigationHidden(nav.visible, nav.admin)}
           />
         ))}
       </div>
@@ -67,11 +73,7 @@ const Navigation = ({ testId }) => {
               name={t(`Navigation.${nav.name}`)}
               linkPath={nav.path}
               active={location.pathname === nav.path}
-              hidden={
-                nav.admin
-                  ? !JSON.parse(process.env.REACT_APP_ADMIN) || false
-                  : false
-              }
+              hidden={validateNavigationHidden(nav.visible, nav.admin)}
             />
           ))}
         </Dropdown>

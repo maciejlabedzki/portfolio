@@ -20,6 +20,10 @@ const Dropdown = ({
     setOpen(!open);
   };
 
+  const handleCloseOnClick = () => {
+    setOpen(false);
+  };
+
   const styleTheme = {
     dark: ' bg-black-300 text-white border-gray',
     light: ' bg-white text-black',
@@ -60,6 +64,7 @@ const Dropdown = ({
             styleTheme[theme],
             styleAlign[align],
           )}
+          onClick={handleCloseOnClick}
         >
           {children}
         </div>

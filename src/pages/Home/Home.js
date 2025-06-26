@@ -15,6 +15,7 @@ import {
   getSuggestionsOptions,
 } from '../../lib/helper';
 import { Search } from '../../section';
+import Code from '../../section/Code/Code';
 import Loading from '../../section/Loading/Loading';
 
 const PageHome = ({ testId }) => {
@@ -188,6 +189,8 @@ const PageHome = ({ testId }) => {
           option={suggestionsOptions?.option}
         />
       )}
+
+      <Code />
 
       <div
         className={twMerge(
