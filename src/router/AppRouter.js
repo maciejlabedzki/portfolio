@@ -42,6 +42,7 @@ const router = createBrowserRouter(
         <Route path="/features" element={<PageFeatures />} />
         <Route path="/login" element={<PageLogin />} />
         <Route path="/register" element={<PageRegister />} />
+        <Route path="/noaccess" element={<PageNoAccess />} />
         <Route
           path="/admin"
           element={<ProtectedAdminPage children={<PageAdmin />} />}

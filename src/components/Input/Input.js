@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { EyeIcon, EyeSlashIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
-import Button from '../Button/Button';
+import { Button } from '../index';
 
 const Input = ({
   id,
@@ -24,6 +24,7 @@ const Input = ({
   additionalLabelClasses,
   isRequired,
   hasShowHide,
+  ref,
 }) => {
   const { t } = useTranslation();
   const [currentValue, setCurrentValue] = useState(value);
@@ -76,6 +77,7 @@ const Input = ({
           placeholder={placeholder}
           type={currentType}
           autoComplete={autocomplete}
+          ref={ref}
           {...getByTestId(testId, 'container')}
         />
 

@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { XMarkIcon } from '../../images';
-import Button from '../Button/Button';
-import Loader from '../Loader/Loader';
+import { Button, Loader } from '../index';
 
 const Modal = ({ data, open, handleClose }) => {
   const { t } = useTranslation();

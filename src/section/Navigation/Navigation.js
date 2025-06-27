@@ -66,6 +66,9 @@ const Navigation = ({ testId }) => {
         <Dropdown
           icon={<UserIcon className="w-4 h-4 text-white" />}
           additionalClasses="mr-2"
+          theme="dark"
+          align="topRight"
+          hasBackdrop={true}
         >
           {NAVIGATION_USER_DATA.map((nav) => (
             <NavigationLink

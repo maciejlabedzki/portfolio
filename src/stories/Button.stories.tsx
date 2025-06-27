@@ -1,6 +1,6 @@
 import { fn } from 'storybook/test';
 
-import { Button } from '../components/index';
+import Button from '../components/Button/Button';
 
 export default {
   title: 'Components/Button',

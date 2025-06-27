@@ -16,9 +16,11 @@ const PageNoAccess = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
+      <title>{t('Page.NoAccess.Title')}</title>
+
       <ExclamationTriangleIcon className="w-20 h-20 text-black-400" />
 
-      <span className="text-sm mb-0">{t('Page.NoAccessPage.Header')}</span>
+      <span className="text-sm mb-0">{t('Page.NoAccess.Header')}</span>
 
       <NavigationLink
         to="/"

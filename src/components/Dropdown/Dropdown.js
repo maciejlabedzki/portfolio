@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
-import Button from '../Button/Button';
+import { Button } from '../index';
 
 const Dropdown = ({
   testId,

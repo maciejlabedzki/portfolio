@@ -1,27 +1,48 @@
-import PropTypes from 'prop-types';
+import { MouseEventHandler, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { getByTestId } from '../../lib/helper';
+import { getByTestId } from '../../lib/helpers';
+
+interface Props {
+  name?: string;
+  icon?: any;
+  title?: string;
+  additionalClasses?: string;
+  additionalClassesIcon?: string;
+  additionalClassesName?: string;
+  testId?: any;
+  radius?: 'none' |'small' |'normal' |'big' |'huge' |'full';
+  space?: 'none' | 'small' | 'normal' | 'slim';
+  margin?: 'none' | 'tiny' | 'small' | 'normal';
+  height?:  'small' | 'normal' | 'big' | 'huge' | 'auto' | 'fit' ;
+  width?: 'small' | 'normal' | 'big' | 'huge' | 'auto' | 'fit' ;
+  border?: 'none' | 'normal' | 'secondary';
+  theme?: 'none' | 'primary' | 'secondary' | 'transparent' | 'pattern_1_on' | 'pattern_1_off';
+  hover?: 'none' | 'primary' | 'secondary' | 'inherit' | 'fade'; 
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: MouseEventHandler;
+  children: ReactNode;
+}
 
 const Button = ({
-  name,
-  radius,
-  space,
-  margin,
-  height,
-  width,
-  border,
+  name = "",
+  radius = "normal",
+  space = "small",
+  margin = "small",
+  height = "fit",
+  width = "fit",
+  border = "none",
+  icon = "",
+  theme = "primary",
+  title = "",
+  hover = "none",
+  additionalClasses = "",
+  additionalClassesIcon = "",
+  additionalClassesName = "",
+  type = "button",
+  testId = "",
   onClick,
-  icon,
-  theme,
-  title,
-  hover,
-  additionalClasses,
-  additionalClassesIcon,
-  additionalClassesName,
-  testId,
-  type,
   children,
-}) => {
+}: Props) => {
   const styleBorder = {
     none: 'border-0',
     normal: 'border border-gray-50',
@@ -130,37 +151,5 @@ const Button = ({
 
 export default Button;
 
-Button.propTypes = {
-  /** TODO: Lorem Ipsum */
-  name: PropTypes.any,
-  /** TODO: Lorem Ipsum */
-  testId: PropTypes.string,
-  /** TODO: Lorem Ipsum */
-  radius: PropTypes.oneOf(['none', 'small', 'normal', 'big', 'huge', 'full']),
-  /** TODO: Lorem Ipsum */
-  theme: PropTypes.oneOf([
-    'none',
-    'primary',
-    'secondary',
-    'transparent',
-    'pattern_1_on',
-    'pattern_1_off',
-  ]),
-  /** TODO: Lorem Ipsum */
-  onClick: PropTypes.func,
-};
-
-Button.defaultProps = {
-  name: '',
-  testId: '',
-  radius: 'normal',
-  space: 'small',
-  margin: 'small',
-  height: 'fit',
-  width: 'fit',
-  border: 'none',
-  theme: 'primary',
-  title: '',
-  hover: 'none',
-  onClick: undefined,
-};
+ 
+ 

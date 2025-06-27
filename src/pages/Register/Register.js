@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import RegisterForm from '../../forms/RegisterForm/RegisterForm';
 import { getByTestId } from '../../lib/helper';
 
 const PageRegister = ({ testId }) => {
+  const { t } = useTranslation();
   return (
     <div
       className={twMerge(
@@ -12,6 +14,8 @@ const PageRegister = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
+      <title>{t('Page.Register.Title')}</title>
+
       <RegisterForm />
     </div>
   );

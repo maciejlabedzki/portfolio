@@ -25,6 +25,15 @@ const i18nAlwaysInclude = [
   t('Navigation.Features'),
   t('Navigation.Cookies'),
   t('Navigation.Admin'),
+
+  t('Navigation.Login'),
+  t('Navigation.Register'),
+
+  t('SearchFiltersOptions.Desc'),
+  t('SearchFiltersOptions.Id'),
+
+  t('SearchSortOptions.Ascending'),
+  t('SearchSortOptions.Descending'),
 ];
 
 export default i18nAlwaysInclude;

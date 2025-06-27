@@ -35,6 +35,8 @@ const PageFeatures = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
+      <title>{t('Page.Features.Title')}</title>
+
       {isAdmin && (
         <div className="w-full bg-gray-50 py-2 flex justify-center font-bold">
           {t('Navigation.Admin')}

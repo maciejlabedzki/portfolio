@@ -162,6 +162,8 @@ const PageHome = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
+      <title>{t('Page.Home.Title')}</title>
+
       {dataLoading && <Loading />}
 
       <Search

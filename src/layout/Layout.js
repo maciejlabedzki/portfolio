@@ -44,7 +44,7 @@ const Layout = ({ testId, children }) => {
         onClick={handleScrollTop}
         radius="full"
         additionalClasses={
-          'w-5 h-5 p-4 sm:p-8 z-[100] fixed ' +
+          'w-5 h-5 p-4 sm:p-8 z-[100] fixed bg-tahiti-600 text-white ' +
           'bottom-0 sm:bottom-10 right-0 sm:right-5'
         }
         title={t('Global.ScrollTop')}

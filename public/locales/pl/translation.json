@@ -12,6 +12,21 @@
     "Type": "Typ {{type}}",
     "Year": "Rok {{year}}"
   },
+  "Form": {
+    "EmailAdress": "Adres email",
+    "FirstName": "Imię",
+    "FormErrorEmailIsRequired": "Email jest wymagany",
+    "FormErrorEnterValidEmail": "Błędny adres email",
+    "FormErrorNotBlank": "Nie może być pusty",
+    "FormErrorPasswordIsRequired": "Hasło jest wymagane",
+    "FormErrorPasswordMinimumLength": "Minimalna długość hasła to {{length}}",
+    "LastName": "Nazwisko",
+    "LoginForm": "Formularz logowania",
+    "Password": "Hasło",
+    "RegisterForm": "Formularz rejestracji",
+    "Reset": "Resetuj",
+    "Submit": "Prześlij"
+  },
   "Global": {
     "Close": "Zamknij",
     "ComingSoon": "Już wkrótce",
@@ -22,10 +37,10 @@
     "CookiesInfoUse": "Ta strona używa cookie.",
     "Copyright": "Copyright {{currentYear}} by Maciej Łabędzki",
     "Filters": "Filtry",
-    "Language": "Language {{lng}}",
+    "Language": "Język {{lng}}",
+    "PleaseWaitDots": "Proszę czekać ...",
     "ScrollTop": "Przewiń do góry",
-    "Search": "Szukaj",
-    "PleaseWaitDots":"Proszę czekać ..."
+    "Search": "Szukaj"
   },
   "Navigation": {
     "Admin": "Administrator",
@@ -39,17 +54,31 @@
     "404": {
       "BackToHomePage": "Wróć na Stronę Główną",
       "Header": "STRONA 404",
+      "Title": "Portfolio Strona 404",
       "WrongURLAdress": "Błędny adres URL:"
     },
-    "NoAccessPage": {
-      "Header": "Page blocked. No access."
+    "Features": {
+      "PortfolioFeaturesList": "Lista Właściwości Portfolio ( {{len}} )",
+      "Title": "Portfolio Strona Właściwości"
     },
-    "Features":{
-      "PortfolioFeaturesList":"Lista Właściwości Portfolio ( {{len}} )"
+    "Home": {
+      "Title": "Portfolio Strona Główna"
+    },
+    "Login": {
+      "Title": "Portfolio Strona Logowania"
+    },
+    "NoAccess": {
+      "Header": "Strona zablokowana. Brak dostępu.",
+      "Title": "Portfolio Strona Brak Dostępu"
+    },
+    "Register": {
+      "Title": "Portfolio Strona Rejestracji"
     }
   },
   "SearchFiltersOptions": {
     "Desc": "Opis",
+    "Description": "",
+    "Id": "",
     "ID": "Id",
     "Link": "Link",
     "Name": "Nazwa",
@@ -59,7 +88,7 @@
   },
   "SearchSortOptions": {
     "Ascending": "Rosnąco",
-    "Descending": "Malejąco" 
+    "Descending": "Malejąco"
   },
   "Section": {
     "Filters": {
@@ -80,28 +109,13 @@
       "Reset": "Resetuj",
       "ResultNumber": "Numer wyniku",
       "SearchBy": "Szukaj po",
+      "TagsSuggestions": "Sugestia tag:",
       "TypeSuggestions": "Sugestia typ:",
-      "YearSuggestions": "Sugestia rok:",
-      "TagsSuggestions": "Sugestia tag:"
+      "YearSuggestions": "Sugestia rok:"
     }
   },
   "Welcome": {
     "Desc": "Nazywam się Maciej Łabędzki. Witam na stronie mojego portfolio.",
     "Header": "Front-end Web Developer"
-  },
-  "Form":{
-    "Password": "Hasło",
-    "FirstName":"Imię",
-    "LastName": "Nazwisko",
-    "EmailAdress":"Adres email",
-    "FormErrorEnterValidEmail":"Błędny adres email",
-    "FormErrorEmailIsRequired":"Email jest wymagany",
-    "FormErrorNotBlank":"Nie może być pusty",
-    "FormErrorPasswordIsRequired":"Hasło jest wymagane",
-    "FormErrorPasswordMinimumLength": "Minimalna długość hasła to {{length}}",
-    "LoginForm":"Formularz logowania",
-    "RegisterForm": "Formularz rejestracji",
-    "Submit": "Prześlij",
-    "Reset": "Resetuj"
   }
 }

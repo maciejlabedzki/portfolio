@@ -16,6 +16,8 @@ const Page404 = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
+      <title>{t('Page.404.Title')}</title>
+
       <ExclamationTriangleIcon className="w-20 h-20 text-black-400" />
 
       <span className="text-xl font-bold mb-2">{t('Page.404.Header')}</span>

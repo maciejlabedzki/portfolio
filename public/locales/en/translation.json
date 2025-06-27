@@ -12,6 +12,21 @@
     "Type": "Type {{type}}",
     "Year": "Year {{year}}"
   },
+  "Form": {
+    "EmailAdress": "Email Adress",
+    "FirstName": "First Name",
+    "FormErrorEmailIsRequired": "Email is required",
+    "FormErrorEnterValidEmail": "Wrong email adress",
+    "FormErrorNotBlank": "Not blank",
+    "FormErrorPasswordIsRequired": "Password is required",
+    "FormErrorPasswordMinimumLength": "Password minimum word length is {{length}}",
+    "LastName": "Last Name",
+    "LoginForm": "Login Form",
+    "Password": "Password",
+    "RegisterForm": "Register Form",
+    "Reset": "Reset",
+    "Submit": "Submit"
+  },
   "Global": {
     "Close": "Close",
     "ComingSoon": "Coming Soon",
@@ -23,9 +38,9 @@
     "Copyright": "Copyright {{currentYear}} by Maciej Łabędzki",
     "Filters": "Filters",
     "Language": "Language {{lng}}",
+    "PleaseWaitDots": "Please wait ...",
     "ScrollTop": "Scroll Top",
-    "Search": "Search",
-    "PleaseWaitDots":"Please wait ..."
+    "Search": "Search"
   },
   "Navigation": {
     "Admin": "Admin",
@@ -33,24 +48,38 @@
     "Features": "Features",
     "Home": "Home",
     "Login": "Login",
-    "Register":"Register"
+    "Register": "Register"
   },
   "Page": {
     "404": {
       "BackToHomePage": "Back to Home page",
       "Header": "PAGE 404",
+      "Title": "Portfolio Page 404",
       "WrongURLAdress": "Wrong URL adress:"
     },
-    "NoAccessPage": {
-      "Header": "Page blocked. No access."
+    "Features": {
+      "PortfolioFeaturesList": "Portfolio Features List ( {{len}} )",
+      "Title": "Portfolio Features Page"
     },
-    "Features":{
-      "PortfolioFeaturesList":"Portfolio Features List ( {{len}} )"
+    "Home": {
+      "Title": "Portfolio Home Page"
+    },
+    "Login": {
+      "Title": "Portfolio Login Page"
+    },
+    "NoAccess": {
+      "Header": "Page blocked. No access.",
+      "Title": "Portfolio No Access Page"
+    },
+    "Register": {
+      "Title": "Portfolio Register Page"
     }
   },
   "SearchFiltersOptions": {
     "Desc": "Description",
+    "Description": "",
     "Id": "Id",
+    "ID": "",
     "Link": "Link",
     "Name": "Name",
     "Tags": "Tags",
@@ -59,7 +88,7 @@
   },
   "SearchSortOptions": {
     "Ascending": "Ascending",
-    "Descending": "Descending" 
+    "Descending": "Descending"
   },
   "Section": {
     "Filters": {
@@ -80,28 +109,13 @@
       "Reset": "Reset",
       "ResultNumber": "Result Number",
       "SearchBy": "Search by",
+      "TagsSuggestions": "Tags suggestions",
       "TypeSuggestions": "Type suggestions",
-      "YearSuggestions": "Year suggestions",
-      "TagsSuggestions": "Tags suggestions"
+      "YearSuggestions": "Year suggestions"
     }
   },
   "Welcome": {
     "Desc": "My name is Maciej Łabędzki. Welcome to my portfolio website.",
     "Header": "Front-end Web Developer"
-  },
-  "Form":{
-    "Password": "Password",
-    "FirstName":"First Name",
-    "LastName": "Last Name",
-    "EmailAdress":"Email Adress",
-    "FormErrorEnterValidEmail":"Wrong email adress",
-    "FormErrorEmailIsRequired":"Email is required",
-    "FormErrorNotBlank":"Not blank",
-    "FormErrorPasswordIsRequired":"Password is required",
-    "FormErrorPasswordMinimumLength": "Password minimum word length is {{length}}",
-    "LoginForm":"Login Form",
-    "RegisterForm": "Register Form",
-    "Submit": "Submit",
-    "Reset": "Reset"
   }
 }
