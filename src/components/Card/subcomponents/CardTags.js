@@ -1,11 +1,10 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { ChevronDownIcon, ChevronUpIcon } from '../../../images';
 import { getByTestId } from '../../../lib/helper';
 import { Button, Tag } from '../../index';
 
-const CardTags = ({ header, onClick, tags, tagsLimit, testId }) => {
+const CardTags = ({ header, onClick, tags, tagsLimit = 9, testId }) => {
   const [showMoreTag, setShowMoreTag] = useState(false);
 
   if (!tags || !tags?.length) {
@@ -78,15 +77,3 @@ const CardTags = ({ header, onClick, tags, tagsLimit, testId }) => {
 };
 
 export default CardTags;
-
-CardTags.propTypes = {
-  testId: PropTypes.string,
-};
-
-CardTags.defaultProps = {
-  testId: '',
-  header: '',
-  tags: undefined,
-  onClick: undefined,
-  tagsLimit: 9,
-};

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { Placeholder2 } from '../../images';
@@ -18,9 +17,9 @@ const Card = ({
   link,
   linkName,
   linkAvailable,
-  tags,
+  tags = [],
   desc,
-  name,
+  name = '',
   id,
   type,
   year,
@@ -94,14 +93,3 @@ const Card = ({
 };
 
 export default Card;
-
-Card.propTypes = {
-  name: PropTypes.string,
-  testId: PropTypes.string,
-};
-
-Card.defaultProps = {
-  name: '',
-  testId: '',
-  tags: [],
-};

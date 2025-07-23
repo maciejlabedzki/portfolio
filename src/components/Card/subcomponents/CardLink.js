@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import {
@@ -8,12 +7,12 @@ import {
 } from '../../../lib/helper';
 
 const CardLink = ({
-  linkAvailable,
+  linkAvailable = true,
   header,
   path,
   pathName,
-  target,
-  rel,
+  target = 'blank',
+  rel = 'noopener noreferrer',
   testId,
 }) => {
   const { t } = useTranslation();
@@ -67,17 +66,3 @@ const CardLink = ({
 };
 
 export default CardLink;
-
-CardLink.propTypes = {
-  testId: PropTypes.string,
-};
-
-CardLink.defaultProps = {
-  testId: '',
-  header: '',
-  pathName: '',
-  path: '',
-  target: '_blank',
-  rel: 'noopener noreferrer',
-  linkAvailable: true,
-};

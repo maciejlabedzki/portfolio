@@ -1,5 +1,4 @@
 import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { NavigationLink } from '../../components';
@@ -38,11 +37,3 @@ const Page404 = ({ testId }) => {
 };
 
 export default Page404;
-
-Page404.propTypes = {
-  testId: PropTypes.string,
-};
-
-Page404.defaultProps = {
-  testId: '',
-};

@@ -1,13 +1,5 @@
-import PropTypes from 'prop-types';
 import { createContext } from 'react';
 
-export const UserContext = createContext({});
-
-UserContext.propTypes = {
-  value: PropTypes.shape({
-    isAdmin: PropTypes.bool,
-    userStorage: PropTypes.shape({}),
-  }),
-};
+export const UserContext = createContext({ isAdmin: false, userStorage: {} });
 
 export default UserContext;

@@ -101,7 +101,7 @@ const Search = ({
                 theme="transparent"
                 title={t('Section.Search.Reset')}
                 onClick={handleReset}
-                hover="fade"
+                themeHover="fade"
               />
             </div>
           }

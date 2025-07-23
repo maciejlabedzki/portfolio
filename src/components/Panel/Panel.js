@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
 
@@ -45,11 +44,3 @@ const Panel = ({
 };
 
 export default Panel;
-
-Panel.propTypes = {
-  testId: PropTypes.string,
-};
-
-Panel.defaultProps = {
-  testId: '',
-};

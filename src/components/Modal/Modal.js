@@ -46,7 +46,7 @@ const Modal = ({ data, open, handleClose }) => {
             theme="pattern_1_off"
             space="small"
             margin="normal"
-            hover="fade"
+            themeHover="fade"
           />
         </div>
 

@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import { Spinner } from '../../images';
 import { getByTestId } from '../../lib/helper';
 
-const Loader = ({ testId, theme }) => {
+const Loader = ({ testId, theme = 'dark' }) => {
   const filterTheme = {
     light: `invert(1)`,
     dark: `invert(0)`,
@@ -20,12 +19,3 @@ const Loader = ({ testId, theme }) => {
 };
 
 export default Loader;
-
-Loader.propTypes = {
-  testId: PropTypes.string,
-};
-
-Loader.defaultProps = {
-  testId: '',
-  theme: 'dark',
-};

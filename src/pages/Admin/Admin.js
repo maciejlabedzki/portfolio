@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useCallback, useContext } from 'react';
 import toast from 'react-hot-toast';
 import { twMerge } from 'tailwind-merge';
@@ -8,6 +7,7 @@ import { getByTestId } from '../../lib/helper';
 
 const PageAdmin = ({ testId }) => {
   const { isAdmin, updateUserContext } = useContext(UserContext);
+  const getUserContext = useContext(UserContext);
 
   const handleUpdateAdmin = useCallback(
     (value) => {
@@ -43,16 +43,14 @@ const PageAdmin = ({ testId }) => {
         onClick={() => handleUpdateAdmin(false)}
         additionalClasses={'min-w-[200px]'}
       />
+
+      <Button
+        name="Console User Context"
+        onClick={() => console.log(getUserContext)}
+        additionalClasses={'min-w-[200px]'}
+      />
     </div>
   );
 };
 
 export default PageAdmin;
-
-PageAdmin.propTypes = {
-  testId: PropTypes.string,
-};
-
-PageAdmin.defaultProps = {
-  testId: '',
-};

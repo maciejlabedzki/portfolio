@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
@@ -49,27 +48,37 @@ const PageFeatures = ({ testId }) => {
         })}
       </div>
 
-      {features.map((item) => (
-        <FeatureItem
-          key={item.id}
-          done={item.done}
-          name={item.name}
-          type={item.type}
-          status={item.status}
-          icon={item.isIconByType}
-          id={item.id}
-        />
-      ))}
+      {/* Done Features */}
+      {features
+        .filter((item) => item.done)
+        .map((item) => (
+          <FeatureItem
+            key={item.id}
+            done={item.done}
+            name={item.name}
+            type={item.type}
+            status={item.status}
+            icon={item.isIconByType}
+            id={item.id}
+          />
+        ))}
+
+      {/* Coming Soone */}
+      {features
+        .filter((item) => !item.done)
+        .map((item) => (
+          <FeatureItem
+            key={item.id}
+            done={item.done}
+            name={item.name}
+            type={item.type}
+            status={item.status}
+            icon={item.isIconByType}
+            id={item.id}
+          />
+        ))}
     </div>
   );
 };
 
 export default PageFeatures;
-
-PageFeatures.propTypes = {
-  testId: PropTypes.string,
-};
-
-PageFeatures.defaultProps = {
-  testId: '',
-};

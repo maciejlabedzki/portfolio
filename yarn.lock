@@ -2703,11 +2703,6 @@
     react-dom "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-onboarding@9.0.4":
-  version "9.0.4"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-onboarding/-/addon-onboarding-9.0.4.tgz#401030cdcfbf3695695cbd5cbdbfdece6f3112f0"
-  integrity sha512-RIQAAh2Dm+N/tmPRFVoeRpJDZpzr98AaKwTw6rNjkI1EXATUUT1x04SaIee5OEXnjyKtbQrWwleY3Fxc9a4LKg==
-
 "@storybook/builder-webpack5@9.0.4":
   version "9.0.4"
   resolved "https://registry.yarnpkg.com/@storybook/builder-webpack5/-/builder-webpack5-9.0.4.tgz#af6b1c748e887ce720c43bb4e9c76e2eaa7c2815"

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import packageJsonInfo from '../../../package.json';
@@ -29,11 +28,3 @@ const Footer = ({ testId }) => {
 };
 
 export default Footer;
-
-Footer.propTypes = {
-  testId: PropTypes.string,
-};
-
-Footer.defaultProps = {
-  testId: '',
-};

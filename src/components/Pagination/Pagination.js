@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import {
@@ -88,11 +87,3 @@ const Pagination = ({ pages, onClick, selected, testId }) => {
 };
 
 export default Pagination;
-
-Pagination.propTypes = {
-  testId: PropTypes.string,
-};
-
-Pagination.defaultProps = {
-  testId: '',
-};

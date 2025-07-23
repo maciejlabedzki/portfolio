@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import LoginForm from '../../forms/LoginForm/LoginForm';
@@ -23,11 +22,3 @@ const PageLogin = ({ testId }) => {
 };
 
 export default PageLogin;
-
-PageLogin.propTypes = {
-  testId: PropTypes.string,
-};
-
-PageLogin.defaultProps = {
-  testId: '',
-};

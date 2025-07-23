@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../../lib/helper';
 
@@ -33,13 +32,3 @@ const CardName = ({ name, header, testId }) => {
 };
 
 export default CardName;
-
-CardName.propTypes = {
-  testId: PropTypes.string,
-};
-
-CardName.defaultProps = {
-  testId: '',
-  header: '',
-  name: '',
-};

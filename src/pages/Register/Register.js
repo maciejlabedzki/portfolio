@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import RegisterForm from '../../forms/RegisterForm/RegisterForm';
@@ -22,11 +21,3 @@ const PageRegister = ({ testId }) => {
 };
 
 export default PageRegister;
-
-PageRegister.propTypes = {
-  testId: PropTypes.string,
-};
-
-PageRegister.defaultProps = {
-  testId: '',
-};

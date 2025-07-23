@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
@@ -106,6 +105,10 @@ const Filters = ({
               data={GRID_OPTIONS}
               onClick={handleGridView}
               selected={gridView}
+              space="slim"
+              margin="small"
+              theme="transparent"
+              themeSelected="primary"
             />
           }
         />
@@ -118,6 +121,10 @@ const Filters = ({
               data={PAGINATION_COUNTER}
               onClick={handleItemsLimitPage}
               selected={dataLimit}
+              space="slim"
+              margin="small"
+              theme="transparent"
+              themeSelected="primary"
             />
           }
         />
@@ -127,14 +134,3 @@ const Filters = ({
 };
 
 export default Filters;
-
-Filters.propTypes = {
-  testId: PropTypes.string,
-};
-
-Filters.defaultProps = {
-  testId: '',
-  value: '',
-  options: [],
-  onChange: undefined,
-};

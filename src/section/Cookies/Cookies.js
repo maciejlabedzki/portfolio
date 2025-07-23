@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
@@ -64,11 +63,3 @@ const Cookies = ({ testId }) => {
 };
 
 export default Cookies;
-
-Cookies.propTypes = {
-  testId: PropTypes.string,
-};
-
-Cookies.defaultProps = {
-  testId: '',
-};

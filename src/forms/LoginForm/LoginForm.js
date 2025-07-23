@@ -1,5 +1,4 @@
 import { useFormik } from 'formik';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
@@ -93,7 +92,7 @@ const LoginForm = ({ testId }) => {
             type="reset"
             name={t('Form.Reset')}
             theme="secondary"
-            hover="primary"
+            themeHover="primary"
             onClick={handleFormReset}
             additionalClasses={'m-0 mt-4 px-4'}
           />
@@ -104,11 +103,3 @@ const LoginForm = ({ testId }) => {
 };
 
 export default LoginForm;
-
-LoginForm.propTypes = {
-  testId: PropTypes.string,
-};
-
-LoginForm.defaultProps = {
-  testId: '',
-};

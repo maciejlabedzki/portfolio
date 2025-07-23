@@ -1,15 +1,14 @@
-import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId, getSorted } from '../../lib/helper';
 
 const Select = ({
-  options,
+  options = [],
   value,
   onChange,
   additionalClasses,
-  sorted,
+  sorted = false,
   translated,
   translateKey,
   testId,
@@ -74,15 +73,3 @@ const Select = ({
 };
 
 export default Select;
-
-Select.propTypes = {
-  testId: PropTypes.string,
-};
-
-Select.defaultProps = {
-  sorted: false,
-  testId: '',
-  value: '',
-  options: [],
-  onChange: undefined,
-};

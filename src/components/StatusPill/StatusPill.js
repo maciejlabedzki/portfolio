@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
 
@@ -22,11 +21,3 @@ const StatusPill = ({ onClick, additionalClasses, text, title, testId }) => {
 };
 
 export default StatusPill;
-
-StatusPill.propTypes = {
-  testId: PropTypes.string,
-};
-
-StatusPill.defaultProps = {
-  testId: '',
-};

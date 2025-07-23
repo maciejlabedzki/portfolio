@@ -1,16 +1,15 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
 import { Button } from '../index';
 
 const Dropdown = ({
+  theme = 'dark',
+  align = 'topRight',
+  hasBackdrop = true,
   testId,
-  theme,
-  align,
   icon,
   name,
-  hasBackdrop,
   additionalClasses,
   children,
 }) => {
@@ -74,14 +73,3 @@ const Dropdown = ({
 };
 
 export default Dropdown;
-
-Dropdown.propTypes = {
-  testId: PropTypes.string,
-};
-
-Dropdown.defaultProps = {
-  testId: '',
-  theme: 'dark',
-  align: 'topRight',
-  hasBackdrop: true,
-};

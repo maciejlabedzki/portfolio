@@ -63,31 +63,33 @@ export const isAllInArrayEmpty = (arr) => {
 };
 
 export const getIconFeaturePattern = (value) => {
+  const CLASS_ICON = 'w-4 h-4 mr-2 text-inherit';
+
   switch (value) {
     case 'search':
-      return <MagnifyingGlassIcon className="w-4 h-4 mr-2 text-white" />;
+      return <MagnifyingGlassIcon className={CLASS_ICON} />;
     case 'filter':
-      return <ViewColumnsIcon className="w-4 h-4 mr-2 text-white" />;
+      return <ViewColumnsIcon className={CLASS_ICON} />;
     case 'language':
-      return <FlagIcon className="w-4 h-4 mr-2 text-white" />;
+      return <FlagIcon className={CLASS_ICON} />;
     case 'cookies':
-      return <ClipboardIcon className="w-4 h-4 mr-2 text-white" />;
+      return <ClipboardIcon className={CLASS_ICON} />;
     case 'data':
-      return <CloudArrowDownIcon className="w-4 h-4 mr-2 text-white" />;
+      return <CloudArrowDownIcon className={CLASS_ICON} />;
     case 'components':
-      return <InboxIcon className="w-4 h-4 mr-2 text-white" />;
+      return <InboxIcon className={CLASS_ICON} />;
     case 'tests':
-      return <AdjustmentsVerticalIcon className="w-4 h-4 mr-2 text-white" />;
+      return <AdjustmentsVerticalIcon className={CLASS_ICON} />;
     case 'card':
-      return <CreditCardIcon className="w-4 h-4 mr-2 text-white" />;
+      return <CreditCardIcon className={CLASS_ICON} />;
     case 'pipeline':
-      return <BarsArrowDownIcon className="w-4 h-4 mr-2 text-white" />;
+      return <BarsArrowDownIcon className={CLASS_ICON} />;
     case 'changelog':
-      return <GlobeAltIcon className="w-4 h-4 mr-2 text-white" />;
+      return <GlobeAltIcon className={CLASS_ICON} />;
     case 'style':
-      return <BeakerIcon className="w-4 h-4 mr-2 text-white" />;
+      return <BeakerIcon className={CLASS_ICON} />;
     default:
-      return <BookmarkIcon className="w-4 h-4 mr-2 text-white" />;
+      return <BookmarkIcon className={CLASS_ICON} />;
   }
 };
 

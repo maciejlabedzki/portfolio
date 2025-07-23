@@ -1,8 +1,13 @@
-import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId, validTextLength } from '../../lib/helper';
 
-const Tag = ({ onClick, testId, maxTextLength, additionalClasses, text }) => {
+const Tag = ({
+  onClick,
+  testId,
+  maxTextLength = 15,
+  additionalClasses,
+  text,
+}) => {
   return (
     <span
       onClick={onClick}
@@ -22,15 +27,3 @@ const Tag = ({ onClick, testId, maxTextLength, additionalClasses, text }) => {
 };
 
 export default Tag;
-
-Tag.propTypes = {
-  testId: PropTypes.string,
-};
-
-Tag.defaultProps = {
-  testId: '',
-  onClick: undefined,
-  additionalClasses: '',
-  text: '',
-  maxTextLength: 15,
-};

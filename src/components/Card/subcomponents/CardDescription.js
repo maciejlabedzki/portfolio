@@ -1,11 +1,16 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '../../../components';
 import { ChevronDownIcon, ChevronUpIcon } from '../../../images';
 import { getByTestId, validTextLength } from '../../../lib/helper';
 
-const CardDescription = ({ desc, header, textOpen, textClose, testId }) => {
+const CardDescription = ({
+  desc = '',
+  header = '',
+  textOpen = '',
+  textClose = '',
+  testId,
+}) => {
   const [readMore, setReadMore] = useState(false);
 
   if (!desc) {
@@ -73,15 +78,3 @@ const CardDescription = ({ desc, header, textOpen, textClose, testId }) => {
 };
 
 export default CardDescription;
-
-CardDescription.propTypes = {
-  testId: PropTypes.string,
-};
-
-CardDescription.defaultProps = {
-  testId: '',
-  header: '',
-  desc: '',
-  textOpen: '',
-  textClose: '',
-};

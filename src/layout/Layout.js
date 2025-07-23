@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
@@ -56,11 +55,3 @@ const Layout = ({ testId, children }) => {
 };
 
 export default Layout;
-
-Layout.propTypes = {
-  testId: PropTypes.string,
-};
-
-Layout.defaultProps = {
-  testId: '',
-};

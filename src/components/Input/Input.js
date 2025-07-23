@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
@@ -8,7 +7,7 @@ import { Button } from '../index';
 
 const Input = ({
   id,
-  name,
+  name = '',
   onChange,
   placeholder,
   value,
@@ -16,7 +15,7 @@ const Input = ({
   error,
   label,
   testId,
-  autocomplete,
+  autocomplete = 'false',
   hasClear,
   onClear,
   additionalClasses,
@@ -112,7 +111,7 @@ const Input = ({
             margin="none"
             space="none"
             radius="full"
-            hover="fade"
+            themeHover="fade"
             type="button"
             additionalClasses={twMerge(
               'absolute right-1 top-1',
@@ -129,17 +128,3 @@ const Input = ({
 };
 
 export default Input;
-
-Input.propTypes = {
-  name: PropTypes.string,
-  testId: PropTypes.string,
-  radius: PropTypes.string,
-};
-
-Input.defaultProps = {
-  name: '',
-  testId: '',
-  radius: 'normal',
-  autocomplete: 'false',
-  hasClear: false,
-};

@@ -1,4 +1,4 @@
-import Button from './Button/Button.tsx';
+import Button from './Button/Button';
 import ButtonList from './ButtonList/ButtonList';
 import Card from './Card/Card';
 import Input from './Input/Input';

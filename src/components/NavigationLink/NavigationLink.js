@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
@@ -6,7 +5,7 @@ import { getByTestId } from '../../lib/helper';
 const NavigationLink = ({
   name,
   linkPath,
-  active,
+  active = false,
   additionalClasses,
   testId,
   hidden,
@@ -31,15 +30,3 @@ const NavigationLink = ({
 };
 
 export default NavigationLink;
-
-NavigationLink.propTypes = {
-  testId: PropTypes.string,
-};
-
-NavigationLink.defaultProps = {
-  name: '',
-  linkPath: '',
-  additionalClasses: '',
-  testId: '',
-  active: false,
-};

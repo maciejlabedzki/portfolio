@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
 import { CODE_DATA } from '../../data/code';
 import { getByTestId } from '../../lib/helper';
@@ -31,11 +30,3 @@ const Code = ({ testId }) => {
 };
 
 export default Code;
-
-Code.propTypes = {
-  testId: PropTypes.string,
-};
-
-Code.defaultProps = {
-  testId: '',
-};

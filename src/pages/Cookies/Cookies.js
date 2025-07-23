@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
@@ -20,11 +19,3 @@ const PageCookies = ({ testId }) => {
 };
 
 export default PageCookies;
-
-PageCookies.propTypes = {
-  testId: PropTypes.string,
-};
-
-PageCookies.defaultProps = {
-  testId: '',
-};

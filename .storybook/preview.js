@@ -4,12 +4,18 @@ import '../src/styles/tailwind-base.css';
 /** @type { import('@storybook/react-webpack5').Preview } */
 const preview = {
   parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
+    // controls: {
+    //   matchers: {
+    //     color: /(background|color)$/i,
+    //     date: /Date$/i,
+    //   },
+    // },
+    docs: {
+      codePanel: true,
     },
+  },
+  initialGlobals: {
+    backgrounds: { value: 'dark' },
   },
 };
 

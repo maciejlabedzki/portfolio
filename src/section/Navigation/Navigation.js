@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
@@ -104,11 +103,3 @@ const Navigation = ({ testId }) => {
 };
 
 export default Navigation;
-
-Navigation.propTypes = {
-  testId: PropTypes.string,
-};
-
-Navigation.defaultProps = {
-  testId: '',
-};

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
@@ -239,11 +238,3 @@ const PageHome = ({ testId }) => {
 };
 
 export default PageHome;
-
-PageHome.propTypes = {
-  testId: PropTypes.string,
-};
-
-PageHome.defaultProps = {
-  testId: '',
-};

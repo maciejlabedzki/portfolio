@@ -5,7 +5,6 @@ import {
   PhotoIcon,
   WrenchIcon,
 } from '@heroicons/react/24/solid';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
@@ -25,7 +24,7 @@ const CardImages = ({
   year,
   testId,
   handleModal,
-  textOpen,
+  textOpen = 'Open',
 }) => {
   const { t } = useTranslation();
   const [imgLoaded, setImgLoaded] = useState(false);
@@ -125,12 +124,3 @@ const CardImages = ({
 };
 
 export default CardImages;
-
-CardImages.propTypes = {
-  testId: PropTypes.string,
-};
-
-CardImages.defaultProps = {
-  testId: '',
-  textOpen: '',
-};

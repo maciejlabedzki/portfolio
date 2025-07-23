@@ -1,5 +1,4 @@
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid';
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { Paragraph } from '../../components';
@@ -8,6 +7,7 @@ import { getByTestId } from '../../lib/helper';
 
 const OwnerDetails = ({ data, testId }) => {
   const { t } = useTranslation();
+
   if (!data?.name && !data?.surname && !data?.phone && !data?.email) {
     return;
   }
@@ -38,7 +38,7 @@ const OwnerDetails = ({ data, testId }) => {
                 <UserIcon />
               )
             }
-            name={`${data?.name || ''} ${data?.surname || ''}`}
+            name={[data?.name, data?.surname].filter(Boolean).join(' ')}
             onClick={handleLinkedIn}
             additionalIconClass={'mr-2'}
             additionalClass={twMerge(
@@ -69,11 +69,3 @@ const OwnerDetails = ({ data, testId }) => {
 };
 
 export default OwnerDetails;
-
-OwnerDetails.propTypes = {
-  testId: PropTypes.string,
-};
-
-OwnerDetails.defaultProps = {
-  testId: '',
-};

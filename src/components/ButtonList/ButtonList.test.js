@@ -1,24 +1,24 @@
 import { describe, expect } from '@jest/globals';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import Button from './Button';
+import ButtonList from './ButtonList';
 
-const testId = 'button-test';
+const testId = 'buttonList-test';
 
 const TEST_IDS = {
   container: `${testId}-container`,
-  icon: `${testId}-icon`,
-  name: `${testId}-name`,
 };
 
-describe('Button component', () => {
+const BUTTONS_DATA = [{ value: 'lorem', name: 'Lorem' }];
+
+describe('ButtonList component', () => {
   test('loads items eventually test', () => {
-    render(<Button testId={testId} name="test" />);
+    render(<ButtonList testId={testId} data={BUTTONS_DATA} />);
 
     const elementContainer = screen.getByTestId(TEST_IDS.container);
 
     expect(elementContainer).toBeInTheDocument();
 
-    expect(elementContainer.textContent).toBe('test');
+    expect(elementContainer.textContent).toBe(BUTTONS_DATA[0].name);
   });
 });
