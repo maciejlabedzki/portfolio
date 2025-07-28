@@ -3,7 +3,18 @@ import { twMerge } from 'tailwind-merge';
 import { CheckIcon, XMarkIcon } from '../../../images';
 import { getByTestId, getIconFeaturePattern } from '../../../lib/helper';
 
-const FeatureItem = ({ name, icon, done, status, type, id, testId }) => {
+const FeatureItem = ({
+  name,
+  icon,
+  iconDone = <CheckIcon className="text-white w-5 h-5" />,
+  iconUndone = <XMarkIcon className="text-white w-5 h-5 mt-0.5" />,
+  done,
+  status,
+  type,
+  textDone = t('Global.ComingSoon'),
+  id,
+  testId,
+}) => {
   return (
     <div
       className={twMerge(
@@ -14,7 +25,12 @@ const FeatureItem = ({ name, icon, done, status, type, id, testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
-      <div className="flex flex-row w-full sm:w-fit sm:flex-row">
+      <div
+        className={twMerge(
+          'flex flex-row w-full sm:w-fit sm:flex-row',
+          'border-b border-gray-100 sm:border-none',
+        )}
+      >
         <span
           className={twMerge(
             'mr-0 px-2 py-2  w-[33%] ',
@@ -23,11 +39,7 @@ const FeatureItem = ({ name, icon, done, status, type, id, testId }) => {
             done && 'bg-green',
           )}
         >
-          {done ? (
-            <CheckIcon className="text-white w-5 h-5" />
-          ) : (
-            <XMarkIcon className="text-white w-5 h-5 mt-0.5" />
-          )}
+          {done ? iconDone : iconUndone}
         </span>
 
         {type && (
@@ -54,7 +66,7 @@ const FeatureItem = ({ name, icon, done, status, type, id, testId }) => {
               'px-2 h-10 min-w-[50px]',
               'mr-0 px-2 py-2 w-[33%]',
               'items-center flex justify-center sm:w-fit',
-              'bg-white text-black md:border-r border-l border-gray-100',
+              'bg-white text-orange md:border-r border-l border-gray-100',
             )}
           >
             {status}
@@ -62,28 +74,32 @@ const FeatureItem = ({ name, icon, done, status, type, id, testId }) => {
         )}
       </div>
 
-      <span
-        className={twMerge(
-          'justify-center items-center',
-          'h-10 min-w-[50px]',
-          'items-center flex justify-center sm:w-fit',
-          'text-xs font-normal mr-1',
-          'md:border-r md:border-gray-100',
-        )}
-      >
-        id: {id}
-      </span>
+      {id && (
+        <span
+          className={twMerge(
+            'justify-center items-center',
+            'h-10 min-w-[50px]',
+            'items-center flex justify-center sm:w-fit',
+            'text-xs font-normal mr-1',
+            'md:border-r md:border-gray-100',
+          )}
+        >
+          {id}
+        </span>
+      )}
 
-      <span
-        className={twMerge(
-          'justify-center items-center',
-          'px-2 py-1 min-h-9 font-bold',
-          'text-sm line-clamp-none sm:line-clamp-1',
-        )}
-        title={name}
-      >
-        {name}
-      </span>
+      {name && (
+        <span
+          className={twMerge(
+            'justify-center items-center',
+            'px-2 py-1 min-h-9 font-bold',
+            'text-sm line-clamp-none sm:line-clamp-1',
+          )}
+          title={name}
+        >
+          {name}
+        </span>
+      )}
 
       {!done && (
         <span
@@ -93,7 +109,7 @@ const FeatureItem = ({ name, icon, done, status, type, id, testId }) => {
             'text-green',
           )}
         >
-          {t('Global.ComingSoon')}
+          {textDone}
         </span>
       )}
     </div>

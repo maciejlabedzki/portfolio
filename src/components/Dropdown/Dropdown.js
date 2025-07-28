@@ -31,6 +31,7 @@ const Dropdown = ({
   const styleAlign = {
     topRight: 'sm:top-0 sm:right-0',
     topLeft: 'sm:top-0 sm:left-0',
+    center: 'top-0 right-0 mr-[calc(-150%-10px)]',
   };
 
   return (

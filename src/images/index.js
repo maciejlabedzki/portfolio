@@ -4,6 +4,7 @@ export {
   ArrowPathRoundedSquareIcon,
   ArrowsUpDownIcon,
   ArrowUpIcon,
+  Bars3Icon,
   BarsArrowDownIcon,
   BeakerIcon,
   BookmarkIcon,

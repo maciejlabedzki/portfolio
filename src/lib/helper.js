@@ -180,3 +180,11 @@ export const getSearchPlaceholderName = (value, t) => {
     t(`SearchFiltersOptions.${filterBy}`).toLocaleLowerCase()
   );
 };
+
+export const eventValidateScrollHeight = (status, update) => {
+  if (!status && window.pageYOffset > 100) {
+    update(true);
+  } else if (status && window.pageYOffset <= 100) {
+    update(false);
+  }
+};

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import UserContext from '../../contexts/UserContext';
+import { UserContext } from '../../contexts/UserContext';
 import { USER_DATA } from '../../data/user';
 
 const WrapUserContext = ({ children }) => {

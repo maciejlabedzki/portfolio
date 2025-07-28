@@ -1,7 +1,7 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import UserContext from '../../contexts/UserContext';
+import { UserContext } from '../../contexts/UserContext';
 import { FEATURES_DATA } from '../../data/features';
 import { getByTestId, getSorted } from '../../lib/helper';
 import FeatureItem from './subcomponents/FeatureItem';

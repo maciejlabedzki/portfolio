@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge';
 import { Button, NavigationLink } from '../../components';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import { NAVIGATION_DATA, NAVIGATION_USER_DATA } from '../../data/navigation';
-import { FlagIcon, UserIcon } from '../../images';
+import { Bars3Icon, FlagIcon, UserIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
 import { getLocalStorage, setLocalStorage } from '../../lib/localstorage';
 
@@ -41,6 +41,31 @@ const Navigation = ({ testId }) => {
     }
   };
 
+  const LanguageSection = () => {
+    return (
+      <>
+        <Button
+          icon={<FlagIcon className="w-4 h-4 mr-1" />}
+          name="en"
+          onClick={() => languageChange('en')}
+          theme={i18n.language === 'en' ? 'primary' : 'transparent'}
+          space="small"
+          additionalClasses={'py-0 px-1 text-sm mx-0.5'}
+          title={t('Global.Language', { lng: 'en' })}
+        />
+        <Button
+          icon={<FlagIcon className="w-4 h-4 mr-1" />}
+          name="pl"
+          onClick={() => languageChange('pl')}
+          theme={i18n.language === 'pl' ? 'primary' : 'transparent'}
+          space="small"
+          additionalClasses={'py-0 px-1 text-sm mx-0.5'}
+          title={t('Global.Language', { lng: 'pl' })}
+        />
+      </>
+    );
+  };
+
   return (
     <div
       className={twMerge(
@@ -49,7 +74,29 @@ const Navigation = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
-      <div className="flex flex-col xs:flex-row">
+      {/* Menu Visible on Small Size By Button */}
+      <Dropdown
+        icon={<Bars3Icon className="w-4 h-4 text-white" />}
+        additionalClasses="m-auto sm:hidden"
+        theme="dark"
+        // name="Menu"
+        align="center"
+        hasBackdrop={true}
+      >
+        {[...NAVIGATION_DATA, ...NAVIGATION_USER_DATA].map((nav) => (
+          <NavigationLink
+            key={nav.name}
+            name={t(`Navigation.${nav.name}`)}
+            linkPath={nav.path}
+            active={location.pathname === nav.path}
+            hidden={validateNavigationHidden(nav.visible, nav.admin)}
+          />
+        ))}
+        {<LanguageSection />}
+      </Dropdown>
+
+      {/* Menu Visible on Normal size */}
+      <div className="hidden sm:flex sm:flex-row">
         {NAVIGATION_DATA.map((nav) => (
           <NavigationLink
             key={nav.name}
@@ -61,10 +108,16 @@ const Navigation = ({ testId }) => {
         ))}
       </div>
 
-      <div className="flex flex-row mt-0.5 justify-center items-center">
+      <div
+        className={twMerge(
+          'mt-0.5',
+          'justify-center items-center',
+          'hidden sm:flex sm:flex-row',
+        )}
+      >
         <Dropdown
           icon={<UserIcon className="w-4 h-4 text-white" />}
-          additionalClasses="mr-2"
+          additionalClasses="mr-2 hidden sm:flex"
           theme="dark"
           align="topRight"
           hasBackdrop={true}

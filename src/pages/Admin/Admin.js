@@ -2,7 +2,7 @@ import { useCallback, useContext } from 'react';
 import toast from 'react-hot-toast';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '../../components';
-import UserContext from '../../contexts/UserContext';
+import { UserContext } from '../../contexts/UserContext';
 import { getByTestId } from '../../lib/helper';
 
 const PageAdmin = ({ testId }) => {
