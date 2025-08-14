@@ -33,10 +33,12 @@ export interface ButtonProps
   border?: BaseBorder;
   /**
    * Button if is selected
+   * @default false
    */
   isSelected?: true | false;
   /**
    * Button theme
+   * @default primary
    */
   theme?: BaseTheme;
   /**
@@ -49,6 +51,7 @@ export interface ButtonProps
   themeHover?: 'none' | 'primary' | 'secondary' | 'inherit' | 'fade';
   /**
    * Button type
+   * @default button
    */
   type?: BaseButtonType;
   /**
@@ -67,6 +70,9 @@ export interface ButtonProps
    * Button additional class for name element
    */
   additionalClassesName?: string;
+  /**
+   * Button on click handler
+   */
   onClick?: MouseEventHandler;
 }
 

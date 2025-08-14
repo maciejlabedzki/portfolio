@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { Button } from '../../../components';
-import { ChevronDownIcon, ChevronUpIcon } from '../../../images';
-import { getByTestId, validTextLength } from '../../../lib/helper';
+import { Button } from '../../..';
+import { ChevronDownIcon, ChevronUpIcon } from '../../../../images';
+import { getByTestId, validTextLength } from '../../../../lib/helper';
+import { CardDescriptionProps } from './useCardDescription';
 
 const CardDescription = ({
   desc = '',
@@ -10,7 +11,7 @@ const CardDescription = ({
   textOpen = '',
   textClose = '',
   testId,
-}) => {
+}: CardDescriptionProps) => {
   const [readMore, setReadMore] = useState(false);
 
   if (!desc) {

@@ -37,17 +37,16 @@ export const Primary = {
     name: 'Primary',
     theme: 'primary',
     title: 'title',
-    radius: 'normal',
-    type: 'button',
-    hover: 'none',
-    border: 'none',
-    space: 'small',
-    margin: 'small',
-    height: 'fit',
-    width: 'fit',
-    disabled: false,
-    isSelected: false,
-    onClick: (value: any) => console.log(value.target),
+    // radius: 'normal',
+    // type: 'button',
+    // hover: 'none',
+    // border: 'none',
+    // space: 'small',
+    // margin: 'small',
+    // height: 'fit',
+    // width: 'fit',
+    // disabled: false,
+    // isSelected: false,
   },
 };
 
@@ -56,10 +55,10 @@ export const Secondary = {
     name: 'Secondary',
     theme: 'secondary',
     title: 'title',
-    radius: 'normal',
-    space: 'normal',
-    margin: 'normal',
-    disabled: false,
+    // radius: 'normal',
+    // space: 'normal',
+    // margin: 'normal',
+    // disabled: false,
   },
 };
 
@@ -88,5 +87,14 @@ export const WithAnimateIcon = {
     margin: 'normal',
     iconAnimation: 'bounce',
     iconPosition: 'left',
+  },
+};
+
+export const Disabled = {
+  args: {
+    name: 'Primary',
+    theme: 'primary',
+    title: 'title',
+    disabled: true,
   },
 };

@@ -5,12 +5,12 @@ import { getByTestId, getIconFeaturePattern } from '../../../lib/helper';
 
 const FeatureItem = ({
   name,
-  icon,
   iconDone = <CheckIcon className="text-white w-5 h-5" />,
   iconUndone = <XMarkIcon className="text-white w-5 h-5 mt-0.5" />,
   done,
   status,
   type,
+  typeIcon = false,
   textDone = t('Global.ComingSoon'),
   id,
   testId,
@@ -52,7 +52,7 @@ const FeatureItem = ({
               'bg-white text-blue border-l border-gray-100',
             )}
           >
-            {icon && (
+            {typeIcon && (
               <span className="text-blue">{getIconFeaturePattern(type)}</span>
             )}
             {type}
@@ -68,6 +68,7 @@ const FeatureItem = ({
               'items-center flex justify-center sm:w-fit',
               'bg-white text-orange md:border-r border-l border-gray-100',
             )}
+            title="Status"
           >
             {status}
           </span>
@@ -83,6 +84,7 @@ const FeatureItem = ({
             'text-xs font-normal mr-1',
             'md:border-r md:border-gray-100',
           )}
+          title="Id number"
         >
           {id}
         </span>

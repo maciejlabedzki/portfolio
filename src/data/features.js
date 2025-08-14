@@ -5,7 +5,7 @@ const FEATURES_DATA = [
     type: 'search',
     status: 'add',
     id: 1,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Option search by type',
@@ -13,7 +13,7 @@ const FEATURES_DATA = [
     type: 'search',
     status: 'add',
     id: 2,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Button to clear search',
@@ -21,7 +21,7 @@ const FEATURES_DATA = [
     type: 'search',
     status: 'add',
     id: 3,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Button to reset search',
@@ -29,7 +29,7 @@ const FEATURES_DATA = [
     type: 'search',
     status: 'add',
     id: 4,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Sort options',
@@ -37,7 +37,7 @@ const FEATURES_DATA = [
     type: 'search',
     status: 'add',
     id: 5,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Layout columns options',
@@ -45,7 +45,7 @@ const FEATURES_DATA = [
     type: 'filter',
     status: 'add',
     id: 6,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Limit view card',
@@ -53,7 +53,7 @@ const FEATURES_DATA = [
     type: 'filter',
     status: 'add',
     id: 7,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Section Year Suggestions',
@@ -61,7 +61,7 @@ const FEATURES_DATA = [
     type: 'filter',
     status: 'add',
     id: 7.1,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Section Type Suggestions',
@@ -69,7 +69,7 @@ const FEATURES_DATA = [
     type: 'filter',
     status: 'add',
     id: 7.2,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Year information inside card',
@@ -77,7 +77,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 8,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Id information inside card',
@@ -85,7 +85,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 9,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Type information inside card',
@@ -93,7 +93,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 16,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Modal with optional big images.',
@@ -101,7 +101,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 11,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Section images.',
@@ -109,7 +109,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 10,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Section name.',
@@ -117,7 +117,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 12,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Section description.',
@@ -125,7 +125,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 13,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Section description expand more button.',
@@ -133,7 +133,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 13.1,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Section link.',
@@ -141,7 +141,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 14,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Section tag.',
@@ -149,7 +149,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 15,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Section tag expand more button',
@@ -157,7 +157,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 15.1,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Pagination card for limited view',
@@ -165,7 +165,7 @@ const FEATURES_DATA = [
     type: 'card',
     status: 'add',
     id: 26,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Language pl',
@@ -173,7 +173,7 @@ const FEATURES_DATA = [
     type: 'language',
     status: 'add',
     id: 17,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Language en',
@@ -181,7 +181,7 @@ const FEATURES_DATA = [
     type: 'language',
     status: 'add',
     id: 18,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Language switch',
@@ -189,7 +189,7 @@ const FEATURES_DATA = [
     type: 'language',
     status: 'add',
     id: 19,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Language state in local storage',
@@ -197,7 +197,7 @@ const FEATURES_DATA = [
     type: 'language',
     status: 'add',
     id: 20,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Cookies bottom notification',
@@ -205,7 +205,7 @@ const FEATURES_DATA = [
     type: 'cookies',
     status: 'add',
     id: 22,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Cookies state in local storage',
@@ -213,7 +213,7 @@ const FEATURES_DATA = [
     type: 'cookies',
     status: 'add',
     id: 23,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Context manage',
@@ -221,7 +221,7 @@ const FEATURES_DATA = [
     type: 'state',
     status: 'add',
     id: 24,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Login profile',
@@ -229,7 +229,7 @@ const FEATURES_DATA = [
     type: 'user',
     status: 'add',
     id: 25,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Fetch data',
@@ -237,7 +237,7 @@ const FEATURES_DATA = [
     type: 'data',
     status: 'add',
     id: 27,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Cookies page',
@@ -245,7 +245,7 @@ const FEATURES_DATA = [
     type: 'cookies',
     status: 'add',
     id: 21,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Storybook all components',
@@ -253,7 +253,7 @@ const FEATURES_DATA = [
     type: 'storybook',
     status: 'add',
     id: 28,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Components tests',
@@ -261,7 +261,7 @@ const FEATURES_DATA = [
     type: 'tests',
     status: 'add',
     id: 30,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Sections tests',
@@ -269,7 +269,7 @@ const FEATURES_DATA = [
     type: 'tests',
     status: 'add',
     id: 33,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Hoc tests',
@@ -277,7 +277,7 @@ const FEATURES_DATA = [
     type: 'tests',
     status: 'add',
     id: 34,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Pages tests',
@@ -285,7 +285,7 @@ const FEATURES_DATA = [
     type: 'tests',
     status: 'add',
     id: 31,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Utils tests',
@@ -293,7 +293,7 @@ const FEATURES_DATA = [
     type: 'tests',
     status: 'add',
     id: 32,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Style in storybook',
@@ -301,39 +301,15 @@ const FEATURES_DATA = [
     type: 'style',
     status: 'add',
     id: 35,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
-  // {
-  //   name: 'Pipeline dev',
-  //   done: false,
-  //   type: 'pipeline',
-  //   status: 'add',
-  //   id: 36,
-  //   isIconByType: true,
-  // },
-  // {
-  //   name: 'Pipeline stage',
-  //   done: false,
-  //   type: 'pipeline',
-  //   status: 'add',
-  //   id: 37,
-  //   isIconByType: true,
-  // },
-  // {
-  //   name: 'Pipeline prod',
-  //   done: false,
-  //   type: 'pipeline',
-  //   status: 'add',
-  //   id: 38,
-  //   isIconByType: true,
-  // },
   {
     name: 'Changelog',
     done: false,
     type: 'changelog',
     status: 'add',
     id: 39,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Admin developer page',
@@ -341,7 +317,7 @@ const FEATURES_DATA = [
     type: 'admin',
     status: 'add',
     id: 40,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Admin no access page',
@@ -349,7 +325,7 @@ const FEATURES_DATA = [
     type: 'admin',
     status: 'add',
     id: 41,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Admin validation route page by env',
@@ -357,7 +333,7 @@ const FEATURES_DATA = [
     type: 'admin',
     status: 'add',
     id: 42,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Toast notification',
@@ -365,7 +341,7 @@ const FEATURES_DATA = [
     type: 'toast',
     status: 'add',
     id: 43,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Login page',
@@ -373,7 +349,7 @@ const FEATURES_DATA = [
     type: 'page',
     status: 'add',
     id: 44,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Register page',
@@ -381,7 +357,7 @@ const FEATURES_DATA = [
     type: 'page',
     status: 'add',
     id: 45,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
   {
     name: 'Website version in footer',
@@ -389,8 +365,32 @@ const FEATURES_DATA = [
     type: 'page',
     status: 'add',
     id: 46,
-    isIconByType: true,
+    hasTypeIcon: true,
   },
+  // {
+  //   name: 'Pipeline dev',
+  //   done: false,
+  //   type: 'pipeline',
+  //   status: 'add',
+  //   id: 36,
+  //   hasTypeIcon: true,
+  // },
+  // {
+  //   name: 'Pipeline stage',
+  //   done: false,
+  //   type: 'pipeline',
+  //   status: 'add',
+  //   id: 37,
+  //   hasTypeIcon: true,
+  // },
+  // {
+  //   name: 'Pipeline prod',
+  //   done: false,
+  //   type: 'pipeline',
+  //   status: 'add',
+  //   id: 38,
+  //   hasTypeIcon: true,
+  // },
 ];
 
 export { FEATURES_DATA };

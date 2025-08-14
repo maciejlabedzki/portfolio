@@ -1,6 +1,6 @@
 export interface WithTestId {
   /**
-   * Is component disabled
+   * Component test id
    */
   testId?: string;
 }

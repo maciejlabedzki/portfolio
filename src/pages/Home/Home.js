@@ -69,6 +69,7 @@ const PageHome = ({ testId }) => {
 
   const handleFakePageLoadingScreen = useCallback(() => {
     // TODO: move metchod to correct data fetch metchod
+
     setTimeout(() => {
       setDataLoading(false);
     }, 500);

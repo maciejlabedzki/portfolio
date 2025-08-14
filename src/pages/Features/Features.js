@@ -57,8 +57,8 @@ const PageFeatures = ({ testId }) => {
             done={item.done}
             name={item.name}
             type={item.type}
+            typeIcon={item.hasTypeIcon}
             status={item.status}
-            icon={item.isIconByType}
             id={item.id}
           />
         ))}
@@ -72,8 +72,8 @@ const PageFeatures = ({ testId }) => {
             done={item.done}
             name={item.name}
             type={item.type}
+            typeIcon={item.hasTypeIcon}
             status={item.status}
-            icon={item.isIconByType}
             id={item.id}
           />
         ))}

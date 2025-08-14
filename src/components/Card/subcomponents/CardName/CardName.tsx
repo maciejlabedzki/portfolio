@@ -1,7 +1,8 @@
 import { twMerge } from 'tailwind-merge';
-import { getByTestId } from '../../../lib/helper';
+import { getByTestId } from '../../../../lib/helper';
+import { CardNameProps } from './useCardName';
 
-const CardName = ({ name, header, testId }) => {
+const CardName = ({ name, header, testId }: CardNameProps) => {
   if (!name) {
     return;
   }

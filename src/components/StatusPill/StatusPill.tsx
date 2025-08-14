@@ -1,7 +1,14 @@
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
+import { StatusPillProps } from './useStatusPill';
 
-const StatusPill = ({ onClick, additionalClasses, text, title, testId }) => {
+const StatusPill = ({
+  onClick,
+  additionalClasses,
+  text,
+  title = '',
+  testId,
+}: StatusPillProps) => {
   return (
     <span
       className={twMerge(

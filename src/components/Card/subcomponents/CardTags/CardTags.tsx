@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { ChevronDownIcon, ChevronUpIcon } from '../../../images';
-import { getByTestId } from '../../../lib/helper';
-import { Button, Tag } from '../../index';
+import { ChevronDownIcon, ChevronUpIcon } from '../../../../images';
+import { getByTestId } from '../../../../lib/helper';
+import { Button, Tag } from '../../../index';
+import { CardTagsProps } from './useCardTags';
 
-const CardTags = ({ header, onClick, tags, tagsLimit = 9, testId }) => {
+const CardTags = ({
+  header,
+  onClick,
+  tags,
+  tagsLimit = 9,
+  testId,
+}: CardTagsProps) => {
   const [showMoreTag, setShowMoreTag] = useState(false);
 
   if (!tags || !tags?.length) {

@@ -10,8 +10,8 @@ const Loader = ({ testId, theme = 'dark' }) => {
   return (
     <div
       className="text-white"
-      {...getByTestId(testId, 'container')}
       style={{ filter: filterTheme[theme] }}
+      {...getByTestId(testId, 'container')}
     >
       <Spinner className={'w-6 h-6'} />
     </div>

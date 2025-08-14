@@ -1,13 +1,14 @@
 import { twMerge } from 'tailwind-merge';
 import { getByTestId, validTextLength } from '../../lib/helper';
+import { TagProps } from './useTag';
 
 const Tag = ({
   onClick,
-  testId,
   maxTextLength = 15,
   additionalClasses,
   text,
-}) => {
+  testId,
+}: TagProps) => {
   return (
     <span
       onClick={onClick}

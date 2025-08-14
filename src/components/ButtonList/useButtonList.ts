@@ -4,7 +4,11 @@ import {
   BaseSpaceSize,
   BaseTheme,
 } from '../../helper/ts/Types';
-import { WithTestId } from '../../helper/ts/WithTestId';
+import { WithTestId, WithTestIdCategory } from '../../helper/ts/WithTestId';
+
+export const ButtonListArgTypes = {
+  ...WithTestIdCategory,
+};
 
 export interface ButtonItemProps {
   value: string;

@@ -4,7 +4,8 @@ import {
   getByTestId,
   linkWithHttps,
   validTextLength,
-} from '../../../lib/helper';
+} from '../../../../lib/helper';
+import { CardLinkProps } from './useCardLink';
 
 const CardLink = ({
   linkAvailable = true,
@@ -14,7 +15,7 @@ const CardLink = ({
   target = 'blank',
   rel = 'noopener noreferrer',
   testId,
-}) => {
+}: CardLinkProps) => {
   const { t } = useTranslation();
 
   if (!path) {

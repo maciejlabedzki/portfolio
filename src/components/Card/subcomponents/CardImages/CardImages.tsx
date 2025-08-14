@@ -1,17 +1,12 @@
-import {
-  ArrowPathRoundedSquareIcon,
-  GlobeAltIcon,
-  PencilIcon,
-  PhotoIcon,
-  WrenchIcon,
-} from '@heroicons/react/24/solid';
+import { PhotoIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { LightBulbIcon, PuzzlePieceIcon } from '../../../images';
-import { getByTestId } from '../../../lib/helper';
-import Loader from '../../Loader/Loader';
-import StatusPill from '../../StatusPill/StatusPill';
+import { getByTestId } from '../../../../lib/helper';
+import Loader from '../../../Loader/Loader';
+import StatusPill from '../../../StatusPill/StatusPill';
+import { validTypeIcon } from './helper';
+import { CardImagesProps } from './useCardImages';
 
 const CardImages = ({
   imgSrc,
@@ -19,35 +14,15 @@ const CardImages = ({
   imgAlt,
   id,
   name,
-  handleSearch,
   type,
   year,
-  testId,
-  handleModal,
   textOpen = 'Open',
-}) => {
+  handleSearch,
+  handleModal,
+  testId,
+}: CardImagesProps) => {
   const { t } = useTranslation();
   const [imgLoaded, setImgLoaded] = useState(false);
-
-  const validTypeIcon = (value) => {
-    if (value === 'website') {
-      return <GlobeAltIcon className="w-4 h-4" />;
-    } else if (value === 'widget') {
-      return <PuzzlePieceIcon className="w-4 h-4" />;
-    } else if (value === 'design') {
-      return <PencilIcon className="w-4 h-4" />;
-    } else if (value === 'tool') {
-      return <WrenchIcon className="w-4 h-4" />;
-    } else if (value === 'animation') {
-      return <ArrowPathRoundedSquareIcon className="w-4 h-4" />;
-    } else {
-      return <LightBulbIcon className="w-4 h-4" />;
-    }
-  };
-
-  const handleImageOpen = () => {
-    handleModal?.({ imgBig, imgAlt, name });
-  };
 
   return (
     <div
@@ -87,7 +62,7 @@ const CardImages = ({
         <StatusPill
           text={validTypeIcon(type)}
           title={t('Card.Type', { type })}
-          onClick={() => handleSearch(type, 'type')}
+          onClick={() => handleSearch?.(type, 'type')}
           additionalClasses={twMerge(
             'absolute cursor-pointer',
             'hover:opacity-80 z-30 top-1 right-1',
@@ -103,14 +78,14 @@ const CardImages = ({
             'justify-center items-center flex text-white flex-col',
             'opacity-0 hover:opacity-50 cursor-pointer',
           )}
-          onClick={handleImageOpen}
+          onClick={() => handleModal?.({ imgBig, imgAlt, name })}
         >
           <PhotoIcon className="w-6 h-6 text-white" />
           {textOpen}
         </div>
       )}
 
-      {!imgLoaded && <Loader />}
+      {!imgLoaded && <Loader testId={`${testId}-loader`} />}
 
       <img
         className="rounded-xl max-w-[200px]"
