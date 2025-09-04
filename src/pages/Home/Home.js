@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { Card, Modal, Pagination, Suggestions } from '../../components';
+import Card from '../../components/Card/Card';
+import Modal from '../../components/Modal/Modal';
+import Pagination from '../../components/Pagination/Pagination';
+import Suggestions from '../../components/Suggestions/Suggestions';
 import { DEFAULT_CARD } from '../../data/card';
 import {
   GRID_OPTIONS,

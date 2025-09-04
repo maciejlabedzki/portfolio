@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { Button } from '../../components';
+import Button from '../../components/Button/Button';
 import { getByTestId } from '../../lib/helper';
 import { getLocalStorage, setLocalStorage } from '../../lib/localstorage';
 

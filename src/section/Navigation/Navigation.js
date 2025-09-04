@@ -2,8 +2,9 @@ import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
-import { Button, NavigationLink } from '../../components';
+import Button from '../../components/Button/Button';
 import Dropdown from '../../components/Dropdown/Dropdown';
+import NavigationLink from '../../components/NavigationLink/NavigationLink';
 import { NAVIGATION_DATA, NAVIGATION_USER_DATA } from '../../data/navigation';
 import { Bars3Icon, FlagIcon, UserIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
@@ -121,6 +122,7 @@ const Navigation = ({ testId }) => {
           theme="dark"
           align="topRight"
           hasBackdrop={true}
+          additionalBoxClasses="mt-6"
         >
           {NAVIGATION_USER_DATA.map((nav) => (
             <NavigationLink

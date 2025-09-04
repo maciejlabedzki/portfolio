@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { Button } from '../../components';
+import Button from '../../components/Button/Button';
 import { ArrowUpIcon } from '../../images';
 import { eventValidateScrollHeight, getByTestId } from '../../lib/helper';
 

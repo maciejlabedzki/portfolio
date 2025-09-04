@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge';
-import { Button } from '../../components';
+import Button from '../../components/Button/Button';
 
 const Suggestions = ({ data, handleSearch, searchValue, title, option }) => {
   return (

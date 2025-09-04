@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { Button, Input, LabeledContainer } from '../../components';
+import Button from '../../components/Button/Button';
+import Input from '../../components/Input/Input';
+import LabeledContainer from '../../components/LabeledContainer/LabeledContainer';
 import {
   AdjustmentsVerticalIcon,
   ArrowPathIcon,

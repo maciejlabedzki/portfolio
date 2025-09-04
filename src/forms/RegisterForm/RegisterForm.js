@@ -3,7 +3,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import * as yup from 'yup';
-import { Button, Input, Panel } from '../../components';
+import Button from '../../components/Button/Button';
+import Input from '../../components/Input/Input';
+import Panel from '../../components/Panel/Panel';
 import { NewspaperIcon } from '../../images';
 import { emailSchema, simplePasswordSchema } from '../../lib/yupHelpers';
 

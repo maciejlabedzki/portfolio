@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import packageJsonInfo from '../../../package.json';
-import { Paragraph } from '../../components';
+import Paragraph from '../../components/Paragraph/Paragraph';
 import { getByTestId } from '../../lib/helper';
 
 const Footer = ({ testId }) => {

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { Button } from '../../..';
 import { ChevronDownIcon, ChevronUpIcon } from '../../../../images';
 import { getByTestId, validTextLength } from '../../../../lib/helper';
+import Button from '../../../Button/Button';
 import { CardDescriptionProps } from './useCardDescription';
 
 const CardDescription = ({

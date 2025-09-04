@@ -18,11 +18,11 @@ export default {
 };
 
 export const Primary = {
-  args: {
-    data: [
+  args:{
+    data:[
       { value: 'Primary', name: 'Primary' },
       { value: 'Secondary', name: 'Secondary' },
     ],
-    theme: 'transparent',
+    theme:"primary",
   },
 };

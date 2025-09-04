@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { ChangeEventHandler, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { EyeIcon, EyeSlashIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
-import { Button } from '../index';
+import Button from '../Button/Button';
+import { InputProps } from './useInput';
 
 const Input = ({
   id,
@@ -15,7 +16,7 @@ const Input = ({
   error,
   label,
   testId,
-  autocomplete = 'false',
+  autocomplete = 'off',
   hasClear,
   onClear,
   additionalClasses,
@@ -24,7 +25,7 @@ const Input = ({
   isRequired,
   hasShowHide,
   ref,
-}) => {
+}: InputProps) => {
   const { t } = useTranslation();
   const [currentValue, setCurrentValue] = useState(value);
   const [showPassword, setShowPassword] = useState(false);
@@ -34,9 +35,9 @@ const Input = ({
     setCurrentValue(value);
   }, [value]);
 
-  const handleOnChange = (e) => {
+  const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setCurrentValue(e.target.value);
-    onChange(e);
+    onChange?.(e);
   };
 
   const handleOnClear = () => {

@@ -21,3 +21,5 @@ export type BaseRadiusSize =
   | 'full';
 
 export type BaseBorder = 'none' | 'normal' | 'secondary';
+
+export type BaseAlign = 'topRight' | 'topLeft' | 'center';

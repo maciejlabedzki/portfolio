@@ -1,7 +1,7 @@
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { Paragraph } from '../../components';
+import Paragraph from '../../components/Paragraph/Paragraph';
 import { SocialLinkedIn, UserIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
 

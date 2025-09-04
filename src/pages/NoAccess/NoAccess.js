@@ -1,7 +1,7 @@
 import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { NavigationLink } from '../../components';
+import NavigationLink from '../../components/NavigationLink/NavigationLink';
 import { getByTestId } from '../../lib/helper';
 
 const PageNoAccess = ({ testId }) => {

@@ -2,13 +2,11 @@ import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { Placeholder2 } from '../../images';
 import { getByTestId } from '../../lib/helper';
-import {
-  CardDescription,
-  CardImages,
-  CardLink,
-  CardName,
-  CardTags,
-} from './subcomponents/index';
+import CardDescription from './subcomponents/CardDescription/CardDescription';
+import CardImages from './subcomponents/CardImages/CardImages';
+import CardLink from './subcomponents/CardLink/CardLink';
+import CardName from './subcomponents/CardName/CardName';
+import CardTags from './subcomponents/CardTags/CardTags';
 import { CardProps } from './useCard';
 
 const Card = ({

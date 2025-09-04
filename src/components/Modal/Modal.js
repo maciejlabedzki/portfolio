@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { XMarkIcon } from '../../images';
-import { Button, Loader } from '../index';
+import Button from '../Button/Button';
+import Loader from '../Loader/Loader';
 
 const Modal = ({ data, open, handleClose }) => {
   const { t } = useTranslation();
@@ -33,7 +34,7 @@ const Modal = ({ data, open, handleClose }) => {
       <div
         className={twMerge(
           'bg-white border border-gray',
-          'min-w-auto sm:min-w-[300px]',
+          'min-w-auto max-w-[1000px] sm:min-w-[300px]',
           'min-h-auto sm:min-h-[300px] z-20',
           'rounded-xl relative',
           'overflow-hidden w-[90%] h-auto',

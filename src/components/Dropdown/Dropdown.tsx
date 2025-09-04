@@ -1,19 +1,26 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
-import { Button } from '../index';
+import Button from '../Button/Button';
+import { DropdownProps, styleAlign, styleTheme } from './useDropdown';
 
 const Dropdown = ({
   theme = 'dark',
+  themeButton = 'transparent',
   align = 'topRight',
   hasBackdrop = true,
-  testId,
   icon,
   name,
   additionalClasses,
+  additionalBackdropClasses,
+  additionalButtonClasses,
+  additionalBoxClasses,
   children,
-}) => {
-  const [open, setOpen] = useState();
+
+  // With test id
+  testId,
+}: DropdownProps) => {
+  const [open, setOpen] = useState<boolean>(false);
 
   const handleOpenDropdown = () => {
     setOpen(!open);
@@ -21,17 +28,6 @@ const Dropdown = ({
 
   const handleCloseOnClick = () => {
     setOpen(false);
-  };
-
-  const styleTheme = {
-    dark: ' bg-black-300 text-white border-gray',
-    light: ' bg-white text-black',
-  };
-
-  const styleAlign = {
-    topRight: 'sm:top-0 sm:right-0',
-    topLeft: 'sm:top-0 sm:left-0',
-    center: 'top-0 right-0 mr-[calc(-150%-10px)]',
   };
 
   return (
@@ -44,6 +40,7 @@ const Dropdown = ({
           onClick={handleOpenDropdown}
           className={twMerge(
             'bg-transparent fixed w-full h-full top-0 left-0 z-[99]',
+            additionalBackdropClasses,
           )}
         />
       )}
@@ -51,8 +48,9 @@ const Dropdown = ({
       <Button
         name={name}
         icon={icon}
-        theme="transparent"
+        theme={themeButton}
         onClick={handleOpenDropdown}
+        additionalClasses={additionalButtonClasses}
       />
 
       {open && (
@@ -60,9 +58,10 @@ const Dropdown = ({
           className={twMerge(
             'flex flex-col absolute z-[100]',
             'p-2 rounded-md min-w-[150px]',
-            'border mt-6 ',
+            'border mt-8 mr-1',
             styleTheme[theme],
             styleAlign[align],
+            additionalBoxClasses,
           )}
           onClick={handleCloseOnClick}
         >

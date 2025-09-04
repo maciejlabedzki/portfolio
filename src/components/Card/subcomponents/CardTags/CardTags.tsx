@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { ChevronDownIcon, ChevronUpIcon } from '../../../../images';
 import { getByTestId } from '../../../../lib/helper';
-import { Button, Tag } from '../../../index';
+import Button from '../../../Button/Button';
+import Tag from '../../../Tag/Tag';
 import { CardTagsProps } from './useCardTags';
 
 const CardTags = ({

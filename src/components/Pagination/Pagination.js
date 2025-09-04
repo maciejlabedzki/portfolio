@@ -5,7 +5,7 @@ import {
   getPaginationList,
   getPaginationOptions,
 } from '../../lib/helper';
-import { Button } from '../index';
+import Button from '../Button/Button';
 import PaginationDots from './subcomponents/PaginationDots';
 
 const Pagination = ({ pages, onClick, selected, testId }) => {

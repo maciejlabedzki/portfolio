@@ -1,7 +1,7 @@
 import { useCallback, useContext } from 'react';
 import toast from 'react-hot-toast';
 import { twMerge } from 'tailwind-merge';
-import { Button } from '../../components';
+import Button from '../../components/Button/Button';
 import { UserContext } from '../../contexts/UserContext';
 import { getByTestId } from '../../lib/helper';
 
@@ -47,6 +47,14 @@ const PageAdmin = ({ testId }) => {
       <Button
         name="Console User Context"
         onClick={() => console.log(getUserContext)}
+        additionalClasses={'min-w-[200px]'}
+      />
+
+      <Button
+        name="Sentry error test"
+        onClick={() => {
+          throw new Error('This is your first error!');
+        }}
         additionalClasses={'min-w-[200px]'}
       />
     </div>

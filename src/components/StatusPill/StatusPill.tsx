@@ -3,10 +3,12 @@ import { getByTestId } from '../../lib/helper';
 import { StatusPillProps } from './useStatusPill';
 
 const StatusPill = ({
-  onClick,
   additionalClasses,
   text,
   title = '',
+  onClick,
+
+  // With test id
   testId,
 }: StatusPillProps) => {
   return (

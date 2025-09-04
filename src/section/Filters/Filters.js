@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { ButtonList, LabeledContainer, Select } from '../../components';
+import ButtonList from '../../components/ButtonList/ButtonList';
+import LabeledContainer from '../../components/LabeledContainer/LabeledContainer';
+import Select from '../../components/Select/Select';
 import {
   GRID_OPTIONS,
   PAGINATION_COUNTER,

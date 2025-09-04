@@ -1,21 +1,22 @@
+import type { Preview } from '@storybook/react-webpack5';
+import i18n from '../src/i18n';
 import '../src/styles/index.css';
 import '../src/styles/tailwind-base.css';
 
-/** @type { import('@storybook/react-webpack5').Preview } */
-const preview = {
+const preview: Preview = {
   parameters: {
-    // controls: {
-    //   matchers: {
-    //     color: /(background|color)$/i,
-    //     date: /Date$/i,
-    //   },
-    // },
+    i18n,
     docs: {
       codePanel: true,
     },
   },
   initialGlobals: {
     backgrounds: { value: 'dark' },
+    locale: 'en',
+    locales: {
+      en: 'English',
+      pl: 'Polish',
+    },
   },
 };
 

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { Loader } from '../../components';
+import Loader from '../../components/Loader/Loader';
 
 const Loading = () => {
   const { t } = useTranslation();
