@@ -7,7 +7,8 @@ const testId = 'button-test';
 
 const TEST_IDS = {
   container: `${testId}-container`,
-  button: 'button',
+  icon: `${testId}-icon`,
+  name: `${testId}-name`,
 };
 
 describe('Button component', () => {
@@ -19,21 +20,5 @@ describe('Button component', () => {
     expect(elementContainer).toBeInTheDocument();
 
     expect(elementContainer.textContent).toBe('test');
-  });
-
-  test('loads items', () => {
-    render(<Button testId={testId} name="test" />);
-
-    const elementContainer = screen.getByTestId(TEST_IDS.container);
-
-    expect(elementContainer).toBeInTheDocument();
-  });
-
-  test('exit option items', () => {
-    render(<Button testId={testId} name="test" />);
-
-    const elementContainer = screen.getByTestId(TEST_IDS.container);
-
-    expect(elementContainer).toBeInTheDocument();
   });
 });

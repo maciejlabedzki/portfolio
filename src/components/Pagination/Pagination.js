@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import {
@@ -6,7 +5,7 @@ import {
   getPaginationList,
   getPaginationOptions,
 } from '../../lib/helper';
-import { Button } from '../index';
+import Button from '../Button/Button';
 import PaginationDots from './subcomponents/PaginationDots';
 
 const Pagination = ({ pages, onClick, selected, testId }) => {
@@ -47,10 +46,10 @@ const Pagination = ({ pages, onClick, selected, testId }) => {
             name={1}
             title={`${TEXT_TITLE_PAGE} 1`}
             onClick={() => handleSelected(0)}
-            theme={0 === currentSelected ? 'blue' : 'white'}
-            additionalClasses={
-              'w-8 h-8 rounded-md flex justify-center items-center'
-            }
+            theme={0 === currentSelected ? 'primary' : 'secondary'}
+            radius="normal"
+            height="huge"
+            width="huge"
           />
           {currentSelected !== 2 && <PaginationDots />}
         </>
@@ -62,10 +61,10 @@ const Pagination = ({ pages, onClick, selected, testId }) => {
           name={item.name}
           title={item.title}
           onClick={() => handleSelected(item.value)}
-          theme={item.selected ? 'blue' : 'white'}
-          additionalClasses={
-            'w-8 h-8 rounded-md flex justify-center items-center'
-          }
+          theme={item.selected ? 'primary' : 'secondary'}
+          radius="normal"
+          height="huge"
+          width="huge"
         />
       ))}
 
@@ -76,10 +75,10 @@ const Pagination = ({ pages, onClick, selected, testId }) => {
             name={pages}
             title={`${TEXT_TITLE_PAGE} ${pages}`}
             onClick={() => handleSelected(pages - 1)}
-            theme={pages - 1 === currentSelected ? 'blue' : 'white'}
-            additionalClasses={
-              'w-8 h-8 rounded-md flex justify-center items-center'
-            }
+            theme={pages - 1 === currentSelected ? 'primary' : 'secondary'}
+            radius="normal"
+            height="huge"
+            width="huge"
           />
         </>
       )}
@@ -88,11 +87,3 @@ const Pagination = ({ pages, onClick, selected, testId }) => {
 };
 
 export default Pagination;
-
-Pagination.propTypes = {
-  testId: PropTypes.string,
-};
-
-Pagination.defaultProps = {
-  testId: '',
-};

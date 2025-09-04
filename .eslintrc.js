@@ -1,8 +1,11 @@
 module.exports = {
   root: true,
   env: {
+    browser: true,
+    commonjs: true,
     node: true,
     es6: true,
+    jest: true,
   },
   extends: [
     'react-app',
@@ -33,7 +36,7 @@ module.exports = {
     'react/jsx-filename-extension': [
       1,
       {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     ],
 

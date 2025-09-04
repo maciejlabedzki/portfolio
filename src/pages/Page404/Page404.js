@@ -1,14 +1,11 @@
 import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
-import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import Button from '../../components/Button/Button';
-import { LANGUAGE_DATA } from '../../data/langEn';
+import NavigationLink from '../../components/NavigationLink/NavigationLink';
 import { getByTestId } from '../../lib/helper';
 
 const Page404 = ({ testId }) => {
-  const handleRedirect = () => {
-    window.open('/', '_self');
-  };
+  const { t } = useTranslation();
 
   return (
     <div
@@ -18,23 +15,25 @@ const Page404 = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
+      <title>{t('Page.404.Title')}</title>
+
       <ExclamationTriangleIcon className="w-20 h-20 text-black-400" />
 
-      <span className="text-xl font-bold mb-2">{LANGUAGE_DATA['Page404']}</span>
-      <span className="text-lg mb-0">{LANGUAGE_DATA['WrongURLAdress']}</span>
-      <span className="text-lg mb-20">{window.location.href}</span>
+      <span className="text-xl font-bold mb-2">{t('Page.404.Header')}</span>
+      <span className="text-sm mb-0">{t('Page.404.WrongURLAdress')}</span>
+      <span className="text-sm text-blue mt-2 mb-20">
+        {window.location.href}
+      </span>
 
-      <Button onClick={handleRedirect} name={LANGUAGE_DATA['BackToHomePage']} />
+      <NavigationLink
+        to="/"
+        name={t('Page.404.BackToHomePage')}
+        additionalClasses={twMerge(
+          'rounded-md px-2 py-2 bg-tahiti-700 hover:opacity-90',
+        )}
+      />
     </div>
   );
 };
 
 export default Page404;
-
-Page404.propTypes = {
-  testId: PropTypes.string,
-};
-
-Page404.defaultProps = {
-  testId: '',
-};

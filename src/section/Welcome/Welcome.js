@@ -1,9 +1,14 @@
-import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
 import { Bg1 } from '../../images';
 import { getByTestId } from '../../lib/helper';
 
-const Welcome = ({ header, desc, testId }) => {
+const Welcome = ({
+  header,
+  desc,
+  imgAlt = 'Welcome',
+  imgSrc = Bg1,
+  testId,
+}) => {
   return (
     <div
       className={twMerge(
@@ -13,12 +18,14 @@ const Welcome = ({ header, desc, testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
-      <img
-        className="absolute w-full h-full z-0 top-0 left-[-50%] ml-[+50%]"
-        src={Bg1}
-        alt="Welcome Background"
-        {...getByTestId(testId, 'image')}
-      />
+      {imgSrc && (
+        <img
+          className="absolute w-full h-full z-0 top-0 left-[-50%] ml-[+50%]"
+          src={imgSrc}
+          alt={imgAlt}
+          {...getByTestId(testId, 'image')}
+        />
+      )}
 
       {header && (
         <p
@@ -42,13 +49,3 @@ const Welcome = ({ header, desc, testId }) => {
 };
 
 export default Welcome;
-
-Welcome.propTypes = {
-  testId: PropTypes.string,
-};
-
-Welcome.defaultProps = {
-  testId: '',
-  header: 'Welcome',
-  desc: '',
-};

@@ -1,58 +1,44 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { Toaster } from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
-import { Button } from '../components';
-import { LANGUAGE_DATA } from '../data/langEn';
-import { USER_DATA } from '../data/user';
-import { ArrowUpIcon } from '../images';
+import { UserContext } from '../contexts/UserContext';
 import { getByTestId } from '../lib/helper';
-import { Footer, Navigation, OwnerDetails, Welcome } from '../section/index';
+import {
+  Cookies,
+  Footer,
+  Navigation,
+  OwnerDetails,
+  ScrollToTop,
+  Welcome,
+} from '../section/index';
 
 const Layout = ({ testId, children }) => {
-  const [userData] = useState(USER_DATA);
-
-  const handleScrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
-  };
+  const { t } = useTranslation();
+  const { userStorage } = useContext(UserContext);
 
   return (
     <div
-      className="flex flex-col w-full min-h-[100vh]"
+      className="flex flex-col w-full min-h-[100vh] overflow-hidden"
       {...getByTestId(testId, 'container')}
     >
-      <OwnerDetails data={userData} />
+      <OwnerDetails data={userStorage} />
+
       <Navigation />
-      <Welcome
-        header={LANGUAGE_DATA['Section']['Welcome']['Header']}
-        desc={LANGUAGE_DATA['Section']['Welcome']['Desc']}
-      />
+
+      <Welcome header={t('Welcome.Header')} desc={t('Welcome.Desc')} />
+
       <div className="w-full"> {children ? children : <Outlet />}</div>
+
       <Footer />
 
-      <Button
-        icon={<ArrowUpIcon className="w-5 h-5" />}
-        onClick={handleScrollTop}
-        radius={'full'}
-        additionalClasses={
-          'w-5 h-5 p-4 sm:p-8 z-[100] fixed ' +
-          'bottom-0 sm:bottom-10 right-0 sm:right-5'
-        }
-        title={LANGUAGE_DATA['ScrollTop']}
-      />
+      <Cookies />
+
+      <ScrollToTop />
+
+      <Toaster position="top-right" />
     </div>
   );
 };
 
 export default Layout;
-
-Layout.propTypes = {
-  testId: PropTypes.string,
-};
-
-Layout.defaultProps = {
-  testId: '',
-};

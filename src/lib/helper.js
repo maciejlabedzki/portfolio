@@ -1,5 +1,22 @@
-import { LANGUAGE_DATA } from '../data/langEn';
-import { TYPE_SUGGESTIONS, YEAR_SUGGESTIONS } from '../data/search';
+import {
+  TAG_SUGGESTIONS,
+  TYPE_SUGGESTIONS,
+  YEAR_SUGGESTIONS,
+} from '../data/search';
+import {
+  AdjustmentsVerticalIcon,
+  BarsArrowDownIcon,
+  BeakerIcon,
+  BookmarkIcon,
+  ClipboardIcon,
+  CloudArrowDownIcon,
+  CreditCardIcon,
+  FlagIcon,
+  GlobeAltIcon,
+  InboxIcon,
+  MagnifyingGlassIcon,
+  ViewColumnsIcon,
+} from '../images';
 
 export const getByTestId = (testId, suffix, testIdPropName = 'data-testid') => {
   if (!testId) {
@@ -16,8 +33,7 @@ export const getByTestId = (testId, suffix, testIdPropName = 'data-testid') => {
 export const linkWithHttps = (link) => {
   if (link?.includes('https')) {
     return link;
-  }
-  if (link) {
+  } else if (link) {
     return `https://${link}`;
   } else {
     return '';
@@ -46,20 +62,57 @@ export const isAllInArrayEmpty = (arr) => {
   return countElements === res ? true : false;
 };
 
-export const getSuggestionsOptions = (option) => {
+export const getIconFeaturePattern = (value) => {
+  const CLASS_ICON = 'w-4 h-4 mr-2 text-inherit';
+
+  switch (value) {
+    case 'search':
+      return <MagnifyingGlassIcon className={CLASS_ICON} />;
+    case 'filter':
+      return <ViewColumnsIcon className={CLASS_ICON} />;
+    case 'language':
+      return <FlagIcon className={CLASS_ICON} />;
+    case 'cookies':
+      return <ClipboardIcon className={CLASS_ICON} />;
+    case 'data':
+      return <CloudArrowDownIcon className={CLASS_ICON} />;
+    case 'components':
+      return <InboxIcon className={CLASS_ICON} />;
+    case 'tests':
+      return <AdjustmentsVerticalIcon className={CLASS_ICON} />;
+    case 'card':
+      return <CreditCardIcon className={CLASS_ICON} />;
+    case 'pipeline':
+      return <BarsArrowDownIcon className={CLASS_ICON} />;
+    case 'changelog':
+      return <GlobeAltIcon className={CLASS_ICON} />;
+    case 'style':
+      return <BeakerIcon className={CLASS_ICON} />;
+    default:
+      return <BookmarkIcon className={CLASS_ICON} />;
+  }
+};
+
+export const getSuggestionsOptions = (option, t) => {
   let res = {};
 
   if (option === 'type') {
     res = {
       data: TYPE_SUGGESTIONS,
       option: 'type',
-      title: LANGUAGE_DATA['SearchTypeSuggestions'],
+      title: t('Section.Search.TypeSuggestions'),
     };
   } else if (option === 'year') {
     res = {
       data: YEAR_SUGGESTIONS,
       option: 'year',
-      title: LANGUAGE_DATA['SearchYearSuggestions'],
+      title: t('Section.Search.YearSuggestions'),
+    };
+  } else if (option === 'tags') {
+    res = {
+      data: TAG_SUGGESTIONS,
+      option: 'tags',
+      title: t('Section.Search.TagsSuggestions'),
     };
   }
 
@@ -115,3 +168,24 @@ export const getPaginationOptions = (
 
   return { pagination, isLimited, isLastVisible, isFirstVisible };
 };
+
+export const getSearchPlaceholderName = (value, t) => {
+  if (!value) return '';
+
+  const filterBy = value.slice(0, 1).toLocaleUpperCase() + value.slice(1);
+
+  return (
+    t('Section.Search.SearchBy') +
+    ' ' +
+    t(`SearchFiltersOptions.${filterBy}`).toLocaleLowerCase()
+  );
+};
+
+export const eventValidateScrollHeight = (status, update) => {
+  if (!status && window.pageYOffset > 100) {
+    update(true);
+  } else if (status && window.pageYOffset <= 100) {
+    update(false);
+  }
+};
+

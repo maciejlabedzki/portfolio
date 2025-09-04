@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { ButtonList, LabeledContainer, Select } from '../../components';
-import { LANGUAGE_DATA } from '../../data/langEn';
+import ButtonList from '../../components/ButtonList/ButtonList';
+import LabeledContainer from '../../components/LabeledContainer/LabeledContainer';
+import Select from '../../components/Select/Select';
 import {
   GRID_OPTIONS,
   PAGINATION_COUNTER,
@@ -26,8 +27,13 @@ const Filters = ({
   dataLimit,
   handleItemsLimitPage,
 }) => {
+  const { t } = useTranslation();
   const [currentSort, setCurrentSort] = useState(sort);
   const [currentFilterBy, setCurrentFilterBy] = useState(filterBy);
+
+  useEffect(() => {
+    setCurrentSort(sort);
+  }, [sort]);
 
   useEffect(() => {
     setCurrentFilterBy(filterBy);
@@ -51,33 +57,42 @@ const Filters = ({
         'relative mt-2 flex flex-wrap',
       )}
     >
-      <label className="absolute top-[-14px] z-20 bg-black-200 px-2">
-        {LANGUAGE_DATA['Filters']}
-      </label>
+      <span className="absolute top-[-14px] z-20 bg-black-200 px-2">
+        {t('Global.Filters')}
+      </span>
 
       <section className="w-full flex flex-wrap justify-center">
         <LabeledContainer
           icon={<TagIcon className="w-4 h-4" />}
-          label={`${LANGUAGE_DATA['SearchBy']}:`}
+          name={t('Section.Filters.SearchBy')}
           children={
             <Select
               options={SEARCH_FILTERS_OPTIONS}
               value={currentFilterBy}
               onChange={handleFilterByChange}
               additionalClasses={'min-w-[200px] mr-6'}
+              translateKey="SearchFiltersOptions"
+              translated={true}
+              sorted={true}
+              name="searchBy"
+              id="searchBy"
             />
           }
         />
 
         <LabeledContainer
           icon={<ArrowsUpDownIcon className="w-4 h-4" />}
-          label={`${LANGUAGE_DATA['Sort']}:`}
+          name={t('Section.Filters.Sort')}
           children={
             <Select
               options={SORT_OPTIONS}
               value={currentSort}
               onChange={handleSortChange}
               additionalClasses={'min-w-[200px]'}
+              translateKey="SearchSortOptions"
+              translated={true}
+              name="sort"
+              id="sort"
             />
           }
         />
@@ -86,24 +101,32 @@ const Filters = ({
       <section className="w-full flex flex-wrap justify-center">
         <LabeledContainer
           icon={<ViewColumnsIcon className="w-4 h-4" />}
-          label={`${LANGUAGE_DATA['MaxColumns']}:`}
+          name={t('Section.Filters.MaxColumns')}
           children={
             <ButtonList
               data={GRID_OPTIONS}
               onClick={handleGridView}
               selected={gridView}
+              space="slim"
+              margin="small"
+              theme="transparent"
+              themeSelected="primary"
             />
           }
         />
 
         <LabeledContainer
           icon={<SquaresPlusIcon className="w-4 h-4" />}
-          label={`${LANGUAGE_DATA['ViewLimit']}:`}
+          name={t('Section.Filters.CardLimit')}
           children={
             <ButtonList
               data={PAGINATION_COUNTER}
               onClick={handleItemsLimitPage}
               selected={dataLimit}
+              space="slim"
+              margin="small"
+              theme="transparent"
+              themeSelected="primary"
             />
           }
         />
@@ -113,14 +136,3 @@ const Filters = ({
 };
 
 export default Filters;
-
-Filters.propTypes = {
-  testId: PropTypes.string,
-};
-
-Filters.defaultProps = {
-  testId: '',
-  value: '',
-  options: [],
-  onChange: undefined,
-};

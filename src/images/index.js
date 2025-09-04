@@ -1,18 +1,36 @@
 export {
   AdjustmentsVerticalIcon,
+  ArrowPathIcon,
   ArrowPathRoundedSquareIcon,
   ArrowsUpDownIcon,
   ArrowUpIcon,
+  Bars3Icon,
+  BarsArrowDownIcon,
   BeakerIcon,
+  BookmarkIcon,
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  ClipboardIcon,
+  CloudArrowDownIcon,
+  CreditCardIcon,
+  EyeIcon,
+  EyeSlashIcon,
+  FlagIcon,
   GlobeAltIcon,
+  InboxIcon,
   LightBulbIcon,
   MagnifyingGlassIcon,
+  NewspaperIcon,
   PencilIcon,
   PuzzlePieceIcon,
   SquaresPlusIcon,
+  StopIcon,
   TagIcon,
+  UserIcon,
   ViewColumnsIcon,
   WrenchIcon,
+  XMarkIcon,
 } from '@heroicons/react/24/solid';
 
 export { ReactComponent as SocialLinkedIn } from './icons/LinkedIn.svg';
@@ -36,12 +54,15 @@ export { default as PortfolioImg108 } from './portfilio/108/img.png';
 export { default as PortfolioImg109 } from './portfilio/109/img.png';
 export { default as PortfolioImg110 } from './portfilio/110/img.png';
 export { default as PortfolioImg111 } from './portfilio/111/img.png';
+export { default as PortfolioImg120 } from './portfilio/120/img.png';
 export { default as PortfolioImg133 } from './portfilio/133/img.png';
 export { default as PortfolioImg134 } from './portfilio/134/img.png';
 export { default as PortfolioImg134Big } from './portfilio/134/imgBig.png';
 export { default as PortfolioImg135 } from './portfilio/135/img.png';
 export { default as PortfolioImg135Big } from './portfilio/135/imgBig.png';
 export { default as PortfolioImg137 } from './portfilio/137/img.png';
+export { default as PortfolioImg138 } from './portfilio/138/img.png';
+export { default as PortfolioImg138Big } from './portfilio/138/imgBig.png';
 export { default as PortfolioImg2 } from './portfilio/2/img.png';
 export { default as PortfolioImg3 } from './portfilio/3/img.png';
 export { default as PortfolioImg36 } from './portfilio/36/img.png';
@@ -75,3 +96,18 @@ export { default as PortfolioImg96 } from './portfilio/96/img.png';
 export { default as PortfolioImg97 } from './portfilio/97/img.png';
 export { default as PortfolioImg98 } from './portfilio/98/img.png';
 export { default as PortfolioImg99 } from './portfilio/99/img.png';
+
+export { default as Code1 } from './code/ai.png';
+export { default as Code13 } from './code/figma.png';
+export { default as Code2 } from './code/flotiq.png';
+export { default as Code3 } from './code/git.png';
+export { default as Code4 } from './code/heroicon.png';
+export { default as Code5 } from './code/html.png';
+export { default as Code6 } from './code/jquery.png';
+export { default as Code7 } from './code/js.png';
+export { default as Code8 } from './code/nodejs.png';
+export { default as Code9 } from './code/ps.png';
+export { default as Code10 } from './code/react.png';
+export { default as Code11 } from './code/sass.png';
+export { default as Code14 } from './code/tailwind.png';
+export { default as Code12 } from './code/vsc.png';

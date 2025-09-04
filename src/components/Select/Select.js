@@ -1,19 +1,63 @@
-import PropTypes from 'prop-types';
+import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { getByTestId } from '../../lib/helper';
+import { getByTestId, getSorted } from '../../lib/helper';
 
-const Select = ({ options, value, onChange, additionalClasses, testId }) => {
+const Select = ({
+  options = [],
+  value,
+  onChange,
+  additionalClasses,
+  sorted = false,
+  translated,
+  translateKey,
+  testId,
+  id,
+  name,
+}) => {
+  const { t } = useTranslation();
+  const [val, setVal] = useState(value);
+  const [currentOptions, setCurrentOptions] = useState(options);
+
+  useEffect(() => {
+    setVal(value);
+  }, [value]);
+
+  const handleValidate = useCallback(() => {
+    if (translated || sorted) {
+      let resOptions;
+
+      if (translated && translateKey) {
+        resOptions = options?.map((item) => {
+          return { ...item, name: t(`${translateKey}.${item.name}`) };
+        });
+      }
+
+      if (sorted) {
+        resOptions = getSorted(resOptions, 'name', 'asc');
+      }
+
+      setCurrentOptions(resOptions);
+    }
+  }, [sorted, translated, t, options, translateKey]);
+
+  useEffect(() => {
+    handleValidate();
+  }, [handleValidate]);
+
   return (
     <select
+      name={name}
+      id={id}
       className={twMerge(
         'text-black mr-1 rounded px-2 text-md h-fit',
         additionalClasses,
       )}
       onChange={onChange}
-      value={value}
+      value={val}
       {...getByTestId(testId, 'conatiner')}
     >
-      {options?.map((option) => (
+      {currentOptions?.map((option) => (
         <option
           key={option.value}
           value={option.value}
@@ -29,14 +73,3 @@ const Select = ({ options, value, onChange, additionalClasses, testId }) => {
 };
 
 export default Select;
-
-Select.propTypes = {
-  testId: PropTypes.string,
-};
-
-Select.defaultProps = {
-  testId: '',
-  value: '',
-  options: [],
-  onChange: undefined,
-};

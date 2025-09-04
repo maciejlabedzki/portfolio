@@ -1,9 +1,15 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { Button, Input, LabeledContainer } from '../../components';
-import { LANGUAGE_DATA } from '../../data/langEn';
-import { AdjustmentsVerticalIcon, MagnifyingGlassIcon } from '../../images';
-import { getByTestId } from '../../lib/helper';
+import Button from '../../components/Button/Button';
+import Input from '../../components/Input/Input';
+import LabeledContainer from '../../components/LabeledContainer/LabeledContainer';
+import {
+  AdjustmentsVerticalIcon,
+  ArrowPathIcon,
+  MagnifyingGlassIcon,
+} from '../../images';
+import { getByTestId, getSearchPlaceholderName } from '../../lib/helper';
 import { Filters } from '../../section';
 
 const Search = ({
@@ -18,8 +24,11 @@ const Search = ({
   handleGridView,
   handleItemsLimitPage,
   resultNumber,
+  handleReset,
+  onFilterOpen,
   testId,
 }) => {
+  const { t } = useTranslation();
   const [search, setSearch] = useState('');
   const [filterBy, setFilterBy] = useState();
   const [filterOpen, setFilterOpen] = useState(false);
@@ -50,6 +59,7 @@ const Search = ({
 
   const handleFilterOpen = () => {
     setFilterOpen(!filterOpen);
+    onFilterOpen(!filterOpen);
   };
 
   const handleSort = (value) => {
@@ -67,47 +77,44 @@ const Search = ({
       <div className="max-w-[1200px] flex flex-col items-center sm:flex-row m-auto">
         <LabeledContainer
           icon={<MagnifyingGlassIcon className="w-4 h-4" />}
-          label={LANGUAGE_DATA['Search']}
+          name={t('Global.Search')}
           children={
-            <div className="flex justify-center">
-              <div className="relative">
-                <Input
-                  onChange={handleChange}
-                  value={search}
-                  placeholder={`${LANGUAGE_DATA['SearchBy']} ${filterBy}`}
-                />
-
-                <button
-                  className={twMerge(
-                    'absolute right-0.5 top-0.5 z-10 text-sm',
-                    'text-black px-1 mx-1 rounded-full bg-gray-100 w-5 h-5',
-                    'justify-center items-center flex text-gray',
-                  )}
-                  onClick={handleClear}
-                >
-                  X
-                </button>
-              </div>
+            <div className="flex justify-center items-center">
+              <Input
+                name="search"
+                onChange={handleChange}
+                value={search}
+                autocomplete={'off'}
+                placeholder={getSearchPlaceholderName(filterBy, t)}
+                additionalClassesInput={'pr-7'}
+                hasClear={true}
+                onClear={handleClear}
+              />
 
               <span
                 className={twMerge('ml-1 mt-0.5 text-sm text-white w-[50px]')}
+                title={t('Section.Search.ResultNumber')}
               >
                 ( {resultNumber} )
               </span>
+
+              <Button
+                name={<ArrowPathIcon className="w-4 h-4" />}
+                theme="transparent"
+                title={t('Section.Search.Reset')}
+                onClick={handleReset}
+                themeHover="fade"
+              />
             </div>
           }
         />
 
         <Button
-          name={
-            <div className="flex flex-row px-1 justify-center items-center">
-              <AdjustmentsVerticalIcon className="w-5 h-5 mr-1" />
-              {LANGUAGE_DATA['Filters']}
-            </div>
-          }
+          icon={<AdjustmentsVerticalIcon className="w-5 h-5 mr-1" />}
+          name={t('Section.Search.Filters')}
+          space="slim"
+          theme="primary"
           onClick={handleFilterOpen}
-          space="leftRight"
-          additionalClasses={''}
         />
       </div>
 

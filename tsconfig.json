@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "target": "ES2022",                           // Nowoczesny output
+      "lib": ["DOM", "DOM.Iterable", "ES2022"],     // Pełna obsługa przeglądarki
+      "allowJs": true,
+      "skipLibCheck": true,                         // Przyspiesza kompilację
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,                               // Włącza ścisłą kontrolę typów
+      "forceConsistentCasingInFileNames": true,
+      "module": "ESNext",                           // Współczesny system modułów
+      "moduleResolution": "Bundler",                // Rekomendowane dla React 19 (np. Vite, Next.js)
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "jsx": "react-jsx"                            // Wspiera nowy JSX transform od React 17+
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+  }
+  

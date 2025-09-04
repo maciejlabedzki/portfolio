@@ -1,5 +1,5 @@
 const SEARCH_FILTERS_OPTIONS = [
-  { value: 'desc', name: 'Description' },
+  { value: 'desc', name: 'Desc' },
   { value: 'id', name: 'Id' },
   { value: 'link', name: 'Link' },
   { value: 'name', name: 'Name' },
@@ -13,9 +13,11 @@ const SORT_OPTIONS = [
   { value: 'desc', name: 'Descending' },
 ];
 
+const TAG_SUGGESTIONS = ['website', 'javascript', 'react', 'playground'];
+
 const TYPE_SUGGESTIONS = ['animation', 'design', 'tool', 'website', 'widget'];
 
-const YEAR_SUGGESTIONS = ['2025', '2024', '2023', '2022', '2021', '2020'];
+const YEAR_SUGGESTIONS = ['2025', '2024', '2023', '2022', '2021'];
 
 const GRID_OPTIONS = [
   { name: 1, value: '400px' },
@@ -33,11 +35,22 @@ const PAGINATION_COUNTER = [
   { name: 48, value: 48 },
 ];
 
+const SEARCH_ON_RESET = {
+  searchValue: '',
+  sort: 'desc',
+  page: 0,
+  searchBy: 'year',
+  grid: { name: 3, value: '1200px' },
+  limit: { name: 6, value: 6 },
+};
+
 export {
   GRID_OPTIONS,
   PAGINATION_COUNTER,
   SEARCH_FILTERS_OPTIONS,
+  SEARCH_ON_RESET,
   SORT_OPTIONS,
+  TAG_SUGGESTIONS,
   TYPE_SUGGESTIONS,
   YEAR_SUGGESTIONS,
 };

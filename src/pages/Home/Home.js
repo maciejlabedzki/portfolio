@@ -1,34 +1,45 @@
-import PropTypes from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { Card, Modal, Pagination, Suggestions } from '../../components';
+import Card from '../../components/Card/Card';
+import Modal from '../../components/Modal/Modal';
+import Pagination from '../../components/Pagination/Pagination';
+import Suggestions from '../../components/Suggestions/Suggestions';
 import { DEFAULT_CARD } from '../../data/card';
-import { LANGUAGE_DATA } from '../../data/langEn';
-import { GRID_OPTIONS, PAGINATION_COUNTER } from '../../data/search';
+import {
+  GRID_OPTIONS,
+  PAGINATION_COUNTER,
+  SEARCH_ON_RESET,
+} from '../../data/search';
 import {
   getByTestId,
   getSorted,
   getSuggestionsOptions,
 } from '../../lib/helper';
 import { Search } from '../../section';
+import Code from '../../section/Code/Code';
+import Loading from '../../section/Loading/Loading';
 
-const Home = ({ testId }) => {
+const PageHome = ({ testId }) => {
+  const { t } = useTranslation();
   const [
     dataCard,
     // setDataCard
   ] = useState(DEFAULT_CARD);
   const [dataFiltered, setDataFiltered] = useState(DEFAULT_CARD);
   const [dataLimited, setDataLimited] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
 
   /* :: Search & Filters :: */
-  const [searchBy, setSearchby] = useState('name');
+  const [searchBy, setSearchby] = useState('year');
   const [sort, setSort] = useState('desc');
   const [searchValue, setSearchValue] = useState('');
-  const [dataLimit, setDataLimit] = useState(PAGINATION_COUNTER[0]);
+  const [dataLimit, setDataLimit] = useState(PAGINATION_COUNTER[1]);
   const [suggestionsOptions, setSuggestionsOptions] = useState();
   const [dataPaginationPages, setDataPaginationPages] = useState(1);
   const [dataPaginationPageSelected, setDataPaginationPageSelected] =
     useState(0);
+  const [filterOpen, setFilterOpen] = useState(false);
 
   /* :: Modal :: */
   const [modalOpen, setModalOpen] = useState(false);
@@ -38,14 +49,14 @@ const Home = ({ testId }) => {
   const [grid, setGrid] = useState(GRID_OPTIONS[2]);
 
   const handleUpdateSuggestions = useCallback(() => {
-    const updateSuggesstion = getSuggestionsOptions(searchBy);
+    const updateSuggesstion = getSuggestionsOptions(searchBy, t);
     setSuggestionsOptions(updateSuggesstion);
-  }, [searchBy]);
+  }, [searchBy, t]);
 
   const handleUpdateData = useCallback(() => {
-    const paginationPages = Math.ceil(dataFiltered.length / dataLimit.value);
-    const startPage = dataLimit.value * dataPaginationPageSelected;
-    const endPage = startPage + dataLimit.value;
+    const paginationPages = Math.ceil(dataFiltered?.length / dataLimit?.value);
+    const startPage = dataLimit?.value * dataPaginationPageSelected;
+    const endPage = startPage + dataLimit?.value;
     const newData = dataFiltered.slice(startPage, endPage);
     setDataPaginationPages(paginationPages);
     setDataLimited(newData);
@@ -58,6 +69,18 @@ const Home = ({ testId }) => {
   useEffect(() => {
     handleUpdateData();
   }, [handleUpdateData]);
+
+  const handleFakePageLoadingScreen = useCallback(() => {
+    // TODO: move metchod to correct data fetch metchod
+
+    setTimeout(() => {
+      setDataLoading(false);
+    }, 500);
+  }, []);
+
+  useEffect(() => {
+    handleFakePageLoadingScreen();
+  }, [handleFakePageLoadingScreen]);
 
   const handleSearch = (value, option, sortDirection) => {
     const searchOption = option || searchBy;
@@ -103,7 +126,7 @@ const Home = ({ testId }) => {
   const handleSort = (value) => {
     setDataPaginationPageSelected(0);
     setSort(value);
-    handleSearch(searchValue, undefined, value);
+    handleSearch(searchValue, undefined, sort);
   };
 
   const handleGridView = (data) => {
@@ -119,6 +142,21 @@ const Home = ({ testId }) => {
     setDataPaginationPageSelected(value);
   };
 
+  const handleReset = () => {
+    setSearchValue(SEARCH_ON_RESET?.searchValue);
+    setSearchby(SEARCH_ON_RESET?.searchBy);
+    setSort(SEARCH_ON_RESET?.sort);
+    setGrid(SEARCH_ON_RESET?.grid);
+    setDataPaginationPageSelected(SEARCH_ON_RESET?.page);
+    setDataLimit(SEARCH_ON_RESET?.limit);
+    setSearchValue(SEARCH_ON_RESET?.searchValue);
+    handleSearch();
+  };
+
+  const handleFilterOpen = (value) => {
+    setFilterOpen(value);
+  };
+
   return (
     <div
       className={twMerge(
@@ -127,6 +165,10 @@ const Home = ({ testId }) => {
       )}
       {...getByTestId(testId, 'container')}
     >
+      <title>{t('Page.Home.Title')}</title>
+
+      {dataLoading && <Loading />}
+
       <Search
         onSearch={handleSearch}
         onSearchBy={handleFilterBy}
@@ -139,9 +181,11 @@ const Home = ({ testId }) => {
         dataLimit={dataLimit}
         handleGridView={handleGridView}
         handleItemsLimitPage={handleItemsLimitPage}
+        handleReset={handleReset}
+        onFilterOpen={handleFilterOpen}
       />
 
-      {suggestionsOptions?.data && (
+      {suggestionsOptions?.data && filterOpen && (
         <Suggestions
           handleSearch={handleSearch}
           searchValue={searchValue}
@@ -151,12 +195,14 @@ const Home = ({ testId }) => {
         />
       )}
 
+      <Code />
+
       <div
         className={twMerge(
           'w-full flex flex-wrap justify-center py-2 pb-8 col-span-2',
           'm-auto',
         )}
-        style={{ maxWidth: grid.value }}
+        style={{ maxWidth: grid?.value }}
       >
         {dataLimited?.map((item, index) => (
           <Card
@@ -179,7 +225,7 @@ const Home = ({ testId }) => {
 
         {!dataLimited.length && (
           <div className="flex justify-center items-center min-h-[10vh]">
-            {LANGUAGE_DATA['SearchNoResult']}
+            {t('Section.Search.NoAvailableResult')}
           </div>
         )}
 
@@ -195,12 +241,4 @@ const Home = ({ testId }) => {
   );
 };
 
-export default Home;
-
-Home.propTypes = {
-  testId: PropTypes.string,
-};
-
-Home.defaultProps = {
-  testId: '',
-};
+export default PageHome;

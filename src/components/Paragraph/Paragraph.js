@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
 
@@ -46,20 +45,3 @@ const Paragraph = ({
 };
 
 export default Paragraph;
-
-Paragraph.propTypes = {
-  icon: PropTypes.any,
-  testId: PropTypes.string,
-  name: PropTypes.string,
-  additionalClass: PropTypes.string,
-  additionalNameClass: PropTypes.string,
-};
-
-Paragraph.defaultProps = {
-  icon: '',
-  testId: '',
-  name: '',
-  additionalClass: '',
-  additionalNameClass: '',
-  additionalIconClass: '',
-};

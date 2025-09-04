@@ -1,0 +1,121 @@
+{
+  "Card": {
+    "Description": "Opis",
+    "ID": "ID {{id}}",
+    "Link": "Link",
+    "Name": "Nazwa",
+    "NoPreviewLink": "Brak podglądu linku",
+    "Open": "Otwórz",
+    "ShowLess": "Mniej",
+    "ShowMore": "Więcej",
+    "Tags": "Tag",
+    "Type": "Typ {{type}}",
+    "Year": "Rok {{year}}"
+  },
+  "Form": {
+    "EmailAdress": "Adres email",
+    "FirstName": "Imię",
+    "FormErrorEmailIsRequired": "Email jest wymagany",
+    "FormErrorEnterValidEmail": "Błędny adres email",
+    "FormErrorNotBlank": "Nie może być pusty",
+    "FormErrorPasswordIsRequired": "Hasło jest wymagane",
+    "FormErrorPasswordMinimumLength": "Minimalna długość hasła to {{length}}",
+    "LastName": "Nazwisko",
+    "LoginForm": "Formularz logowania",
+    "Password": "Hasło",
+    "RegisterForm": "Formularz rejestracji",
+    "Reset": "Resetuj",
+    "Submit": "Prześlij"
+  },
+  "Global": {
+    "Close": "Zamknij",
+    "ComingSoon": "Już wkrótce",
+    "CookiesHereMoreInfo": "Tu dowiedz się więcej.",
+    "CookiesInfoAccepted": "Korzystanie z Serwisu bez zmiany ustawień przeglądarki oznacza akceptację plików cookies.",
+    "CookiesInfoDetail": "Możesz określić w przeglądarce warunki przechowywania i dostępu do cookies, w tym je zablokować.",
+    "CookiesInfoSave": "Zapisujemy pliki cookies na Twoim urządzeniu i uzyskujemy do nich dostęp w celach statystycznych związanych z analizą sposobu korzystania z Serwisu przez użytkowników.",
+    "CookiesInfoUse": "Ta strona używa cookie.",
+    "Copyright": "Copyright {{currentYear}} by Maciej Łabędzki",
+    "Filters": "Filtry",
+    "Language": "Język {{lng}}",
+    "PleaseWaitDots": "Proszę czekać ...",
+    "ScrollTop": "Przewiń do góry",
+    "Search": "Szukaj"
+  },
+  "Navigation": {
+    "Admin": "Administrator",
+    "Cookies": "Ciastka",
+    "Features": "Właściwości",
+    "Home": "Strona główna",
+    "Login": "Zaloguj",
+    "Register": "Rejestracja"
+  },
+  "Page": {
+    "404": {
+      "BackToHomePage": "Wróć na Stronę Główną",
+      "Header": "STRONA 404",
+      "Title": "Portfolio Strona 404",
+      "WrongURLAdress": "Błędny adres URL:"
+    },
+    "Features": {
+      "PortfolioFeaturesList": "Lista Właściwości Portfolio ( {{len}} )",
+      "Title": "Portfolio Strona Właściwości"
+    },
+    "Home": {
+      "Title": "Portfolio Strona Główna"
+    },
+    "Login": {
+      "Title": "Portfolio Strona Logowania"
+    },
+    "NoAccess": {
+      "Header": "Strona zablokowana. Brak dostępu.",
+      "Title": "Portfolio Strona Brak Dostępu"
+    },
+    "Register": {
+      "Title": "Portfolio Strona Rejestracji"
+    }
+  },
+  "SearchFiltersOptions": {
+    "Desc": "Opis",
+    "Description": "",
+    "Id": "",
+    "ID": "Id",
+    "Link": "Link",
+    "Name": "Nazwa",
+    "Tags": "Tag",
+    "Type": "Typ",
+    "Year": "Rok"
+  },
+  "SearchSortOptions": {
+    "Ascending": "Rosnąco",
+    "Descending": "Malejąco"
+  },
+  "Section": {
+    "Filters": {
+      "CardLimit": "Limit kart:",
+      "MaxColumns": "Maks kolumn:",
+      "SearchBy": "Szukaj po:",
+      "Sort": "Sortuj:"
+    },
+    "OwnerDetails": {
+      "EmailAdress": "Adres email",
+      "LinkedInProfilePage": "Profilowa strona LinkedIn",
+      "PhoneNumber": "Numer telefonu"
+    },
+    "Search": {
+      "ClearButton": "Przycisk wyczyść wyszukiwarki",
+      "Filters": "Filtry",
+      "NoAvailableResult": "Brak wyników dla Twojego zapytania.",
+      "Reset": "Resetuj",
+      "ResultNumber": "Numer wyniku",
+      "SearchBy": "Szukaj po",
+      "TagsSuggestions": "Sugestia tag:",
+      "TypeSuggestions": "Sugestia typ:",
+      "YearSuggestions": "Sugestia rok:"
+    }
+  },
+  "Welcome": {
+    "Desc": "Nazywam się Maciej Łabędzki. Witam na stronie mojego portfolio.",
+    "Header": "Front-end Web Developer"
+  }
+}

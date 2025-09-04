@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 import { getByTestId } from '../../lib/helper';
 
-const LabeledContainer = ({ icon, label, children, testId }) => {
+const LabeledContainer = ({ icon, name, children, testId }) => {
   return (
     <div
       className={twMerge(
@@ -19,17 +19,17 @@ const LabeledContainer = ({ icon, label, children, testId }) => {
           </div>
         )}
 
-        {label && (
-          <label
+        {name && (
+          <span
             className={twMerge(
               'min-w-[90px] sm:min-w-fit',
               'mr-2 px-2',
               'flex justify-start items-center',
             )}
-            {...getByTestId(testId, 'label')}
+            {...getByTestId(testId, 'name')}
           >
-            {label}
-          </label>
+            {name}
+          </span>
         )}
       </section>
 
