@@ -8,6 +8,7 @@ import { getLocalStorage, setLocalStorage } from '../../lib/localstorage';
 const Cookies = ({ testId }) => {
   const { t } = useTranslation();
   const [cookiesVisible, setCookiesVisible] = useState(false);
+  const HAS_COOKIES_PAGE = false;
 
   const handleCookiesFromLocalstorage = useCallback(() => {
     const status = getLocalStorage('cookies', true);
@@ -41,12 +42,14 @@ const Cookies = ({ testId }) => {
     >
       <div className="max-w-[1200px]">
         <span className="mr-1">{t('Global.CookiesInfoUse')}</span>
-        <span
-          className="mr-1 underline hover:no-underline cursor-pointer"
-          onClick={handleCookiesPath}
-        >
-          {t('Global.CookiesHereMoreInfo')}
-        </span>
+        {HAS_COOKIES_PAGE && (
+          <span
+            className="mr-1 underline hover:no-underline cursor-pointer"
+            onClick={handleCookiesPath}
+          >
+            {t('Global.CookiesHereMoreInfo')}
+          </span>
+        )}
         <span className="mr-1">{t('Global.CookiesInfoSave')}</span>
         <span className="mr-1">{t('Global.CookiesInfoDetail')}</span>
         <span className="mr-1">{t('Global.CookiesInfoAccepted')}</span>
