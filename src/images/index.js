@@ -33,6 +33,7 @@ export {
   XMarkIcon,
 } from '@heroicons/react/24/solid';
 
+export { ReactComponent as Github } from './icons/Github.svg';
 export { ReactComponent as SocialLinkedIn } from './icons/LinkedIn.svg';
 export { ReactComponent as Logo } from './icons/logo.svg';
 export { ReactComponent as Spinner } from './icons/spinner.svg';

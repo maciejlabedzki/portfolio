@@ -99,6 +99,7 @@
     },
     "OwnerDetails": {
       "EmailAdress": "Email Adress",
+      "Github": "Github Portfolio Source",
       "LinkedInProfilePage": "Linked In Profile Page",
       "PhoneNumber": "Phone Number"
     },
