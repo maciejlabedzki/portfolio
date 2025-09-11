@@ -2,7 +2,7 @@ import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import Paragraph from '../../components/Paragraph/Paragraph';
-import { SocialLinkedIn, UserIcon } from '../../images';
+import { Github, SocialLinkedIn, UserIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
 
 const OwnerDetails = ({ data, testId }) => {
@@ -15,6 +15,12 @@ const OwnerDetails = ({ data, testId }) => {
   const handleLinkedIn = () => {
     if (data?.linkedIn) {
       window.open(data.linkedIn, 'blank');
+    }
+  };
+
+  const handleGithub = () => {
+    if (data?.github) {
+      window.open(data.github, 'blank');
     }
   };
 
@@ -61,6 +67,19 @@ const OwnerDetails = ({ data, testId }) => {
             icon={<EnvelopeIcon />}
             name={data?.email}
             title={t('Section.OwnerDetails.EmailAdress')}
+          />
+        )}
+
+        {data?.github && (
+          <Paragraph
+            icon={<Github className="w-4 h-4" />}
+            name={data?.github}
+            title={t('Section.OwnerDetails.Github')}
+            onClick={handleGithub}
+            additionalIconClass={'mr-2'}
+            additionalClass={twMerge(
+              data.github && 'cursor-pointer hover:underline',
+            )}
           />
         )}
       </div>
