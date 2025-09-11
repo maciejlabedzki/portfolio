@@ -1,3 +1,11 @@
+# Portfolio Link
+
+[https://maciej-labedzki-portfolio.netlify.app](https://maciej-labedzki-portfolio.netlify.app)
+
+# Portfolio Storybook
+
+[https://maciej-labedzki-portfolio-storybook.netlify.app](https://maciej-labedzki-portfolio-storybook.netlify.app)
+
 # `React Tailwind Css Stater`
 
 ## Steps for creating `react-tailwind-css-stater` with `yarn`
@@ -24,7 +32,7 @@ yarn tailwindcss init -p
 
 ```js
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {},
   },

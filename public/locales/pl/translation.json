@@ -34,7 +34,7 @@
     "CookiesInfoAccepted": "Korzystanie z Serwisu bez zmiany ustawień przeglądarki oznacza akceptację plików cookies.",
     "CookiesInfoDetail": "Możesz określić w przeglądarce warunki przechowywania i dostępu do cookies, w tym je zablokować.",
     "CookiesInfoSave": "Zapisujemy pliki cookies na Twoim urządzeniu i uzyskujemy do nich dostęp w celach statystycznych związanych z analizą sposobu korzystania z Serwisu przez użytkowników.",
-    "CookiesInfoUse": "Ta strona używa cookie.",
+    "CookiesInfoUse": "Ta strona używa cookies.",
     "Copyright": "Copyright {{currentYear}} by Maciej Łabędzki",
     "Filters": "Filtry",
     "Language": "Język {{lng}}",
@@ -78,7 +78,7 @@
   "SearchFiltersOptions": {
     "Desc": "Opis",
     "Description": "",
-    "Id": "",
+    "Id": "Id",
     "ID": "Id",
     "Link": "Link",
     "Name": "Nazwa",
