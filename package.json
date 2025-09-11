@@ -11,7 +11,8 @@
     "updateVersion1": "yarn version --major && git push --follow-tags",
     "updateVersion2": "yarn version --minor && git push --follow-tags",
     "updateVersion3": "yarn version --patch && git push --follow-tags",
-    "storybook": "storybook dev -p 6006 --loglevel=debug",
+    "storybook": "storybook dev -p 6006",
+    "storybookDebug": "storybook dev -p 6006 --loglevel=debug",
     "build-storybook": "storybook build",
     "translate:parse": "i18next 'src/**/*.*s*' -c i18next-parser.config.mjs"
   },
