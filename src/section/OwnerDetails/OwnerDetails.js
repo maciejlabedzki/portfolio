@@ -78,7 +78,7 @@ const OwnerDetails = ({ data, testId }) => {
             onClick={handleGithub}
             additionalIconClass={'mr-2'}
             additionalClass={twMerge(
-              data.linkedIn && 'cursor-pointer hover:underline',
+              data.github && 'cursor-pointer hover:underline',
             )}
           />
         )}
