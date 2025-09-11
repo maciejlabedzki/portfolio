@@ -61,7 +61,7 @@ const DEFAULT_CARD = [
     imgBig: PortfolioImg138Big,
     type: 'website',
     desc: 'Portfolio website with multiple examples. Widgets, websites, designs, animations, tools.',
-    link: 'labedzkimaciej.pl',
+    link: 'https://maciej-labedzki-portfolio.netlify.app',
     linkName: 'Go to website',
     tags: [
       'website',

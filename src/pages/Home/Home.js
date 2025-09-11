@@ -28,7 +28,7 @@ const PageHome = ({ testId }) => {
   ] = useState(DEFAULT_CARD);
   const [dataFiltered, setDataFiltered] = useState(DEFAULT_CARD);
   const [dataLimited, setDataLimited] = useState([]);
-  const [dataLoading, setDataLoading] = useState(true);
+  const [dataLoading, setDataLoading] = useState(false);
 
   /* :: Search & Filters :: */
   const [searchBy, setSearchby] = useState('year');
