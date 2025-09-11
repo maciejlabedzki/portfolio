@@ -12,6 +12,8 @@ const t = (p) => p;
  */
 const i18nAlwaysInclude = [
   // Search Filters Options
+  t('SearchFiltersOptions.Desc'),
+  t('SearchFiltersOptions.Id'),
   t('SearchFiltersOptions.Description'),
   t('SearchFiltersOptions.ID'),
   t('SearchFiltersOptions.Link'),
@@ -25,13 +27,10 @@ const i18nAlwaysInclude = [
   t('Navigation.Features'),
   t('Navigation.Cookies'),
   t('Navigation.Admin'),
-
   t('Navigation.Login'),
   t('Navigation.Register'),
 
-  t('SearchFiltersOptions.Desc'),
-  t('SearchFiltersOptions.Id'),
-
+  // Search Sort Options
   t('SearchSortOptions.Ascending'),
   t('SearchSortOptions.Descending'),
 ];

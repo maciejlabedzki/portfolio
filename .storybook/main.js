@@ -10,20 +10,11 @@ const config = {
     name: '@storybook/react-webpack5',
     options: {},
   },
-  staticDirs: ['..\\public'],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
-    // reactDocgenTypescriptOptions: {
-    //   compilerOptions: {
-    //     allowSyntheticDefaultImports: false,
-    //     esModuleInterop: false,
-    //   },
-    //   // Filter out third-party props from node_modules except @mui packages.
-    //   propFilter: (prop) =>
-    //     prop.parent
-    //       ? !/node_modules\/(?!@mui)/.test(prop.parent.fileName)
-    //       : true,
-    // },
+  },
+  core: {
+    builder: 'webpack5',
   },
 };
 export default config;
