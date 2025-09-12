@@ -9,9 +9,16 @@ import "./styles/index.css";
 Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
     environment: process.env.REACT_APP_SENTRY_ENVIRONMENT,
+    integrations: [
+        Sentry.browserTracingIntegration(),
+        Sentry.consoleLoggingIntegration({ levels: ["log", "warn", "error"] })
+    ],
     // Setting this option to true will send default PII data to Sentry.
     // For example, automatic IP address collection on events
-    sendDefaultPii: true
+    sendDefaultPii: true,
+    tracesSampleRate: 1.0,
+    tracePropagationTargets: ["localhost", "https://maciej-labedzki-portfolio.netlify.app/"],
+    enableLogs: true,
 });
 
 const rootElement = document.getElementById('root');

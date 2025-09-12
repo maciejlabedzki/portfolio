@@ -1,4 +1,5 @@
-import { useContext } from 'react';
+import * as Sentry from '@sentry/react';
+import { useCallback, useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import Button from '../../components/Button/Button';
@@ -11,6 +12,14 @@ import { getByTestId } from '../../lib/helper';
 const PageCV = ({ testId }) => {
   const { t } = useTranslation();
   const { userStorage } = useContext(UserContext);
+
+  const handleSentryLog = useCallback(() => {
+    Sentry.logger.info('User in page: CV');
+  }, []);
+
+  useEffect(() => {
+    handleSentryLog();
+  }, [handleSentryLog]);
 
   const handleOpenCV = () => {
     if (userStorage?.cv) {

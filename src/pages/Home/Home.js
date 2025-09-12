@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
@@ -47,6 +48,14 @@ const PageHome = ({ testId }) => {
 
   /* :: Layout :: */
   const [grid, setGrid] = useState(GRID_OPTIONS[2]);
+
+  const handleSentryLog = useCallback(() => {
+    Sentry.logger.info('User in page: Home');
+  }, []);
+
+  useEffect(() => {
+    handleSentryLog();
+  }, [handleSentryLog]);
 
   const handleUpdateSuggestions = useCallback(() => {
     const updateSuggesstion = getSuggestionsOptions(searchBy, t);
