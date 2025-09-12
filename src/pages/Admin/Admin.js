@@ -1,4 +1,5 @@
-import { useCallback, useContext } from 'react';
+import * as Sentry from '@sentry/react';
+import { useCallback, useContext, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { twMerge } from 'tailwind-merge';
 import Button from '../../components/Button/Button';
@@ -8,6 +9,14 @@ import { getByTestId } from '../../lib/helper';
 const PageAdmin = ({ testId }) => {
   const { isAdmin, updateUserContext } = useContext(UserContext);
   const getUserContext = useContext(UserContext);
+
+  const handleSentryLog = useCallback(() => {
+    Sentry.logger.info('User in page: Admin');
+  }, []);
+
+  useEffect(() => {
+    handleSentryLog();
+  }, [handleSentryLog]);
 
   const handleUpdateAdmin = useCallback(
     (value) => {

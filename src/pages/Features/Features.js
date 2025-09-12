@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
@@ -10,6 +11,14 @@ const PageFeatures = ({ testId }) => {
   const { i18n, t } = useTranslation();
   const { isAdmin } = useContext(UserContext);
   const [features, setFeatures] = useState([]);
+
+  const handleSentryLog = useCallback(() => {
+    Sentry.logger.info('User in page: Features');
+  }, []);
+
+  useEffect(() => {
+    handleSentryLog();
+  }, [handleSentryLog]);
 
   const handleFeatures = useCallback(() => {
     let res = [];
