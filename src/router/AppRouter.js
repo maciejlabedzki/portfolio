@@ -16,6 +16,7 @@ import {
   PageNoAccess,
   PageRegister,
 } from '../pages';
+import PageCV from '../pages/CV/CV';
 
 export const ProtectedAdminPage = ({ children }) => {
   const isAdmin = JSON.parse(process.env.REACT_APP_ADMIN);
@@ -43,6 +44,7 @@ const router = createBrowserRouter(
         <Route path="/login" element={<PageLogin />} />
         <Route path="/register" element={<PageRegister />} />
         <Route path="/noaccess" element={<PageNoAccess />} />
+        <Route path="/cv" element={<PageCV />} />
         <Route
           path="/admin"
           element={<ProtectedAdminPage children={<PageAdmin />} />}

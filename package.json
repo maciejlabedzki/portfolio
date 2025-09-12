@@ -1,6 +1,6 @@
 {
   "name": "portfolio-website-m-labedzki",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "scripts": {
     "build": "react-scripts build",
@@ -8,9 +8,12 @@
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "updateVersion1": "yarn version --major && git push --follow-tags",
-    "updateVersion2": "yarn version --minor && git push --follow-tags",
-    "updateVersion3": "yarn version --patch && git push --follow-tags",
+    "updateVersion1Push": "yarn version --major && git push --follow-tags",
+    "updateVersion2Push": "yarn version --minor && git push --follow-tags",
+    "updateVersion3Push": "yarn version --patch && git push --follow-tags",
+    "updateVersion1": "yarn version --major",
+    "updateVersion2": "yarn version --minor",
+    "updateVersion3": "yarn version --patch",
     "storybook": "storybook dev -p 6006",
     "storybookDebug": "storybook dev -p 6006 --loglevel=debug",
     "build-storybook": "storybook build",

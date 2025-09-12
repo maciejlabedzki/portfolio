@@ -1,6 +1,7 @@
 const NAVIGATION_DATA = [
   { name: 'Home', path: '/', admin: false },
   { name: 'Features', path: '/features', admin: false },
+  { name: 'CV', path: '/cv', admin: false },
   { name: 'Cookies', path: '/cookies', admin: false, visible: false },
 ];
 

@@ -48,7 +48,8 @@
     "Features": "Właściwości",
     "Home": "Strona główna",
     "Login": "Zaloguj",
-    "Register": "Rejestracja"
+    "Register": "Rejestracja",
+    "CV":"CV"
   },
   "Page": {
     "404": {
@@ -73,6 +74,12 @@
     },
     "Register": {
       "Title": "Portfolio Strona Rejestracji"
+    },
+    "CV": {
+      "Title": "CURRICULUM VITAE",
+      "Header": "To jest podgląd CV:",
+      "DownloadCV": "Pobierz CV",
+      "OpenCV":"Otwórz CV"
     }
   },
   "SearchFiltersOptions": {

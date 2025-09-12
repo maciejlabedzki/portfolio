@@ -1,5 +1,6 @@
 import PageAdmin from './Admin/Admin';
 import PageCookies from './Cookies/Cookies';
+import PageCV from './CV/CV';
 import PageFeatures from './Features/Features';
 import PageHome from './Home/Home';
 import PageLogin from './Login/Login';
@@ -11,6 +12,7 @@ export {
   Page404,
   PageAdmin,
   PageCookies,
+  PageCV,
   PageFeatures,
   PageHome,
   PageLogin,

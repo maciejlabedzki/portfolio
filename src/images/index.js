@@ -39,6 +39,7 @@ export { ReactComponent as Logo } from './icons/logo.svg';
 export { ReactComponent as Spinner } from './icons/spinner.svg';
 
 export { default as Bg1 } from './bg/background_1.png';
+export { default as imgCV } from './cv/cv.jpg';
 export { default as imgBig } from './placeholder/imgBig.png';
 export { default as imgBig1 } from './placeholder/imgBig_1.png';
 export { default as imgBig2 } from './placeholder/imgBig_2.jpg';
