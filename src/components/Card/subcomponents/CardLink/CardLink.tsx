@@ -12,7 +12,7 @@ const CardLink = ({
   header,
   path,
   pathName,
-  target = 'blank',
+  target = '_blank',
   rel = 'noopener noreferrer',
   testId,
 }: CardLinkProps) => {
