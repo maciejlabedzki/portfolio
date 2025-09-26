@@ -71,7 +71,14 @@ const Modal = ({ data, open, handleClose }) => {
         )}
 
         {data?.imgBig && (
-          <div className="bg-white mb-[60px] flex justify-center items-center h-[calc(100%-100px)]">
+          <div
+            className={twMerge(
+              'bg-white mb-[60px] flex justify-center',
+              'items-center h-[calc(100%-100px)] max-h-[80vh]',
+              'overflow-auto mt-4',
+              !imgLoaded && 'hidden',
+            )}
+          >
             <img
               src={data?.imgBig}
               alt={data?.imgAlt}
