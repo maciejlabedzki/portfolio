@@ -1,12 +1,16 @@
+/*
+OLD:
+example based on DEFALUT_CARD included in base code not from fetch
+*/
 import * as Sentry from '@sentry/react';
 import { useCallback, useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import Card from '../../components/Card/Card';
 import Modal from '../../components/Modal/Modal';
 import Pagination from '../../components/Pagination/Pagination';
 import Suggestions from '../../components/Suggestions/Suggestions';
+import { DEFAULT_CARD } from '../../data/card';
 import {
   GRID_OPTIONS,
   PAGINATION_COUNTER,
@@ -24,15 +28,18 @@ import Loading from '../../section/Loading/Loading';
 
 const PageHome = ({ testId }) => {
   const { t } = useTranslation();
-  const [dataCard, setDataCard] = useState([]);
-  const [dataFiltered, setDataFiltered] = useState([]);
+  const [
+    dataCard,
+    // setDataCard
+  ] = useState(DEFAULT_CARD);
+  const [dataFiltered, setDataFiltered] = useState(DEFAULT_CARD);
   const [dataLimited, setDataLimited] = useState([]);
-  const [dataLoading, setDataLoading] = useState(true);
+  const [dataLoading, setDataLoading] = useState(false);
   const CONTENT_TYPE = 'portfolio';
 
   /* :: Search & Filters :: */
   const [searchBy, setSearchby] = useState('year');
-  const [sort, setSort] = useState('asc');
+  const [sort, setSort] = useState('desc');
   const [searchValue, setSearchValue] = useState('');
   const [dataLimit, setDataLimit] = useState(PAGINATION_COUNTER[1]);
   const [suggestionsOptions, setSuggestionsOptions] = useState();
@@ -56,45 +63,11 @@ const PageHome = ({ testId }) => {
     handleSentryLog();
   }, [handleSentryLog]);
 
-  const getImgUrlFromAsset = (asset, imgID) => {
-    for (var i = 0; i < asset.length; i++) {
-      if (asset[i].sys.id === imgID) {
-        return asset[i].fields.file.url;
-      }
-    }
-  };
-
-  const generateData = useCallback((data) => {
-    const assets = data.includes.Asset;
-    const res = data.items.map((item) => {
-      return {
-        id: item.fields.id,
-        img:
-          item.fields.img?.sys?.id &&
-          getImgUrlFromAsset(assets, item.fields.img.sys.id),
-        imgBig:
-          item.fields.imgBig?.sys?.id &&
-          getImgUrlFromAsset(assets, item.fields.imgBig.sys.id),
-        link: item.fields.link,
-        linkName: item.fields.linkName,
-        linkAvailable: item.fields.linkAvailable,
-        name: item.fields.name,
-        tags: item.fields.tags,
-        type: item.fields.type,
-        desc: item.fields.desc,
-        year: item.fields.year,
-      };
-    });
-
-    return res;
-  }, []);
-
   const fetchData = useCallback(async () => {
     try {
-      const url = getUrl({
-        contentType: CONTENT_TYPE,
-        order: '-fields.year',
-      });
+      const url = getUrl({ contentType: CONTENT_TYPE });
+
+      console.log(url);
 
       const res = await fetch(url);
 
@@ -102,16 +75,11 @@ const PageHome = ({ testId }) => {
 
       const data = await res.json();
 
-      const dataIncludeImgUrlFromAsset = generateData(data);
-
-      setDataCard(dataIncludeImgUrlFromAsset);
-      setDataFiltered(dataIncludeImgUrlFromAsset);
-      setDataLoading(false);
+      console.log('Res data: ', data);
     } catch (err) {
-      toast.error(`Error on fetch portfolio data.`);
-      setDataLoading(false);
+      console.error(err);
     }
-  }, [generateData]);
+  }, []);
 
   useEffect(() => {
     fetchData();
@@ -138,6 +106,18 @@ const PageHome = ({ testId }) => {
   useEffect(() => {
     handleUpdateData();
   }, [handleUpdateData]);
+
+  const handleFakePageLoadingScreen = useCallback(() => {
+    // TODO: move metchod to correct data fetch metchod
+
+    setTimeout(() => {
+      setDataLoading(false);
+    }, 500);
+  }, []);
+
+  useEffect(() => {
+    handleFakePageLoadingScreen();
+  }, [handleFakePageLoadingScreen]);
 
   const handleSearch = (value, option, sortDirection) => {
     const searchOption = option || searchBy;
@@ -181,7 +161,6 @@ const PageHome = ({ testId }) => {
   };
 
   const handleSort = (value) => {
-    console.log(value);
     setDataPaginationPageSelected(0);
     setSort(value);
     handleSearch(searchValue, undefined, sort);
@@ -225,6 +204,8 @@ const PageHome = ({ testId }) => {
     >
       <title>{t('Page.Home.Title')}</title>
 
+      {dataLoading && <Loading />}
+
       <Search
         onSearch={handleSearch}
         onSearchBy={handleFilterBy}
@@ -260,41 +241,36 @@ const PageHome = ({ testId }) => {
         )}
         style={{ maxWidth: grid?.value }}
       >
-        {dataLoading && <Loading size="wide" />}
+        {dataLimited?.map((item, index) => (
+          <Card
+            key={`${index}-${item.id}`}
+            id={item?.id}
+            name={item?.name}
+            imgSrc={item?.img}
+            desc={item?.desc}
+            link={item?.link}
+            linkName={item?.linkName}
+            linkAvailable={item?.linkAvailable}
+            tags={item?.tags}
+            type={item?.type}
+            year={item?.year}
+            imgBig={item?.imgBig}
+            handleSearch={handleSearch}
+            handleModal={handleModal}
+          />
+        ))}
 
-        {!dataLoading &&
-          dataLimited?.map((item, index) => (
-            <Card
-              key={`${index}-${item.id}`}
-              id={item?.id}
-              name={item?.name}
-              imgSrc={item?.img}
-              desc={item?.desc}
-              link={item?.link}
-              linkName={item?.linkName}
-              linkAvailable={item?.linkAvailable}
-              tags={item?.tags}
-              type={item?.type}
-              year={item?.year}
-              imgBig={item?.imgBig}
-              handleSearch={handleSearch}
-              handleModal={handleModal}
-            />
-          ))}
-
-        {!dataLoading && !dataLimited.length && (
+        {!dataLimited.length && (
           <div className="flex justify-center items-center min-h-[10vh]">
             {t('Section.Search.NoAvailableResult')}
           </div>
         )}
 
-        {!dataLoading && (
-          <Pagination
-            pages={dataPaginationPages}
-            onClick={handlePagination}
-            selected={dataPaginationPageSelected}
-          />
-        )}
+        <Pagination
+          pages={dataPaginationPages}
+          onClick={handlePagination}
+          selected={dataPaginationPageSelected}
+        />
 
         <Modal data={modalData} open={modalOpen} handleClose={handleModal} />
       </div>

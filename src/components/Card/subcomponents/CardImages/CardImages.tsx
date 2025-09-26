@@ -88,7 +88,7 @@ const CardImages = ({
       {!imgLoaded && <Loader testId={`${testId}-loader`} />}
 
       <img
-        className="rounded-xl max-w-[200px]"
+        className={twMerge('rounded-xl max-w-[200px]', !imgLoaded && 'hidden')}
         src={imgSrc}
         alt={imgAlt}
         onLoad={() => setImgLoaded(true)}
