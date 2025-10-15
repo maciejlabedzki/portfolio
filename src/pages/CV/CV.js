@@ -47,8 +47,18 @@ const PageCV = ({ testId }) => {
         additionalClasses={'bg-black-200'}
       >
         <div className="flex flex-row">
-          <Button name={t('Page.CV.DownloadCV')} onClick={handleDownloadCV} />
-          <Button name={t('Page.CV.OpenCV')} onClick={handleOpenCV} />
+          <Button
+            name={t('Page.CV.DownloadCV')}
+            onClick={handleDownloadCV}
+            disabled={!userStorage?.cvDownload}
+            title={'CV Download Link'}
+          />
+          <Button
+            name={t('Page.CV.OpenCV')}
+            onClick={handleOpenCV}
+            disabled={!userStorage?.cv}
+            title={'CV Open Link'}
+          />
         </div>
 
         {imgCV && (

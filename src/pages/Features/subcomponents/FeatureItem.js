@@ -5,8 +5,8 @@ import { getByTestId, getIconFeaturePattern } from '../../../lib/helper';
 
 const FeatureItem = ({
   name,
-  iconDone = <CheckIcon className="text-white w-5 h-5" />,
-  iconUndone = <XMarkIcon className="text-white w-5 h-5 mt-0.5" />,
+  iconDone = <CheckIcon className="text-green w-5 h-5" />,
+  iconUndone = <XMarkIcon className="text-gray w-5 h-5 mt-0.5" />,
   done,
   status,
   type,
@@ -21,7 +21,7 @@ const FeatureItem = ({
         'flex flex-col sm:flex-row justify-center items-center',
         'border border-gray-100 m-2 px-0 pr-0 py-0 rounded-md',
         'w-[90%] max-w-[800px] justify-start hover:opacity-80',
-        'overflow-hidden rounded-md shadow-md hover:shadow-none',
+        'overflow-hidden rounded-md shadow-sm hover:shadow-none',
       )}
       {...getByTestId(testId, 'container')}
     >
@@ -35,8 +35,8 @@ const FeatureItem = ({
           className={twMerge(
             'mr-0 px-2 py-2  w-[33%] ',
             'items-center flex justify-center sm:w-fit',
-            'bg-gray text-green',
-            done && 'bg-green',
+            'bg-white text-green',
+            // done && 'bg-green',
           )}
         >
           {done ? iconDone : iconUndone}
@@ -66,7 +66,8 @@ const FeatureItem = ({
               'px-2 h-10 min-w-[50px]',
               'mr-0 px-2 py-2 w-[33%]',
               'items-center flex justify-center sm:w-fit',
-              'bg-white text-orange md:border-r border-l border-gray-100',
+              'bg-white text-black text-sm',
+              'md:border-r border-l border-gray-100',
             )}
             title="Status"
           >
@@ -79,10 +80,13 @@ const FeatureItem = ({
         <span
           className={twMerge(
             'justify-center items-center',
-            'h-10 min-w-[50px]',
-            'items-center flex justify-center sm:w-fit',
+            'min-w-[50px]',
+            'items-center flex justify-center',
             'text-xs font-normal mr-1',
             'md:border-r md:border-gray-100',
+            'border-gray-100 border-b sm:border-b-0',
+            'h-4 md:h-10',
+            'w-full sm:w-fit',
           )}
           title="Id number"
         >
@@ -108,7 +112,7 @@ const FeatureItem = ({
           className={twMerge(
             'flex justify-center items-center',
             'px-2 py-1 min-h-9 leading-none',
-            'text-green',
+            'text-green text-sm',
           )}
         >
           {textDone}

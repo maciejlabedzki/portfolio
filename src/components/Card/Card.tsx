@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { Placeholder2 } from '../../images';
+import { CardImgComingSoon } from '../../images';
 import { getByTestId } from '../../lib/helper';
 import CardDescription from './subcomponents/CardDescription/CardDescription';
 import CardImages from './subcomponents/CardImages/CardImages';
@@ -44,7 +44,7 @@ const Card = ({
       {...getByTestId(testId, 'container')}
     >
       <CardImages
-        imgSrc={imgSrc || Placeholder2}
+        imgSrc={imgSrc || CardImgComingSoon}
         imgAlt={imgAlt}
         id={id}
         type={type}
