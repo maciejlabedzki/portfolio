@@ -119,6 +119,11 @@ export const getSuggestionsOptions = (option, t) => {
   return res;
 };
 
+/**
+ * @data {Array}
+ * @key {string}
+ * @direction {string} "desc" || "asc"
+ */
 export const getSorted = (data, key, direction = 'desc') => {
   if (!data || !Array.isArray(data)) return;
   if (!key) return data;
@@ -128,10 +133,10 @@ export const getSorted = (data, key, direction = 'desc') => {
     const keyB = typeof b[key] === 'string' ? b[key].toLowerCase() : b[key];
 
     if (keyA > keyB) {
-      return direction === 'desc' ? -1 : 1;
+      return direction === 'desc' ? 1 : 1;
     }
     if (keyA < keyB) {
-      return direction === 'desc' ? 1 : -1;
+      return direction === 'desc' ? -1 : 1;
     }
     return 0;
   });
@@ -188,4 +193,3 @@ export const eventValidateScrollHeight = (status, update) => {
     update(false);
   }
 };
-

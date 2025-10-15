@@ -1,4 +1,12 @@
-export const getUrl = ({ contentType = 'portfolio', order, debug = false }) => {
+export const getUrl = ({
+  contentType = 'portfolio',
+  order,
+  limit,
+  skip,
+  fieldsWithMatch,
+  fields,
+  debug = false,
+}) => {
   if (debug) {
     if (!process.env.REACT_APP_SPACE_ID) {
       console.log('Missing Space ID');
@@ -26,6 +34,24 @@ export const getUrl = ({ contentType = 'portfolio', order, debug = false }) => {
 
   if (order) {
     url += `&order=${order}`;
+  }
+
+  if (limit) {
+    url += `&limit=${limit}`;
+  }
+
+  if (skip) {
+    url += `&skip=${skip}`;
+  }
+
+  for (let option in fields) {
+    if (fields[option].value && fields[option].id) {
+      if (fieldsWithMatch.includes(fields[option].id)) {
+        url += `&fields.${fields[option].id}[match]=${fields[option].value}`;
+      } else {
+        url += `&fields.${fields[option].id}=${fields[option].value}`;
+      }
+    }
   }
 
   return url;
