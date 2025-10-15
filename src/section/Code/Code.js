@@ -1,8 +1,11 @@
 import { twMerge } from 'tailwind-merge';
-import { CODE_DATA } from '../../data/code';
 import { getByTestId } from '../../lib/helper';
 
-const Code = ({ testId }) => {
+const Code = ({ data, selected, onClick, testId }) => {
+  if (data?.length === 0) {
+    return;
+  }
+
   return (
     <div
       className={twMerge(
@@ -13,15 +16,19 @@ const Code = ({ testId }) => {
       {...getByTestId(testId, 'container')}
     >
       <div className="flex flex-wrap sm:flex-row max-w-[620px] m-auto">
-        {CODE_DATA?.map((code) => (
+        {data?.map((code) => (
           <img
-            src={code.icon}
+            src={code.img}
             alt={code.name}
             title={code.name}
             key={code.id}
             className={twMerge(
               'h-10 sm:h-20 w-10 sm:w-20 m-1 hover:opacity-80',
+              'cursor-pointer',
+              selected === code.tag && 'border border-4 border-green',
             )}
+            hidden={!code.visible}
+            onClick={() => onClick(code.tag)}
           />
         ))}
       </div>

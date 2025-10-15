@@ -12,12 +12,9 @@ import {
   PAGINATION_COUNTER,
   SEARCH_ON_RESET,
 } from '../../data/search';
+import useDebounceCallback from '../../hooks/useDebounceCallback';
 import { getUrl } from '../../lib/fetch';
-import {
-  getByTestId,
-  getSorted,
-  getSuggestionsOptions,
-} from '../../lib/helper';
+import { getByTestId, getSuggestionsOptions } from '../../lib/helper';
 import { Search } from '../../section';
 import Code from '../../section/Code/Code';
 import Loading from '../../section/Loading/Loading';
@@ -25,8 +22,9 @@ import Loading from '../../section/Loading/Loading';
 const PageHome = ({ testId }) => {
   const { t } = useTranslation();
   const [dataCard, setDataCard] = useState([]);
-  const [dataFiltered, setDataFiltered] = useState([]);
-  const [dataLimited, setDataLimited] = useState([]);
+  const [dataCode, setDataCode] = useState([]);
+  // const [dataFiltered, setDataFiltered] = useState([]);
+  // const [dataLimited, setDataLimited] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
   const CONTENT_TYPE = 'portfolio';
 
@@ -89,11 +87,47 @@ const PageHome = ({ testId }) => {
     return res;
   }, []);
 
+  const generateCodeData = useCallback((data) => {
+    const assets = data.includes.Asset;
+    const res = data.items.map((item) => {
+      return {
+        id: item.fields.id,
+        img:
+          item.fields.img?.sys?.id &&
+          getImgUrlFromAsset(assets, item.fields.img.sys.id),
+        name: item.fields.name,
+        tag: item.fields.tag,
+        visible: item.fields.visible,
+      };
+    });
+
+    return res;
+  }, []);
+
   const fetchData = useCallback(async () => {
     try {
+      let currentOrder = 'year';
+      if (searchBy === 'tags') {
+        if (sort === 'asc') {
+          currentOrder = `fields.year`;
+        } else {
+          currentOrder = `-fields.year`;
+        }
+      } else {
+        if (sort === 'asc') {
+          currentOrder = `fields.${searchBy}`;
+        } else {
+          currentOrder = `-fields.${searchBy}`;
+        }
+      }
+
       const url = getUrl({
         contentType: CONTENT_TYPE,
-        order: '-fields.year',
+        order: currentOrder,
+        limit: dataLimit.value,
+        skip: dataLimit.value * dataPaginationPageSelected,
+        fields: [{ id: searchBy, value: searchValue }],
+        fieldsWithMatch: ['desc', 'name', 'tags', 'link'],
       });
 
       const res = await fetch(url);
@@ -102,70 +136,66 @@ const PageHome = ({ testId }) => {
 
       const data = await res.json();
 
-      const dataIncludeImgUrlFromAsset = generateData(data);
+      if (data.items.length > 0) {
+        const dataIncludeImgUrlFromAsset = generateData(data);
 
-      setDataCard(dataIncludeImgUrlFromAsset);
-      setDataFiltered(dataIncludeImgUrlFromAsset);
+        setDataCard(dataIncludeImgUrlFromAsset);
+      } else {
+        setDataCard([]);
+      }
+
+      setDataPaginationPages(Math.ceil(data.total / data.limit));
       setDataLoading(false);
     } catch (err) {
       toast.error(`Error on fetch portfolio data.`);
       setDataLoading(false);
     }
-  }, [generateData]);
+  }, [
+    generateData,
+    searchBy,
+    searchValue,
+    dataLimit,
+    dataPaginationPageSelected,
+    sort,
+  ]);
 
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
+  const fetchCodeData = useCallback(async () => {
+    try {
+      const url = getUrl({
+        contentType: 'code',
+        order: 'fields.id',
+      });
+
+      const res = await fetch(url);
+
+      if (!res.ok) throw new Error('Błąd w zapytaniu');
+
+      const data = await res.json();
+
+      const dataIncludeImgUrlFromAsset = generateCodeData(data);
+
+      setDataCode(dataIncludeImgUrlFromAsset);
+    } catch (err) {
+      toast.error(`Error on fetch portfolio data.`);
+    }
+  }, [generateCodeData]);
+
+  useEffect(() => {
+    fetchCodeData();
+  }, [fetchCodeData]);
 
   const handleUpdateSuggestions = useCallback(() => {
     const updateSuggesstion = getSuggestionsOptions(searchBy, t);
     setSuggestionsOptions(updateSuggesstion);
   }, [searchBy, t]);
 
-  const handleUpdateData = useCallback(() => {
-    const paginationPages = Math.ceil(dataFiltered?.length / dataLimit?.value);
-    const startPage = dataLimit?.value * dataPaginationPageSelected;
-    const endPage = startPage + dataLimit?.value;
-    const newData = dataFiltered.slice(startPage, endPage);
-    setDataPaginationPages(paginationPages);
-    setDataLimited(newData);
-  }, [dataFiltered, dataLimit, dataPaginationPageSelected]);
-
   useEffect(() => {
     handleUpdateSuggestions();
   }, [handleUpdateSuggestions]);
-
-  useEffect(() => {
-    handleUpdateData();
-  }, [handleUpdateData]);
-
-  const handleSearch = (value, option, sortDirection) => {
-    const searchOption = option || searchBy;
-    const currentSortOption = sortDirection || sort;
-
-    setDataPaginationPageSelected(0);
-
-    if (searchOption !== searchBy) {
-      setSearchby(option);
-    }
-
-    if (!value) {
-      setSearchValue('');
-
-      const sortedData = getSorted(dataCard, searchBy, currentSortOption);
-
-      setDataFiltered(sortedData);
-    } else {
-      const filteredData = dataCard.filter((card) =>
-        card[searchOption]?.toString()?.toLowerCase().includes(value),
-      );
-
-      const sortedData = getSorted(filteredData, searchBy, currentSortOption);
-
-      setDataFiltered(sortedData);
-      setSearchValue(value);
-    }
-  };
 
   const handleFilterBy = (value) => {
     setDataPaginationPageSelected(0);
@@ -183,7 +213,6 @@ const PageHome = ({ testId }) => {
   const handleSort = (value) => {
     setDataPaginationPageSelected(0);
     setSort(value);
-    handleSearch(searchValue, undefined, sort);
   };
 
   const handleGridView = (data) => {
@@ -207,12 +236,24 @@ const PageHome = ({ testId }) => {
     setDataPaginationPageSelected(SEARCH_ON_RESET?.page);
     setDataLimit(SEARCH_ON_RESET?.limit);
     setSearchValue(SEARCH_ON_RESET?.searchValue);
-    handleSearch();
   };
 
   const handleFilterOpen = (value) => {
     setFilterOpen(value);
   };
+
+  const handleCodeClick = (value) => {
+    if (value === searchValue) {
+      handleReset();
+    } else {
+      setSearchby('tags');
+      setSearchValue(value);
+    }
+  };
+
+  const handleOnSearchInput = useDebounceCallback((value) => {
+    setSearchValue(value);
+  }, 500);
 
   return (
     <div
@@ -225,9 +266,9 @@ const PageHome = ({ testId }) => {
       <title>{t('Page.Home.Title')}</title>
 
       <Search
-        onSearch={handleSearch}
+        onSearch={handleOnSearchInput}
         onSearchBy={handleFilterBy}
-        resultNumber={dataFiltered.length}
+        resultNumber={dataCard.length}
         searchValue={searchValue}
         searchBy={searchBy}
         sortValue={sort}
@@ -242,7 +283,7 @@ const PageHome = ({ testId }) => {
 
       {suggestionsOptions?.data && filterOpen && (
         <Suggestions
-          handleSearch={handleSearch}
+          // handleSearch={handleSearch}
           searchValue={searchValue}
           data={suggestionsOptions?.data}
           title={suggestionsOptions?.title}
@@ -250,7 +291,7 @@ const PageHome = ({ testId }) => {
         />
       )}
 
-      <Code />
+      <Code data={dataCode} onClick={handleCodeClick} selected={searchValue} />
 
       <div
         className={twMerge(
@@ -262,7 +303,7 @@ const PageHome = ({ testId }) => {
         {dataLoading && <Loading size="wide" />}
 
         {!dataLoading &&
-          dataLimited?.map((item, index) => (
+          dataCard?.map((item, index) => (
             <Card
               key={`${index}-${item.id}`}
               id={item?.id}
@@ -276,12 +317,12 @@ const PageHome = ({ testId }) => {
               type={item?.type}
               year={item?.year}
               imgBig={item?.imgBig}
-              handleSearch={handleSearch}
+              // handleSearch={handleSearch}
               handleModal={handleModal}
             />
           ))}
 
-        {!dataLoading && !dataLimited.length && (
+        {!dataLoading && !dataCard.length && (
           <div className="flex justify-center items-center min-h-[10vh]">
             {t('Section.Search.NoAvailableResult')}
           </div>
