@@ -122,6 +122,7 @@ const PageHome = ({ testId }) => {
         setDataTotal(data.total);
         setDataCard(dataIncludeImgUrlFromAsset);
       } else {
+        setDataTotal(0);
         setDataCard([]);
       }
 
