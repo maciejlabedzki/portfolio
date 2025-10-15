@@ -1,16 +1,19 @@
 import * as Sentry from '@sentry/react';
 import { useCallback, useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { UserContext } from '../../contexts/UserContext';
-import { FEATURES_DATA } from '../../data/features';
-import { getByTestId, getSorted } from '../../lib/helper';
+import { getUrl } from '../../lib/fetch';
+import { getByTestId } from '../../lib/helper';
 import FeatureItem from './subcomponents/FeatureItem';
 
 const PageFeatures = ({ testId }) => {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
   const { isAdmin } = useContext(UserContext);
   const [features, setFeatures] = useState([]);
+  const CONTENT_TYPE = 'features';
+  const FETCH_ORDER = '-fields.id';
 
   const handleSentryLog = useCallback(() => {
     Sentry.logger.info('User in page: Features');
@@ -20,20 +23,32 @@ const PageFeatures = ({ testId }) => {
     handleSentryLog();
   }, [handleSentryLog]);
 
-  const handleFeatures = useCallback(() => {
-    let res = [];
+  const fetchFeaturesData = useCallback(async () => {
+    try {
+      const url = getUrl({
+        contentType: CONTENT_TYPE,
+        order: FETCH_ORDER,
+      });
 
-    res = getSorted(FEATURES_DATA, 'id', 'desc');
+      const res = await fetch(url);
 
-    setFeatures(res);
+      if (!res.ok) throw new Error('Błąd w zapytaniu');
 
-    // Translate features refreshed based on update on language switch
-    // eslint-disable-next-line
-  }, [i18n]);
+      const data = await res.json();
+
+      const featuresList = data.items.map((item) => {
+        return { ...item.fields };
+      });
+
+      setFeatures(featuresList);
+    } catch (err) {
+      toast.error(`Error on fetch features data.`);
+    }
+  }, []);
 
   useEffect(() => {
-    handleFeatures();
-  }, [handleFeatures]);
+    fetchFeaturesData();
+  }, [fetchFeaturesData]);
 
   return (
     <div
@@ -51,13 +66,20 @@ const PageFeatures = ({ testId }) => {
         </div>
       )}
 
-      <div className="w-full bg-gray-50 py-2 flex justify-center mb-4">
-        {t('Page.Features.PortfolioFeaturesList', {
-          len: FEATURES_DATA.length,
-        })}
+      <div
+        className={twMerge(
+          'w-full bg-white py-2 flex justify-center mb-4',
+          features?.length && 'bg-gray',
+        )}
+      >
+        {features?.length > 0
+          ? t('Page.Features.PortfolioFeaturesList', {
+              len: features?.length,
+            })
+          : t('Page.Features.NoData')}
       </div>
 
-      {/* Done Features */}
+      {/* Section: Features */}
       {features
         .filter((item) => item.done)
         .map((item) => (
@@ -72,7 +94,7 @@ const PageFeatures = ({ testId }) => {
           />
         ))}
 
-      {/* Coming Soone */}
+      {/* Section: Coming Soon */}
       {features
         .filter((item) => !item.done)
         .map((item) => (

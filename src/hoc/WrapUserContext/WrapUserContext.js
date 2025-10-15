@@ -1,21 +1,47 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Outlet } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { USER_DATA } from '../../data/user';
+import { getUrl } from '../../lib/fetch';
 
 const WrapUserContext = ({ children }) => {
   const [userContext, setUserContext] = useState({});
-  const user = USER_DATA;
+  const CONTENT_TYPE = 'owner';
 
   const userContextValue = useMemo(
     () => ({
       isAdmin: false,
-      userStorage: user,
+      userStorage: {},
       ...userContext,
       updateUserContext: setUserContext,
     }),
-    [user, userContext],
+    [userContext],
   );
+
+  const fetchUserData = useCallback(async () => {
+    try {
+      const url = getUrl({
+        contentType: CONTENT_TYPE,
+      });
+
+      const res = await fetch(url);
+
+      if (!res.ok) throw new Error('Błąd w zapytaniu');
+
+      const data = await res.json();
+
+      setUserContext?.((prevState) => ({
+        ...prevState,
+        userStorage: data.items[0].fields,
+      }));
+    } catch (err) {
+      toast.error(`Error on fetch owner data.`);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchUserData();
+  }, [fetchUserData]);
 
   return (
     <UserContext.Provider value={userContextValue}>

@@ -45,11 +45,11 @@
   "Navigation": {
     "Admin": "Administrator",
     "Cookies": "Ciastka",
+    "CV": "CV",
     "Features": "Właściwości",
     "Home": "Strona główna",
     "Login": "Zaloguj",
-    "Register": "Rejestracja",
-    "CV":"CV"
+    "Register": "Rejestracja"
   },
   "Page": {
     "404": {
@@ -58,7 +58,14 @@
       "Title": "Portfolio Strona 404",
       "WrongURLAdress": "Błędny adres URL:"
     },
+    "CV": {
+      "DownloadCV": "Pobierz CV",
+      "Header": "To jest podgląd CV:",
+      "OpenCV": "Otwórz CV",
+      "Title": "CURRICULUM VITAE"
+    },
     "Features": {
+      "NoData": "Brak danych właściwości",
       "PortfolioFeaturesList": "Lista Właściwości Portfolio ( {{len}} )",
       "Title": "Portfolio Strona Właściwości"
     },
@@ -74,12 +81,6 @@
     },
     "Register": {
       "Title": "Portfolio Strona Rejestracji"
-    },
-    "CV": {
-      "Title": "CURRICULUM VITAE",
-      "Header": "To jest podgląd CV:",
-      "DownloadCV": "Pobierz CV",
-      "OpenCV":"Otwórz CV"
     }
   },
   "SearchFiltersOptions": {

@@ -1,9 +1,11 @@
+import { useContext } from 'react';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from 'react-router-dom';
+import { UserContext } from '../contexts/UserContext';
 import WrapUserContext from '../hoc/WrapUserContext/WrapUserContext';
 import Layout from '../layout/Layout';
 import {
@@ -19,7 +21,7 @@ import {
 import PageCV from '../pages/CV/CV';
 
 export const ProtectedAdminPage = ({ children }) => {
-  const isAdmin = JSON.parse(process.env.REACT_APP_ADMIN);
+  const { isAdmin } = useContext(UserContext);
 
   if (isAdmin) {
     return children;

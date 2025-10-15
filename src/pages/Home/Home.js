@@ -181,7 +181,6 @@ const PageHome = ({ testId }) => {
   };
 
   const handleSort = (value) => {
-    console.log(value);
     setDataPaginationPageSelected(0);
     setSort(value);
     handleSearch(searchValue, undefined, sort);
