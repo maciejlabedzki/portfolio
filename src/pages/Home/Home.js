@@ -22,15 +22,13 @@ import Loading from '../../section/Loading/Loading';
 const PageHome = ({ testId }) => {
   const { t } = useTranslation();
   const [dataCard, setDataCard] = useState([]);
+  const [dataTotal, setDataTotal] = useState([]);
   const [dataCode, setDataCode] = useState([]);
-  // const [dataFiltered, setDataFiltered] = useState([]);
-  // const [dataLimited, setDataLimited] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
-  const CONTENT_TYPE = 'portfolio';
 
   /* :: Search & Filters :: */
   const [searchBy, setSearchby] = useState('year');
-  const [sort, setSort] = useState('asc');
+  const [sort, setSort] = useState('desc');
   const [searchValue, setSearchValue] = useState('');
   const [dataLimit, setDataLimit] = useState(PAGINATION_COUNTER[1]);
   const [suggestionsOptions, setSuggestionsOptions] = useState();
@@ -62,67 +60,30 @@ const PageHome = ({ testId }) => {
     }
   };
 
-  const generateData = useCallback((data) => {
-    const assets = data.includes.Asset;
-    const res = data.items.map((item) => {
-      return {
-        id: item.fields.id,
-        img:
-          item.fields.img?.sys?.id &&
-          getImgUrlFromAsset(assets, item.fields.img.sys.id),
-        imgBig:
-          item.fields.imgBig?.sys?.id &&
-          getImgUrlFromAsset(assets, item.fields.imgBig.sys.id),
-        link: item.fields.link,
-        linkName: item.fields.linkName,
-        linkAvailable: item.fields.linkAvailable,
-        name: item.fields.name,
-        tags: item.fields.tags,
-        type: item.fields.type,
-        desc: item.fields.desc,
-        year: item.fields.year,
-      };
-    });
-
-    return res;
-  }, []);
-
-  const generateCodeData = useCallback((data) => {
-    const assets = data.includes.Asset;
-    const res = data.items.map((item) => {
-      return {
-        id: item.fields.id,
-        img:
-          item.fields.img?.sys?.id &&
-          getImgUrlFromAsset(assets, item.fields.img.sys.id),
-        name: item.fields.name,
-        tag: item.fields.tag,
-        visible: item.fields.visible,
-      };
-    });
-
+  const getPatternFetchOrderByValue = useCallback((searchBy, sort) => {
+    let res = 'year';
+    if (searchBy === 'tags') {
+      if (sort === 'asc') {
+        res = `fields.year`;
+      } else {
+        res = `-fields.year`;
+      }
+    } else {
+      if (sort === 'asc') {
+        res = `fields.${searchBy}`;
+      } else {
+        res = `-fields.${searchBy}`;
+      }
+    }
     return res;
   }, []);
 
   const fetchData = useCallback(async () => {
     try {
-      let currentOrder = 'year';
-      if (searchBy === 'tags') {
-        if (sort === 'asc') {
-          currentOrder = `fields.year`;
-        } else {
-          currentOrder = `-fields.year`;
-        }
-      } else {
-        if (sort === 'asc') {
-          currentOrder = `fields.${searchBy}`;
-        } else {
-          currentOrder = `-fields.${searchBy}`;
-        }
-      }
+      let currentOrder = getPatternFetchOrderByValue(searchBy, sort);
 
       const url = getUrl({
-        contentType: CONTENT_TYPE,
+        contentType: 'portfolio',
         order: currentOrder,
         limit: dataLimit.value,
         skip: dataLimit.value * dataPaginationPageSelected,
@@ -137,8 +98,28 @@ const PageHome = ({ testId }) => {
       const data = await res.json();
 
       if (data.items.length > 0) {
-        const dataIncludeImgUrlFromAsset = generateData(data);
+        const assets = data.includes.Asset;
+        const dataIncludeImgUrlFromAsset = data.items.map((item) => {
+          return {
+            id: item.fields.id,
+            img:
+              item.fields.img?.sys?.id &&
+              getImgUrlFromAsset(assets, item.fields.img.sys.id),
+            imgBig:
+              item.fields.imgBig?.sys?.id &&
+              getImgUrlFromAsset(assets, item.fields.imgBig.sys.id),
+            link: item.fields.link,
+            linkName: item.fields.linkName,
+            linkAvailable: item.fields.linkAvailable,
+            name: item.fields.name,
+            tags: item.fields.tags,
+            type: item.fields.type,
+            desc: item.fields.desc,
+            year: item.fields.year,
+          };
+        });
 
+        setDataTotal(data.total);
         setDataCard(dataIncludeImgUrlFromAsset);
       } else {
         setDataCard([]);
@@ -151,7 +132,7 @@ const PageHome = ({ testId }) => {
       setDataLoading(false);
     }
   }, [
-    generateData,
+    getPatternFetchOrderByValue,
     searchBy,
     searchValue,
     dataLimit,
@@ -176,13 +157,23 @@ const PageHome = ({ testId }) => {
 
       const data = await res.json();
 
-      const dataIncludeImgUrlFromAsset = generateCodeData(data);
+      const dataIncludeImgUrlFromAsset = data.items.map((item) => {
+        return {
+          id: item.fields.id,
+          img:
+            item.fields.img?.sys?.id &&
+            getImgUrlFromAsset(data.includes.Asset, item.fields.img.sys.id),
+          name: item.fields.name,
+          tag: item.fields.tag,
+          visible: item.fields.visible,
+        };
+      });
 
       setDataCode(dataIncludeImgUrlFromAsset);
     } catch (err) {
-      toast.error(`Error on fetch portfolio data.`);
+      toast.error(`Error on fetch data for Code Section.`);
     }
-  }, [generateCodeData]);
+  }, []);
 
   useEffect(() => {
     fetchCodeData();
@@ -248,12 +239,19 @@ const PageHome = ({ testId }) => {
     } else {
       setSearchby('tags');
       setSearchValue(value);
+      setDataPaginationPageSelected(0);
     }
   };
 
   const handleOnSearchInput = useDebounceCallback((value) => {
     setSearchValue(value);
   }, 500);
+
+  const handleCardSearch = (value, type) => {
+    setSearchValue(value);
+    setSearchby(type);
+    setDataPaginationPageSelected(0);
+  };
 
   return (
     <div
@@ -268,7 +266,7 @@ const PageHome = ({ testId }) => {
       <Search
         onSearch={handleOnSearchInput}
         onSearchBy={handleFilterBy}
-        resultNumber={dataCard.length}
+        resultNumber={dataTotal}
         searchValue={searchValue}
         searchBy={searchBy}
         sortValue={sort}
@@ -283,7 +281,7 @@ const PageHome = ({ testId }) => {
 
       {suggestionsOptions?.data && filterOpen && (
         <Suggestions
-          // handleSearch={handleSearch}
+          handleSearch={handleCardSearch}
           searchValue={searchValue}
           data={suggestionsOptions?.data}
           title={suggestionsOptions?.title}
@@ -317,7 +315,7 @@ const PageHome = ({ testId }) => {
               type={item?.type}
               year={item?.year}
               imgBig={item?.imgBig}
-              // handleSearch={handleSearch}
+              handleSearch={handleCardSearch}
               handleModal={handleModal}
             />
           ))}
