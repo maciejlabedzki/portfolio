@@ -1,18 +1,21 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 import Button from '../../components/Button/Button';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import NavigationLink from '../../components/NavigationLink/NavigationLink';
+import { UserContext } from '../../contexts/UserContext';
 import { NAVIGATION_DATA, NAVIGATION_USER_DATA } from '../../data/navigation';
 import { Bars3Icon, FlagIcon, UserIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
 import { getLocalStorage, setLocalStorage } from '../../lib/localstorage';
 
 const Navigation = ({ testId }) => {
+  const { isAdmin } = useContext(UserContext);
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const [navigationLinks, setNavigationLinks] = useState([]);
 
   const handleCookiesFromLocalstorage = useCallback(() => {
     const language = getLocalStorage('language');
@@ -32,15 +35,34 @@ const Navigation = ({ testId }) => {
     [i18n],
   );
 
-  const validateNavigationHidden = (visible, admin) => {
-    if (visible === false) {
-      return true;
-    } else if (admin) {
-      return !JSON.parse(process.env.REACT_APP_ADMIN) || false;
-    } else {
-      return false;
-    }
-  };
+  const validateNavigationHidden = useCallback(
+    (visible, admin) => {
+      if (admin && isAdmin && visible) {
+        return false;
+      } else if (admin && !isAdmin && visible) {
+        return true;
+      } else if (visible) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    [isAdmin],
+  );
+
+  const validateNavigationLinks = useCallback(() => {
+    const res = NAVIGATION_DATA.map((nav) => {
+      return {
+        ...nav,
+        hidden: validateNavigationHidden(nav.visible, nav.admin),
+      };
+    });
+    setNavigationLinks(res);
+  }, [validateNavigationHidden]);
+
+  useEffect(() => {
+    validateNavigationLinks();
+  }, [validateNavigationLinks]);
 
   const LanguageSection = () => {
     return (
@@ -98,13 +120,13 @@ const Navigation = ({ testId }) => {
 
       {/* Menu Visible on Normal size */}
       <div className="hidden sm:flex sm:flex-row">
-        {NAVIGATION_DATA.map((nav) => (
+        {navigationLinks.map((nav) => (
           <NavigationLink
             key={nav.name}
             name={t(`Navigation.${nav.name}`)}
             linkPath={nav.path}
             active={location.pathname === nav.path}
-            hidden={validateNavigationHidden(nav.visible, nav.admin)}
+            hidden={nav.hidden}
           />
         ))}
       </div>

@@ -1,5 +1,5 @@
 import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
@@ -8,6 +8,7 @@ import Input from '../../components/Input/Input';
 import NavigationLink from '../../components/NavigationLink/NavigationLink';
 import { UserContext } from '../../contexts/UserContext';
 import { getByTestId } from '../../lib/helper';
+import { getLocalStorage, setLocalStorage } from '../../lib/localstorage';
 
 const PageNoAccess = ({ testId }) => {
   const { t } = useTranslation();
@@ -32,6 +33,7 @@ const PageNoAccess = ({ testId }) => {
         ...prevState,
         isAdmin: true,
       }));
+      setLocalStorage('userRoleAdmin', true);
     } else {
       toast.error('Wrong password');
     }
@@ -44,6 +46,21 @@ const PageNoAccess = ({ testId }) => {
   const handlePassAdmin = (e) => {
     setPassAdmin(e.target.value);
   };
+
+  const validateAdminFromLocalstorage = useCallback(() => {
+    const isAdminLS = getLocalStorage('userRoleAdmin', true);
+
+    if (isAdminLS) {
+      updateUserContext?.((prevState) => ({
+        ...prevState,
+        isAdmin: true,
+      }));
+    }
+  }, [updateUserContext]);
+
+  useEffect(() => {
+    validateAdminFromLocalstorage();
+  }, [validateAdminFromLocalstorage]);
 
   return (
     <div
@@ -59,6 +76,14 @@ const PageNoAccess = ({ testId }) => {
 
       <span className="text-sm mb-6">{t('Page.NoAccess.Header')}</span>
 
+      <NavigationLink
+        to="/"
+        name={t('Page.404.BackToHomePage')}
+        additionalClasses={twMerge(
+          'rounded-md px-2 py-2 bg-tahiti-700 hover:opacity-90',
+        )}
+      />
+
       {!isAdmin && (
         <div className={'flex flex-col justify-center items-center my-4'}>
           <div className={'flex-row justify-center items-center'}>
@@ -67,25 +92,20 @@ const PageNoAccess = ({ testId }) => {
               onChange={handleLoginAdmin}
               additionalClasses="my-2"
               placeholder="Login"
+              type="text"
             />
             <Input
               value={passAdmin}
               onChange={handlePassAdmin}
               additionalClasses="my-2"
               placeholder="Password"
+              type="password"
+              hasShowHide={true}
             />
           </div>
           <Button name="Login as Admin" onClick={handleUpdateAdmin} />
         </div>
       )}
-
-      <NavigationLink
-        to="/"
-        name={t('Page.404.BackToHomePage')}
-        additionalClasses={twMerge(
-          'rounded-md px-2 py-2 bg-tahiti-700 hover:opacity-90',
-        )}
-      />
     </div>
   );
 };

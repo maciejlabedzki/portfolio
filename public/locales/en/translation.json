@@ -49,7 +49,8 @@
     "Features": "Features",
     "Home": "Home",
     "Login": "Login",
-    "Register": "Register"
+    "Register": "Register",
+    "Page": "Page"
   },
   "Page": {
     "404": {
@@ -81,6 +82,10 @@
     },
     "Register": {
       "Title": "Portfolio Register Page"
+    },
+    "Boilerplate": {
+      "Header": "Portfolio Boilerplate Page.",
+      "Title": "Portfolio Boilerplate Page"
     }
   },
   "SearchFiltersOptions": {
