@@ -5,6 +5,7 @@ import { twMerge } from 'tailwind-merge';
 import Button from '../../components/Button/Button';
 import { UserContext } from '../../contexts/UserContext';
 import { getByTestId } from '../../lib/helper';
+import { setLocalStorage } from '../../lib/localstorage';
 
 const PageAdmin = ({ testId }) => {
   const { isAdmin, updateUserContext } = useContext(UserContext);
@@ -21,6 +22,11 @@ const PageAdmin = ({ testId }) => {
   const handleUpdateAdmin = useCallback(
     (value) => {
       toast(`Context isAdmin is now ${value ? 'true' : 'false'}`);
+
+      if (value === false) {
+        setLocalStorage('userRoleAdmin', false);
+      }
+
       updateUserContext?.((prevState) => ({
         ...prevState,
         isAdmin: value,

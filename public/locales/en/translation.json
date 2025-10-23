@@ -13,14 +13,18 @@
     "Year": "Year {{year}}"
   },
   "Form": {
+    "AdminLoginForm": "Admin Login Form",
     "EmailAdress": "Email Adress",
     "FirstName": "First Name",
     "FormErrorEmailIsRequired": "Email is required",
     "FormErrorEnterValidEmail": "Wrong email adress",
+    "FormErrorLoginIsRequired": "Login is required",
+    "FormErrorLoginMinimumLength": "Login minimum word length is {{length}}",
     "FormErrorNotBlank": "Not blank",
     "FormErrorPasswordIsRequired": "Password is required",
     "FormErrorPasswordMinimumLength": "Password minimum word length is {{length}}",
     "LastName": "Last Name",
+    "Login": "Login",
     "LoginForm": "Login Form",
     "Password": "Password",
     "RegisterForm": "Register Form",
@@ -49,6 +53,7 @@
     "Features": "Features",
     "Home": "Home",
     "Login": "Login",
+    "Page": "Page",
     "Register": "Register"
   },
   "Page": {
@@ -57,6 +62,10 @@
       "Header": "PAGE 404",
       "Title": "Portfolio Page 404",
       "WrongURLAdress": "Wrong URL adress:"
+    },
+    "Boilerplate": {
+      "Header": "Portfolio Boilerplate Page.",
+      "Title": "Portfolio Boilerplate Page"
     },
     "CV": {
       "DownloadCV": "Download CV",

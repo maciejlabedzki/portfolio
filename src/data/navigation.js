@@ -1,14 +1,15 @@
 const NAVIGATION_DATA = [
-  { name: 'Home', path: '/', admin: false },
-  { name: 'Features', path: '/features', admin: false },
-  { name: 'CV', path: '/cv', admin: false },
+  { name: 'Home', path: '/', admin: false, visible: true },
+  { name: 'Features', path: '/features', admin: false, visible: true },
+  { name: 'CV', path: '/cv', admin: false, visible: true },
   { name: 'Cookies', path: '/cookies', admin: false, visible: false },
+  { name: 'Page', path: '/page', admin: true, visible: true },
 ];
 
 const NAVIGATION_USER_DATA = [
-  { name: 'Login', path: '/login', admin: false },
-  { name: 'Register', path: '/register', admin: false },
-  { name: 'Admin', path: '/admin', admin: true },
+  { name: 'Login', path: '/login', admin: false, visible: true },
+  { name: 'Register', path: '/register', admin: false, visible: true },
+  { name: 'Admin', path: '/admin', admin: false, visible: true },
 ];
 
 export { NAVIGATION_DATA, NAVIGATION_USER_DATA };

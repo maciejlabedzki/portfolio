@@ -13,14 +13,18 @@
     "Year": "Rok {{year}}"
   },
   "Form": {
+    "AdminLoginForm": "Formularz logowania administratora",
     "EmailAdress": "Adres email",
     "FirstName": "Imię",
     "FormErrorEmailIsRequired": "Email jest wymagany",
     "FormErrorEnterValidEmail": "Błędny adres email",
+    "FormErrorLoginIsRequired": "Login jest wymagany",
+    "FormErrorLoginMinimumLength": "Minimalna długość loginu to {{length}}",
     "FormErrorNotBlank": "Nie może być pusty",
     "FormErrorPasswordIsRequired": "Hasło jest wymagane",
     "FormErrorPasswordMinimumLength": "Minimalna długość hasła to {{length}}",
     "LastName": "Nazwisko",
+    "Login": "Login",
     "LoginForm": "Formularz logowania",
     "Password": "Hasło",
     "RegisterForm": "Formularz rejestracji",
@@ -49,6 +53,7 @@
     "Features": "Właściwości",
     "Home": "Strona główna",
     "Login": "Zaloguj",
+    "Page": "Strona",
     "Register": "Rejestracja"
   },
   "Page": {
@@ -57,6 +62,10 @@
       "Header": "STRONA 404",
       "Title": "Portfolio Strona 404",
       "WrongURLAdress": "Błędny adres URL:"
+    },
+    "Boilerplate": {
+      "Header": "Portfolio Strona Boilerplate",
+      "Title": "Portfolio Strona Boilerplate"
     },
     "CV": {
       "DownloadCV": "Pobierz CV",

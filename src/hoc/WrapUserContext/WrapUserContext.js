@@ -3,19 +3,21 @@ import toast from 'react-hot-toast';
 import { Outlet } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { getUrl } from '../../lib/fetch';
+import { getLocalStorage } from '../../lib/localstorage';
 
 const WrapUserContext = ({ children }) => {
   const [userContext, setUserContext] = useState({});
   const CONTENT_TYPE = 'owner';
+  const IS_USER_ROLE_ADMIN_LS = getLocalStorage('userRoleAdmin', true);
 
   const userContextValue = useMemo(
     () => ({
-      isAdmin: false,
+      isAdmin: IS_USER_ROLE_ADMIN_LS,
       userStorage: {},
       ...userContext,
       updateUserContext: setUserContext,
     }),
-    [userContext],
+    [IS_USER_ROLE_ADMIN_LS, userContext],
   );
 
   const fetchUserData = useCallback(async () => {

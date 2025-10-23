@@ -11,3 +11,15 @@ export const simplePasswordSchema = (t) =>
     .string()
     .min(8, t('Form.FormErrorPasswordMinimumLength', { length: 8 }))
     .required(t('Form.FormErrorPasswordIsRequired'));
+
+export const adminPasswordSchema = (t) =>
+  yup
+    .string()
+    .min(3, t('Form.FormErrorPasswordMinimumLength', { length: 3 }))
+    .required(t('Form.FormErrorPasswordIsRequired'));
+
+export const adminLoginSchema = (t) =>
+  yup
+    .string()
+    .min(3, t('Form.FormErrorLoginMinimumLength', { length: 3 }))
+    .required(t('Form.FormErrorLoginIsRequired'));
