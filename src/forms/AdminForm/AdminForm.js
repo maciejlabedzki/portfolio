@@ -30,7 +30,6 @@ const AdminForm = ({ testId }) => {
     validateOnChange: validateAfterSubmit,
     validationSchema: validationSchema,
     onSubmit: (values, actions) => {
-      //   alert(JSON.stringify(values, null, 2));
       handleUpdateAdmin(values, actions);
     },
   });
@@ -70,15 +69,9 @@ const AdminForm = ({ testId }) => {
         setLocalStorage('userRoleAdmin', true);
         toast.success('Login as admin.');
       } else {
-        toast.error('Wrong password or login.');
-        formik.setFieldError(
-          'login',
-          'Please validate login before submit form',
-        );
-        formik.setFieldError(
-          'password',
-          'Please validate password before submit form',
-        );
+        toast.error('Incorrect login or password');
+        formik.setFieldError('login', 'Incorrect login or password');
+        formik.setFieldError('password', 'Incorrect login or password');
       }
     },
     [updateUserContext, formik],

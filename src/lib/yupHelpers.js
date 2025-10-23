@@ -15,11 +15,11 @@ export const simplePasswordSchema = (t) =>
 export const adminPasswordSchema = (t) =>
   yup
     .string()
-    .min(1, t('Form.FormErrorPasswordMinimumLength', { length: 1 }))
+    .min(3, t('Form.FormErrorPasswordMinimumLength', { length: 3 }))
     .required(t('Form.FormErrorPasswordIsRequired'));
 
 export const adminLoginSchema = (t) =>
   yup
     .string()
-    .min(1, t('Form.FormErrorLoginMinimumLength', { length: 1 }))
+    .min(3, t('Form.FormErrorLoginMinimumLength', { length: 3 }))
     .required(t('Form.FormErrorLoginIsRequired'));

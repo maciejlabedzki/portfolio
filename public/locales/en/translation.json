@@ -19,7 +19,7 @@
     "FormErrorEmailIsRequired": "Email is required",
     "FormErrorEnterValidEmail": "Wrong email adress",
     "FormErrorLoginIsRequired": "Login is required",
-    "FormErrorLoginMinimumLength": "",
+    "FormErrorLoginMinimumLength": "Login minimum word length is {{length}}",
     "FormErrorNotBlank": "Not blank",
     "FormErrorPasswordIsRequired": "Password is required",
     "FormErrorPasswordMinimumLength": "Password minimum word length is {{length}}",
