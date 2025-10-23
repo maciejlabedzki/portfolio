@@ -59,13 +59,15 @@ const CardTags = ({
 
         {isLimited && (
           <>
-            <span className="text-gray-50 ml-1 mr-1">...</span>
+            {!showMoreTag && (
+              <span className="text-gray-50 ml-1 mr-1">...</span>
+            )}
             <Button
               icon={
                 showMoreTag ? (
-                  <ChevronUpIcon className={twMerge('h-2 w-2')} />
+                  <ChevronUpIcon className={twMerge('h-3 w-3 mt-0')} />
                 ) : (
-                  <ChevronDownIcon className={twMerge('h-2 w-2')} />
+                  <ChevronDownIcon className={twMerge('h-3 w-3 mt-0.5')} />
                 )
               }
               theme="secondary"
@@ -74,7 +76,7 @@ const CardTags = ({
               height="auto"
               margin="tiny"
               border="none"
-              additionalClasses="h-3 w-3"
+              additionalClasses="h-[18px] w-[18px]"
               onClick={handleToggleShowMoreTags}
             />
           </>
