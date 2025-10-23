@@ -26,7 +26,7 @@ const Page404 = ({ testId }) => {
       </span>
 
       <NavigationLink
-        to="/"
+        linkPath="/"
         name={t('Page.404.BackToHomePage')}
         additionalClasses={twMerge(
           'rounded-md px-2 py-2 bg-tahiti-700 hover:opacity-90',

@@ -42,7 +42,7 @@ const PageNoAccess = ({ testId }) => {
       <span className="text-sm mb-6">{t('Page.NoAccess.Header')}</span>
 
       <NavigationLink
-        to="/"
+        linkPath="/"
         name={t('Page.404.BackToHomePage')}
         additionalClasses={twMerge(
           'rounded-md px-2 py-2 bg-tahiti-700 hover:opacity-90',
