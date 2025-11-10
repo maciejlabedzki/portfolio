@@ -54,7 +54,10 @@
     "Home": "Strona główna",
     "Login": "Zaloguj",
     "Page": "Strona",
-    "Register": "Rejestracja"
+    "Register": "Rejestracja",
+    "Certyficate": "Certyfikat",
+    "Skills": "Umiejętności",
+    "AboutMe": "O mnie"
   },
   "Page": {
     "404": {

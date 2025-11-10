@@ -54,7 +54,10 @@
     "Home": "Home",
     "Login": "Login",
     "Page": "Page",
-    "Register": "Register"
+    "Register": "Register",
+    "Certyficate": "Certyficate",
+    "Skills": "Skills",
+    "AboutMe": "About me"
   },
   "Page": {
     "404": {
