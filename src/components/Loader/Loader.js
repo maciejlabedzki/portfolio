@@ -1,7 +1,8 @@
+import { twMerge } from 'tailwind-merge';
 import { Spinner } from '../../images';
 import { getByTestId } from '../../lib/helper';
 
-const Loader = ({ testId, theme = 'dark' }) => {
+const Loader = ({ testId, theme = 'dark', additionalClasses = '' }) => {
   const filterTheme = {
     light: `invert(1)`,
     dark: `invert(0)`,
@@ -9,7 +10,7 @@ const Loader = ({ testId, theme = 'dark' }) => {
 
   return (
     <div
-      className="text-white"
+      className={twMerge('text-white', additionalClasses)}
       style={{ filter: filterTheme[theme] }}
       {...getByTestId(testId, 'container')}
     >

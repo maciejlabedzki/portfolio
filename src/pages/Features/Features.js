@@ -3,6 +3,7 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
+import Loader from '../../components/Loader/Loader';
 import { UserContext } from '../../contexts/UserContext';
 import { getUrl } from '../../lib/fetch';
 import { getByTestId } from '../../lib/helper';
@@ -12,6 +13,7 @@ const PageFeatures = ({ testId }) => {
   const { t } = useTranslation();
   const { isAdmin } = useContext(UserContext);
   const [features, setFeatures] = useState([]);
+  const [featuresLoading, setFeaturesLoading] = useState(true);
   const CONTENT_TYPE = 'features';
   const FETCH_ORDER = '-fields.id';
 
@@ -41,8 +43,10 @@ const PageFeatures = ({ testId }) => {
       });
 
       setFeatures(featuresList);
+      setFeaturesLoading(false);
     } catch (err) {
       toast.error(`Error on fetch features data.`);
+      setFeaturesLoading(false);
     }
   }, []);
 
@@ -66,18 +70,22 @@ const PageFeatures = ({ testId }) => {
         </div>
       )}
 
-      <div
-        className={twMerge(
-          'w-full bg-white py-2 flex justify-center mb-4',
-          features?.length && 'bg-gray',
-        )}
-      >
-        {features?.length > 0
-          ? t('Page.Features.PortfolioFeaturesList', {
-              len: features?.length,
-            })
-          : t('Page.Features.NoData')}
-      </div>
+      {featuresLoading ? (
+        <Loader theme="dark" additionalClasses="m-auto pt-4 pb-4" />
+      ) : (
+        <div
+          className={twMerge(
+            'w-full bg-white py-2 flex justify-center mb-4',
+            features?.length && 'bg-gray',
+          )}
+        >
+          {features?.length > 0
+            ? t('Page.Features.PortfolioFeaturesList', {
+                len: features?.length,
+              })
+            : t('Page.Features.NoData')}
+        </div>
+      )}
 
       {/* Section: Features */}
       {features

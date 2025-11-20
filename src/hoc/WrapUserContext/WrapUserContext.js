@@ -14,6 +14,8 @@ const WrapUserContext = ({ children }) => {
     () => ({
       isAdmin: IS_USER_ROLE_ADMIN_LS,
       userStorage: {},
+      userStorageLoading: true,
+      userStorageHidden: false,
       ...userContext,
       updateUserContext: setUserContext,
     }),
@@ -35,9 +37,16 @@ const WrapUserContext = ({ children }) => {
       setUserContext?.((prevState) => ({
         ...prevState,
         userStorage: data.items[0].fields,
+        userStorageLoading: false,
+        userStorageHidden: false,
       }));
     } catch (err) {
       toast.error(`Error on fetch owner data.`);
+      setUserContext?.((prevState) => ({
+        ...prevState,
+        userStorageLoading: false,
+        userStorageHidden: true,
+      }));
     }
   }, []);
 

@@ -11,8 +11,10 @@ import Layout from '../layout/Layout';
 import { getLocalStorage } from '../lib/localstorage';
 import {
   Page404,
+  PageAboutMe,
   PageAdmin,
   PageBoilerplate,
+  PageCertyficate,
   PageCookies,
   PageCV,
   PageFeatures,
@@ -20,6 +22,7 @@ import {
   PageLogin,
   PageNoAccess,
   PageRegister,
+  PageSkills,
 } from '../pages';
 
 export const ProtectedAdminPage = ({ children }) => {
@@ -62,6 +65,9 @@ const router = createBrowserRouter(
         <Route path="/register" element={<PageRegister />} />
         <Route path="/noaccess" element={<PageNoAccess />} />
         <Route path="/cv" element={<PageCV />} />
+        <Route path="/certyficate" element={<PageCertyficate />} />
+        <Route path="/skills" element={<PageSkills />} />
+        <Route path="/aboutme" element={<PageAboutMe />} />
 
         <Route
           path="/page"

@@ -31,6 +31,9 @@ const i18nAlwaysInclude = [
   t('Navigation.Register'),
   t('Navigation.CV'),
   t('Navigation.Page'),
+  t('Navigation.Certyficate'),
+  t('Navigation.Skills'),
+  t('Navigation.AboutMe'),
 
   // Search Sort Options
   t('SearchSortOptions.Ascending'),

@@ -1,16 +1,13 @@
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
+import Loader from '../../components/Loader/Loader';
 import Paragraph from '../../components/Paragraph/Paragraph';
 import { Github, SocialLinkedIn, UserIcon } from '../../images';
 import { getByTestId } from '../../lib/helper';
 
-const OwnerDetails = ({ data, testId }) => {
+const OwnerDetails = ({ data, loading = false, hidden = false, testId }) => {
   const { t } = useTranslation();
-
-  if (!data?.name && !data?.surname && !data?.phone && !data?.email) {
-    return;
-  }
 
   const handleLinkedIn = () => {
     if (data?.linkedIn) {
@@ -26,7 +23,10 @@ const OwnerDetails = ({ data, testId }) => {
 
   return (
     <div
-      className={twMerge('bg-black-200 justify-center flex')}
+      className={twMerge(
+        'bg-black-200 justify-center flex min-h-[44px]',
+        hidden && 'hidden',
+      )}
       {...getByTestId(testId, 'container')}
     >
       <div
@@ -35,6 +35,8 @@ const OwnerDetails = ({ data, testId }) => {
           'flex flex-col sm:flex-row pt-2 pb-2',
         )}
       >
+        {loading && <Loader theme="light" additionalClasses="m-auto" />}
+
         {(data?.name || data?.surname) && (
           <Paragraph
             icon={
@@ -48,6 +50,7 @@ const OwnerDetails = ({ data, testId }) => {
             onClick={handleLinkedIn}
             additionalIconClass={'mr-2'}
             additionalClass={twMerge(
+              'whitespace-nowrap',
               data.linkedIn && 'cursor-pointer hover:underline',
             )}
             title={t('Section.OwnerDetails.LinkedInProfilePage')}

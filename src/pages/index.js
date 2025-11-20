@@ -1,4 +1,6 @@
+import PageAboutMe from './AboutMe/AboutMe';
 import PageAdmin from './Admin/Admin';
+import PageCertyficate from './Certyficate/Certyficate';
 import PageCookies from './Cookies/Cookies';
 import PageCV from './CV/CV';
 import PageFeatures from './Features/Features';
@@ -8,11 +10,14 @@ import PageNoAccess from './NoAccess/NoAccess';
 import Page404 from './Page404/Page404';
 import PageBoilerplate from './PageBoilerplate/PageBoilerplate';
 import PageRegister from './Register/Register';
+import PageSkills from './Skills/Skills';
 
 export {
   Page404,
+  PageAboutMe,
   PageAdmin,
   PageBoilerplate,
+  PageCertyficate,
   PageCookies,
   PageCV,
   PageFeatures,
@@ -20,4 +25,5 @@ export {
   PageLogin,
   PageNoAccess,
   PageRegister,
+  PageSkills,
 };
