@@ -92,6 +92,7 @@ const Navigation = ({ testId }) => {
   return (
     <div
       className={twMerge(
+        'min-w-[32px]',
         'bg-black-300 flex flex-col',
         'sm:flex-row justify-between',
       )}

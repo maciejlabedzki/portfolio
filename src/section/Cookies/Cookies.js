@@ -7,7 +7,7 @@ import { getLocalStorage, setLocalStorage } from '../../lib/localstorage';
 
 const Cookies = ({ testId }) => {
   const { t } = useTranslation();
-  const [cookiesVisible, setCookiesVisible] = useState(false);
+  const [cookiesVisible, setCookiesVisible] = useState(true);
   const HAS_COOKIES_PAGE = false;
 
   const handleCookiesFromLocalstorage = useCallback(() => {
@@ -15,6 +15,8 @@ const Cookies = ({ testId }) => {
 
     if (status !== null) {
       setCookiesVisible(!status);
+    } else {
+      setCookiesVisible(false);
     }
   }, []);
 

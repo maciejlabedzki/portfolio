@@ -4,6 +4,9 @@ const NAVIGATION_DATA = [
   { name: 'CV', path: '/cv', admin: false, visible: true },
   { name: 'Cookies', path: '/cookies', admin: false, visible: false },
   { name: 'Page', path: '/page', admin: true, visible: true },
+  { name: 'Certyficate', path: '/certyficate', admin: true, visible: true },
+  { name: 'Skills', path: '/skills', admin: true, visible: true },
+  { name: 'AboutMe', path: '/aboutme', admin: true, visible: true },
 ];
 
 const NAVIGATION_USER_DATA = [

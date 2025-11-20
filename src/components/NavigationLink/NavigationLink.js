@@ -14,7 +14,7 @@ const NavigationLink = ({
     <Link
       className={twMerge(
         'bg-black-300 flex flex-inline',
-        'justify-start items-center',
+        'justify-start items-center whitespace-nowrap',
         'text-white my-1 px-2 hover:text-gray-50',
         active && 'bg-black-200',
         hidden && 'hidden',

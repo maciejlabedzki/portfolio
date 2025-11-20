@@ -47,14 +47,17 @@
     "Search": "Szukaj"
   },
   "Navigation": {
+    "AboutMe": "O mnie",
     "Admin": "Administrator",
+    "Certyficate": "Certyfikat",
     "Cookies": "Ciastka",
     "CV": "CV",
     "Features": "Właściwości",
     "Home": "Strona główna",
     "Login": "Zaloguj",
     "Page": "Strona",
-    "Register": "Rejestracja"
+    "Register": "Rejestracja",
+    "Skills": "Umiejętności"
   },
   "Page": {
     "404": {
@@ -63,9 +66,17 @@
       "Title": "Portfolio Strona 404",
       "WrongURLAdress": "Błędny adres URL:"
     },
+    "AboutMe": {
+      "Header": "Portfolio Strona O mnie",
+      "Title": "Portfolio Strona O mnie"
+    },
     "Boilerplate": {
       "Header": "Portfolio Strona Boilerplate",
       "Title": "Portfolio Strona Boilerplate"
+    },
+    "Certyficate": {
+      "Header": "Portfolio Strona Certyfikaty",
+      "Title": "Portfolio Strona Certyfikaty"
     },
     "CV": {
       "DownloadCV": "Pobierz CV",
@@ -90,6 +101,10 @@
     },
     "Register": {
       "Title": "Portfolio Strona Rejestracji"
+    },
+    "Skills": {
+      "Header": "Portfolio Strona Umiejętności",
+      "Title": "Portfolio Strona Umiejętności"
     }
   },
   "SearchFiltersOptions": {
