@@ -3,7 +3,7 @@ const NAVIGATION_DATA = [
   { name: 'Features', path: '/features', admin: false, visible: true },
   { name: 'CV', path: '/cv', admin: false, visible: true },
   { name: 'Cookies', path: '/cookies', admin: false, visible: false },
-  { name: 'Page', path: '/page', admin: true, visible: true },
+  { name: 'Page', path: '/page', admin: true, visible: false },
   { name: 'Certyficate', path: '/certyficate', admin: true, visible: true },
   { name: 'Skills', path: '/skills', admin: true, visible: true },
   { name: 'AboutMe', path: '/aboutme', admin: true, visible: true },

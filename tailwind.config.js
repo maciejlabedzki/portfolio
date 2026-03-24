@@ -89,6 +89,9 @@ module.exports = {
         100: `#ededed`,
         200: '#8f8d8d',
       },
+      yellow: {
+        DEFAULT: '#ffd600',
+      },
     },
   },
   plugins: [

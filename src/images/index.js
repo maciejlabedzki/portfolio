@@ -25,6 +25,7 @@ export {
   PencilIcon,
   PuzzlePieceIcon,
   SquaresPlusIcon,
+  StarIcon,
   StopIcon,
   TagIcon,
   UserIcon,
